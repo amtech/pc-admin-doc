@@ -671,7 +671,7 @@
       },
       "examples": [
         {
-          "title": "旗下理财师",
+          "title": "请求示例：旗下理财师",
           "content": "/api/users?admin_id=100342",
           "type": "json"
         }
