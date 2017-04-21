@@ -596,6 +596,13 @@ define({ "api": [
             "group": "Parameter",
             "type": "<p>int</p> ",
             "optional": true,
+            "field": "sub_type",
+            "description": "<p>类型 103:待确认额度,109:待资料报单审核,112:待确认合同扫描件,111:待确认合同,116:待确认订单完成,999:待寄合同</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": true,
             "field": "page",
             "description": "<p>第几页</p> "
           },
@@ -613,7 +620,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\",\n        \"collect_account_name\": \"募集账户名\",\n        \"collect_account\": \"募集账号\",\n        \"bank_name\": \"开户行\",\n        \"remit_remark\": \"打款备注\"\n    },\n    \"customer_name\": \"客户名称\",\n    \"type\": 1,                          # 订单当前大进度类型\n    \"precontract_amount\": 300,          # 金额\n    \"created_time\": \"2017-03-01T15:33:22\",  # 订单创建时间\n}]",
+          "content": "[{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\",\n        \"collect_account_name\": \"募集账户名\",\n        \"collect_account\": \"募集账号\",\n        \"bank_name\": \"开户行\",\n        \"remit_remark\": \"打款备注\"\n    },\n    \"customer_name\": \"客户名称\",\n    \"type\": 1,                          # 订单当前大进度类型\n    \"sub_type\": 103,                    # 订单当前小进度\n    \"precontract_amount\": 300,          # 金额\n    \"created_time\": \"2017-03-01T15:33:22\",  # 订单创建时间\n    \"modified_time\": \"2017-03-01T15:33:22\", # 动态更新时间\n}]",
           "type": "json"
         }
       ]
@@ -621,6 +628,73 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "../admin/frontend/order.py",
     "groupTitle": "Order"
+  },
+  {
+    "type": "patch",
+    "url": "/api/orders/:order_no",
+    "title": "订单更新状态",
+    "name": "Orders",
+    "group": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": false,
+            "field": "action",
+            "description": "<p>更新类型 1:确认额度, 2:邮寄合同, 3:资料报单确认, 4:确认合同扫描件，5：确认合同, 6:确认完成订单</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>bool</p> ",
+            "optional": true,
+            "field": "pass",
+            "description": "<p>是否通过</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>str</p> ",
+            "optional": true,
+            "field": "reason",
+            "description": "<p>原因</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "post",
+    "url": "/api/products/:pid/change_status",
+    "title": "改变产品状态",
+    "name": "ChangeProductStatus",
+    "group": "Product",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": false,
+            "field": "action",
+            "description": "<p>修改动作,1:下一步,2:关闭</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>string</p> ",
+            "optional": true,
+            "field": "reason",
+            "description": "<p>原因说明</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
   },
   {
     "type": "post",
