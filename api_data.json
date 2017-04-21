@@ -570,6 +570,43 @@
     "groupTitle": "Constant"
   },
   {
+    "type": "patch",
+    "url": "/api/orders/:order_no",
+    "title": "订单更新状态",
+    "name": "ChangeOrderStatus",
+    "group": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": false,
+            "field": "action",
+            "description": "<p>更新类型 1:确认额度, 2:邮寄合同, 3:资料报单确认, 4:确认合同扫描件，5：确认合同, 6:确认完成订单</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>bool</p> ",
+            "optional": true,
+            "field": "pass",
+            "description": "<p>是否通过</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>str</p> ",
+            "optional": true,
+            "field": "reason",
+            "description": "<p>原因</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
     "type": "get",
     "url": "/api/orders",
     "title": "订单列表",
@@ -624,43 +661,6 @@
           "type": "json"
         }
       ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
-    "groupTitle": "Order"
-  },
-  {
-    "type": "patch",
-    "url": "/api/orders/:order_no",
-    "title": "订单更新状态",
-    "name": "Orders",
-    "group": "Order",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "action",
-            "description": "<p>更新类型 1:确认额度, 2:邮寄合同, 3:资料报单确认, 4:确认合同扫描件，5：确认合同, 6:确认完成订单</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "<p>bool</p> ",
-            "optional": true,
-            "field": "pass",
-            "description": "<p>是否通过</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "<p>str</p> ",
-            "optional": true,
-            "field": "reason",
-            "description": "<p>原因</p> "
-          }
-        ]
-      }
     },
     "version": "0.0.0",
     "filename": "../admin/frontend/order.py",
