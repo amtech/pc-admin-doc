@@ -40,6 +40,25 @@
     "groupTitle": "Account"
   },
   {
+    "type": "get",
+    "url": "/api/account/login",
+    "title": "判断登录状态",
+    "name": "LoginUserProfile",
+    "group": "Account",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"name\": \"孙谷宇\",\n    \"role\": 1           # 角色 0:普通, 1:管理员, 2:运营管理员, 3:数据管理员, 4:财务管理员\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/account.py",
+    "groupTitle": "Account"
+  },
+  {
     "type": "post",
     "url": "/api/account/logout",
     "title": "注销",
@@ -149,6 +168,13 @@
             "optional": false,
             "field": "120001",
             "description": "<p>产品无法购买</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>int</p> ",
+            "optional": false,
+            "field": "120002",
+            "description": "<p>产品状态无法改变</p> "
           },
           {
             "group": "Success 200",
@@ -296,6 +322,13 @@
             "optional": false,
             "field": "140014",
             "description": "<p>邀请已取消</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>int</p> ",
+            "optional": false,
+            "field": "140015",
+            "description": "<p>无法删除非在职人员</p> "
           }
         ]
       }
@@ -561,6 +594,13 @@
             "optional": false,
             "field": "-2",
             "description": "<p>众筹失败</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>int</p> ",
+            "optional": false,
+            "field": "-3",
+            "description": "<p>直接关闭</p> "
           }
         ]
       }
@@ -601,6 +641,25 @@
           }
         ]
       }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "get",
+    "url": "/api/orders/:order_no",
+    "title": "订单详情",
+    "name": "OrderDetail",
+    "group": "Order",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\",\n        \"collect_account_name\": \"募集账户名\",\n        \"collect_account\": \"募集账号\",\n        \"bank_name\": \"开户行\",\n        \"remit_remark\": \"打款备注\"\n    },\n    \"customer_name\": \"客户名称\",\n    \"type\": 1,                          # 订单当前大进度类型\n    \"sub_type\": 103,                    # 订单当前小进度\n    \"precontract_amount\": 300,          # 金额\n    \"created_time\": \"2017-03-01T15:33:22\",  # 订单创建时间\n    \"modified_time\": \"2017-03-01T15:33:22\", # 动态更新时间\n}]",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "../admin/frontend/order.py",
@@ -919,7 +978,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"user_id\": 100319,\n    \"name\": \"小明\",\n    \"mobile\": \"150432423\",\n    \"created_time\": \"2015-12-22\",   # 注册时间\n    \"role\": 1,      # 角色, 1:游客, 2:旗下理财师, 3:管理员\n    \"certification_info\": {     # 认证信息\n        \"company_name\": \"机构名称\",\n        \"position\": \"职位理财师\",\n        \"work_year\": 1,     # 工作年限(1:1~3年, 2:3~5年, 3:5~10年, 4:10年以上)\n        \"industry\": 3,      # 行业(1:银行, 2:信托, 3:资管, 4:保险, 5:证券, 6:基金, 7:P2P, 8:三方)\n    },\n    \"personal_statistic\": {     # 个人配置统计\n        \"finished_order_count\": 12, # 累计成交订单\n        \"customer_count\": 3,    # 累计客户\n        \"income\": 333.33,       # 累计分成\n        \"total_invest_rmb\": 33, # 累计配置人民币\n        \"total_invest_dollar\": 999, # 累计配置美元\n        \"last_order_time\": \"2016-12-23T12:23:33\"\n    },\n    \"org_statistic\": {          # 机构配置统计\n        \"finished_order_count\": 12, # 累计成交订单\n        \"customer_count\": 3,    # 累计客户\n        \"income\": 333.33,       # 累计分成\n        \"total_invest_rmb\": 33, # 累计配置人民币\n        \"total_invest_dollar\": 999, # 累计配置美元\n        \"last_order_time\": \"2016-12-23T12:23:33\"\n    }\n}",
+          "content": "{\n    \"user_id\": 100319,\n    \"name\": \"小明\",\n    \"mobile\": \"150432423\",\n    \"created_time\": \"2015-12-22\",   # 注册时间\n    \"role\": 1,      # 角色, 1:游客, 2:旗下理财师, 3:管理员\n    \"certification_info\": {     # 认证信息\n        \"company_name\": \"机构名称\",\n        \"position\": \"职位理财师\",\n        \"work_year\": 1,     # 工作年限(1:1~3年, 2:3~5年, 3:5~10年, 4:10年以上)\n        \"industry\": 3,      # 行业(1:银行, 2:信托, 3:资管, 4:保险, 5:证券, 6:基金, 7:P2P, 8:三方)\n    },\n    \"personal_statistic\": {     # 个人配置统计\n        \"finished_order_count\": 12, # 累计成交订单\n        \"customer_count\": 3,    # 累计客户\n        \"income_rmb\": 333.33,       # 累计分成人民币\n        \"income_dollar\": 333.33,       # 累计分成美元\n        \"total_invest_rmb\": 33, # 累计配置人民币\n        \"total_invest_dollar\": 999, # 累计配置美元\n        \"last_order_time\": \"2016-12-23T12:23:33\"\n    },\n    \"org_statistic\": {          # 机构配置统计\n        \"finished_order_count\": 12, # 累计成交订单\n        \"customer_count\": 3,    # 累计客户\n        \"income_rmb\": 333.33,       # 累计分成人民币\n        \"income_dollar\": 333.33,       # 累计分成美元\n        \"total_invest_rmb\": 33, # 累计配置人民币\n        \"total_invest_dollar\": 999, # 累计配置美元\n        \"last_order_time\": \"2016-12-23T12:23:33\"\n    }\n}",
           "type": "json"
         }
       ]
