@@ -41,8 +41,8 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/account/login",
-    "title": "判断登录状态",
+    "url": "/api/account/profile",
+    "title": "当前登录用户信息",
     "name": "LoginUserProfile",
     "group": "Account",
     "success": {
