@@ -10,13 +10,15 @@
     "User",
     "Product",
     "Order",
-    "Certification"
+    "Certification",
+    "Feedback",
+    "Event"
   ],
   "sampleUrl": false,
   "apidoc": "0.2.0",
   "generator": {
     "name": "apidoc",
-    "time": "2017-04-25T07:33:54.284Z",
+    "time": "2017-04-25T11:27:53.313Z",
     "url": "http://apidocjs.com",
     "version": "0.13.1"
   }

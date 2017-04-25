@@ -70,6 +70,62 @@ define({ "api": [
     "groupTitle": "Account"
   },
   {
+    "type": "get",
+    "url": "/api/banners",
+    "title": "banner页",
+    "name": "banner_list",
+    "group": "Banner",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 12,\n    \"link_type\": 18,    # 18 联合采购系统产品\n    \"resource_id\": 33,  # 跳转ID\n    \"image\": \"http://dsadsadsa.png\",\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/banner.py",
+    "groupTitle": "Banner"
+  },
+  {
+    "type": "post",
+    "url": "/api/banners",
+    "title": "创建banner",
+    "name": "create_banner",
+    "group": "Banner",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>string</p> ",
+            "optional": false,
+            "field": "image",
+            "description": "<p>图片地址</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": false,
+            "field": "link_type",
+            "description": "<p>跳转类型</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": false,
+            "field": "resource_id",
+            "description": "<p>跳转ID</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/banner.py",
+    "groupTitle": "Banner"
+  },
+  {
     "type": "patch",
     "url": "/api/certifications/:id",
     "title": "认证审核",
@@ -679,6 +735,131 @@ define({ "api": [
     "groupTitle": "Constant"
   },
   {
+    "type": "",
+    "url": "{patch",
+    "title": "/api/events/:id 审核活动报名",
+    "name": "CheckEvent",
+    "group": "Event",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": false,
+            "field": "status",
+            "description": "<p>状态 1:通过 -1:不通过</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/event.py",
+    "groupTitle": "Event"
+  },
+  {
+    "type": "get",
+    "url": "/api/events",
+    "title": "活动报名列表",
+    "name": "EventList",
+    "group": "Event",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": true,
+            "field": "status",
+            "description": "<p>状态0:待处理 1:通过 -1:不通过</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p> "
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 12,\n    \"event_name\": \"XXX产品活动\",\n    \"name\": \"XXX\",\n    \"mobile\": \"321321312\",\n    \"register_mobile\": \"321321321312\",\n    \"status\": 1\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/event.py",
+    "groupTitle": "Event"
+  },
+  {
+    "type": "patch",
+    "url": "/api/feedback/:id",
+    "title": "反馈处理",
+    "name": "feedback_handle",
+    "group": "Feedback",
+    "version": "0.0.0",
+    "filename": "../admin/frontend/feedback.py",
+    "groupTitle": "Feedback"
+  },
+  {
+    "type": "get",
+    "url": "/api/feedback",
+    "title": "反馈列表",
+    "name": "feedback_list",
+    "group": "Feedback",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>status</p> ",
+            "optional": true,
+            "field": "name",
+            "description": "<p>状态,0:待处理,1:已处理</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p> "
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"小明\",\n    \"mobile\": \"15062131212\",\n    \"resource_type\": 29,    # 关联类型, 0:无, 29:联合采购订单\n    \"resource_id\": \"898d0sa8dsa809dsa\",\n    \"content\": \"问题描述\",\n    \"status\": 0,\n    \"created_time\": \"2016-12-11T16:00:00\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/feedback.py",
+    "groupTitle": "Feedback"
+  },
+  {
     "type": "patch",
     "url": "/api/orders/:order_no",
     "title": "订单更新状态",
@@ -725,7 +906,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\",\n        \"collect_account_name\": \"募集账户名\",\n        \"collect_account\": \"募集账号\",\n        \"bank_name\": \"开户行\",\n        \"remit_remark\": \"打款备注\"\n    },\n    \"customer_name\": \"客户名称\",\n    \"type\": 1,                          # 订单当前大进度类型\n    \"sub_type\": 103,                    # 订单当前小进度\n    \"precontract_amount\": 300,          # 金额\n    \"created_time\": \"2017-03-01T15:33:22\",  # 订单创建时间\n    \"modified_time\": \"2017-03-01T15:33:22\", # 动态更新时间\n}]",
+          "content": "{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\",\n        \"collect_account_name\": \"募集账户名\",\n        \"collect_account\": \"募集账号\",\n        \"bank_name\": \"开户行\",\n        \"remit_remark\": \"打款备注\"\n    },\n    \"customer_name\": \"客户名称\",\n    \"type\": 1,                          # 订单当前大进度类型\n    \"sub_type\": 103,                    # 订单当前小进度\n    \"precontract_amount\": 300,          # 金额\n    \"created_time\": \"2017-03-01T15:33:22\",  # 订单创建时间\n    \"modified_time\": \"2017-03-01T15:33:22\", # 动态更新时间\n}",
           "type": "json"
         }
       ]
