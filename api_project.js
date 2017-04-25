@@ -9,13 +9,14 @@ define({
     "Account",
     "User",
     "Product",
-    "Order"
+    "Order",
+    "Certification"
   ],
   "sampleUrl": false,
   "apidoc": "0.2.0",
   "generator": {
     "name": "apidoc",
-    "time": "2017-04-24T08:10:14.551Z",
+    "time": "2017-04-25T07:33:54.284Z",
     "url": "http://apidocjs.com",
     "version": "0.13.1"
   }
