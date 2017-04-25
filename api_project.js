@@ -12,13 +12,14 @@ define({
     "Order",
     "Certification",
     "Feedback",
-    "Event"
+    "Event",
+    "File"
   ],
   "sampleUrl": false,
   "apidoc": "0.2.0",
   "generator": {
     "name": "apidoc",
-    "time": "2017-04-25T11:28:48.214Z",
+    "time": "2017-04-25T12:37:13.787Z",
     "url": "http://apidocjs.com",
     "version": "0.13.1"
   }
