@@ -735,9 +735,9 @@ define({ "api": [
     "groupTitle": "Constant"
   },
   {
-    "type": "",
-    "url": "{patch",
-    "title": "/api/events/:id 审核活动报名",
+    "type": "patch",
+    "url": "/api/events/:id",
+    "title": "审核活动报名",
     "name": "CheckEvent",
     "group": "Event",
     "parameter": {
