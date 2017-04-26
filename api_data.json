@@ -1108,6 +1108,41 @@
     "groupTitle": "Product"
   },
   {
+    "type": "post",
+    "url": "/api/products/:pid/news",
+    "title": "创建产品动态",
+    "name": "CreateProductNews",
+    "group": "Product",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>string</p> ",
+            "optional": false,
+            "field": "content",
+            "description": "<p>动态内容</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "allowedValues": [
+              "1",
+              "2"
+            ],
+            "optional": false,
+            "field": "type",
+            "defaultValue": "1",
+            "description": "<p>动态类型 1: 普通, 2: 活动</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
     "type": "get",
     "url": "/api/products/features",
     "title": "产品特性",
