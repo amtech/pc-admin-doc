@@ -996,7 +996,7 @@
   },
   {
     "type": "patch",
-    "url": "/api/orders/:order_no/dividends/:id",
+    "url": "/api/orders/:order_no/dividends",
     "title": "订单打款",
     "name": "OrderDividends",
     "group": "Order",
@@ -1011,7 +1011,14 @@
             "description": "<p>实际打款日期</p> "
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "[\n    \"id\": 1,\n    \"actual_time\": \"2017-12-1\"\n]",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "../admin/frontend/order.py",
