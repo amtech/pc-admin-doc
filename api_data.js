@@ -966,7 +966,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"action\": 1,    # 更新类型 1:确认额度, 2:邮寄合同, 3:资料报单确认, 4:确认合同扫描件，5：确认合同, 6:确认完成订单\n    \"pass\": true,   # 是否通过\n    \"reason\": \"原因\"\n}",
+          "content": "{\n    \"action\": 1,    # 更新类型 1:确认额度, 2:邮寄合同, 3:资料报单确认, 4:确认合同扫描件，5：确认合同, 6:确认完成订单, 7:分成确认, 8：关闭\n    \"pass\": true,   # 是否通过\n    \"reason\": \"原因\",\n    \"dividends\": [{     # 分成打款列表\n        \"estimated_time\": \"2017-03-01\",\n        \"amount\": 1000\n    }]\n}",
           "type": "json"
         }
       ]
