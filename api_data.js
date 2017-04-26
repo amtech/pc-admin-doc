@@ -1015,7 +1015,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "[\n    \"id\": 1,\n    \"actual_time\": \"2017-12-1\"\n]",
+          "content": "[{\n    \"id\": 1,\n    \"actual_time\": \"2017-12-1\"\n}]",
           "type": "json"
         }
       ]
