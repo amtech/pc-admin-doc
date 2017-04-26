@@ -1060,36 +1060,6 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/api/products/:pid/change_status",
-    "title": "改变产品状态",
-    "name": "ChangeProductStatus",
-    "group": "Product",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "action",
-            "description": "<p>修改动作,1:下一步,2:关闭</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "<p>string</p> ",
-            "optional": true,
-            "field": "reason",
-            "description": "<p>原因说明</p> "
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
-    "type": "post",
     "url": "/api/products",
     "title": "创建产品",
     "name": "CreateProduct",
