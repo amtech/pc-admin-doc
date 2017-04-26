@@ -995,6 +995,29 @@
     "groupTitle": "Order"
   },
   {
+    "type": "patch",
+    "url": "/api/orders/:order_no/dividends/:id",
+    "title": "订单打款",
+    "name": "OrderDividends",
+    "group": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>date</p> ",
+            "optional": false,
+            "field": "actual_time",
+            "description": "<p>实际打款日期</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
     "type": "get",
     "url": "/api/orders",
     "title": "订单列表",
