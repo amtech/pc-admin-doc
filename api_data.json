@@ -126,6 +126,53 @@
     "groupTitle": "Banner"
   },
   {
+    "type": "delete",
+    "url": "/api/banners/:id",
+    "title": "删除banner",
+    "name": "delete_banner",
+    "group": "Banner",
+    "version": "0.0.0",
+    "filename": "../admin/frontend/banner.py",
+    "groupTitle": "Banner"
+  },
+  {
+    "type": "put",
+    "url": "/api/banners/:id",
+    "title": "更新banner",
+    "name": "update_banner",
+    "group": "Banner",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>string</p> ",
+            "optional": false,
+            "field": "image",
+            "description": "<p>图片地址</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": false,
+            "field": "link_type",
+            "description": "<p>跳转类型</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": false,
+            "field": "resource_id",
+            "description": "<p>跳转ID</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/banner.py",
+    "groupTitle": "Banner"
+  },
+  {
     "type": "patch",
     "url": "/api/certifications/:id",
     "title": "认证审核",
@@ -791,6 +838,13 @@
             "group": "Parameter",
             "type": "<p>int</p> ",
             "optional": true,
+            "field": "product_id",
+            "description": "<p>产品ID</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": true,
             "field": "page",
             "description": "<p>第几页</p> "
           },
@@ -808,7 +862,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"event_name\": \"XXX产品活动\",\n    \"name\": \"XXX\",\n    \"mobile\": \"321321312\",\n    \"register_mobile\": \"321321321312\",\n    \"status\": 1\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"product_id\": 33,\n    \"event_name\": \"XXX产品活动\",\n    \"name\": \"XXX\",\n    \"mobile\": \"321321312\",\n    \"register_mobile\": \"321321321312\",\n    \"status\": 1\n}]",
           "type": "json"
         }
       ]
@@ -985,7 +1039,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"admin\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\",\n        \"collect_account_name\": \"募集账户名\",\n        \"collect_account\": \"募集账号\",\n        \"bank_name\": \"开户行\",\n        \"remit_remark\": \"打款备注\"\n    },\n    \"customer_name\": \"客户名称\",\n    \"type\": 1,                          # 订单当前大进度类型\n    \"sub_type\": 103,                    # 订单当前小进度\n    \"precontract_amount\": 300,          # 金额\n    \"created_time\": \"2017-03-01T15:33:22\",  # 订单创建时间\n    \"estimate_pay_time\": \"2017-03-22\",  # 预计打款日\n    \"profit_info\": \"分成说明\",\n    \"currency\": 1,\n    \"dividends\": [{     # 分成打款\n        \"id\": 1,\n        \"estimated_time\": \"2017-03-01\", # 预计打款日期\n        \"amount\": 1000\n    }],\n    \"whole_history\": [{\n        \"timestamp\": \"2017-03-01T15:33:22\",\n        \"type\": 103,\n        \"news\": \"xxxxxxx\",\n        \"msg\": \"关闭原因\",\n        \"province\": \"省\",\n        \"city\": \"市\",\n        \"district\": \"区\",\n        \"address\": \"地址\",\n        \"recipients\": \"收件人\",\n        \"tel\": \"联系电话\",\n        \"actual_pay_time\": \"实际打款日期\",\n        \"customer_id_card_no\": \"身份证号\",\n        \"pay_pic\": \"/api/file/3\",   # 打款凭证\n        \"front_of_id_pic\": \"/api/file/5\",   # 身份证正面\n        \"back_of_id_pic\": \"/api/file/33\",   # 身份证背面\n        \"scanning_copy\": [\"/api/file/1\", \"/api/file/33\"],   # 合同扫描件\n    }]\n}",
+          "content": "{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"admin\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\",\n        \"collect_account_name\": \"募集账户名\",\n        \"collect_account\": \"募集账号\",\n        \"bank_name\": \"开户行\",\n        \"remit_remark\": \"打款备注\"\n    },\n    \"customer_name\": \"客户名称\",\n    \"type\": 1,                          # 订单当前大进度类型\n    \"sub_type\": 103,                    # 订单当前小进度\n    \"precontract_amount\": 300,          # 金额\n    \"created_time\": \"2017-03-01T15:33:22\",  # 订单创建时间\n    \"estimate_pay_time\": \"2017-03-22\",  # 预计打款日\n    \"profit_info\": \"分成说明\",\n    \"currency\": 1,\n    \"dividends\": [{     # 分成打款\n        \"id\": 1,\n        \"estimated_time\": \"2017-03-01\", # 预计打款日期\n        \"actual_time\": \"2017-03-01\",    # 实际打款日期\n        \"amount\": 1000,\n        \"finished\": true\n    }],\n    \"whole_history\": [{\n        \"timestamp\": \"2017-03-01T15:33:22\",\n        \"type\": 103,\n        \"news\": \"xxxxxxx\",\n        \"msg\": \"关闭原因\",\n        \"province\": \"省\",\n        \"city\": \"市\",\n        \"district\": \"区\",\n        \"address\": \"地址\",\n        \"recipients\": \"收件人\",\n        \"tel\": \"联系电话\",\n        \"actual_pay_time\": \"实际打款日期\",\n        \"customer_id_card_no\": \"身份证号\",\n        \"pay_pic\": \"/api/file/3\",   # 打款凭证\n        \"front_of_id_pic\": \"/api/file/5\",   # 身份证正面\n        \"back_of_id_pic\": \"/api/file/33\",   # 身份证背面\n        \"scanning_copy\": [\"/api/file/1\", \"/api/file/33\"],   # 合同扫描件\n    }]\n}",
           "type": "json"
         }
       ]
@@ -995,7 +1049,7 @@
     "groupTitle": "Order"
   },
   {
-    "type": "patch",
+    "type": "post",
     "url": "/api/orders/:order_no/dividends",
     "title": "订单打款",
     "name": "OrderDividends",
@@ -1094,7 +1148,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已成立\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款日期\n    \"strategy\": \"产品策略\",\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"产品开放日\":     # 产品开放日\n    \"dividend_type\": \"分红方式\"\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"features\": [1, 3, 5],  # 产品特点\n    \"relevant_files\": [33, 12], # 相关文件\n    \"remark\": \"备注\",\n    \"duration\": 23,             # 期限\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n    }],\n    \"dividends_interval\": [{        # 预计分成打款时间\n        \"estimated_time\": \"2016-12-23\",     # 预计打款时间\n        \"percent\": 0.33\n    }]\n}",
+          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已成立\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款日期\n    \"strategy\": \"产品策略\",\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"产品开放日\":     # 产品开放日\n    \"dividend_type\": 1, # 分红方式\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"profit_info\": \"分成说明\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"features\": [1, 3, 5],  # 产品特点\n    \"relevant_files\": [33, 12], # 相关文件\n    \"remark\": \"备注\",\n    \"duration\": 23,             # 期限\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n    }],\n    \"dividends_interval\": [{        # 预计分成打款时间\n        \"estimated_time\": \"2016-12-23\",     # 预计打款时间\n        \"percent\": 0.33\n    }]\n}",
           "type": "json"
         }
       ]
