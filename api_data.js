@@ -75,6 +75,19 @@ define({ "api": [
     "title": "banner页",
     "name": "banner_list",
     "group": "Banner",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": true,
+            "field": "hide",
+            "description": "<p>是否隐藏1:是, 0:否</p> "
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
