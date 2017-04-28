@@ -994,6 +994,14 @@ define({ "api": [
             "field": "is_pub",
             "defaultValue": "false",
             "description": "<p>是否公开访问</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": true,
+            "field": "access_permission",
+            "defaultValue": "1",
+            "description": "<p>访问权限 1:仅自己, 2:仅自己的管理员, 3:自己和自己的管理员, 4:所有机构成员</p> "
           }
         ]
       }
