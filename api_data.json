@@ -79,7 +79,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"link_type\": 18,    # 18 联合采购系统产品\n    \"resource_id\": 33,  # 跳转ID\n    \"image\": \"http://dsadsadsa.png\",\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"image\": \"http://dsadsadsa.png\",\n    \"link\": \"http://www.baidu.com\",     # 跳转地址\n    \"order_no\": 33,\n    \"hide\": true\n}]",
           "type": "json"
         }
       ]
@@ -99,6 +99,13 @@
         "Parameter": [
           {
             "group": "Parameter",
+            "type": "<p>int</p> ",
+            "optional": true,
+            "field": "id",
+            "description": "<p>id</p> "
+          },
+          {
+            "group": "Parameter",
             "type": "<p>string</p> ",
             "optional": false,
             "field": "image",
@@ -108,18 +115,18 @@
             "group": "Parameter",
             "type": "<p>int</p> ",
             "optional": false,
-            "field": "link_type",
-            "description": "<p>跳转类型</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "resource_id",
-            "description": "<p>跳转ID</p> "
+            "field": "link",
+            "description": "<p>跳转地址</p> "
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "[{\n    \"id\": 1,\n    \"image\": \"http://www.baidu.com\",\n    \"link\": \"http://www.baidu.com\",     # 跳转地址\n    \"order_no\": 33,\n    \"hide\": true\n}]",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "../admin/frontend/banner.py",
@@ -131,43 +138,6 @@
     "title": "删除banner",
     "name": "delete_banner",
     "group": "Banner",
-    "version": "0.0.0",
-    "filename": "../admin/frontend/banner.py",
-    "groupTitle": "Banner"
-  },
-  {
-    "type": "put",
-    "url": "/api/banners/:id",
-    "title": "更新banner",
-    "name": "update_banner",
-    "group": "Banner",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "<p>string</p> ",
-            "optional": false,
-            "field": "image",
-            "description": "<p>图片地址</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "link_type",
-            "description": "<p>跳转类型</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "resource_id",
-            "description": "<p>跳转ID</p> "
-          }
-        ]
-      }
-    },
     "version": "0.0.0",
     "filename": "../admin/frontend/banner.py",
     "groupTitle": "Banner"
