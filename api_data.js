@@ -547,20 +547,6 @@ define({ "api": [
             "group": "Success 200",
             "type": "<p>int</p> ",
             "optional": false,
-            "field": "107",
-            "description": "<p>合同已寄出（在资料报单之前）</p> "
-          },
-          {
-            "group": "Success 200",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "108",
-            "description": "<p>合同已寄出（在资料报单之后）</p> "
-          },
-          {
-            "group": "Success 200",
-            "type": "<p>int</p> ",
-            "optional": false,
             "field": "109",
             "description": "<p>等待资料报单审核</p> "
           },
@@ -603,29 +589,8 @@ define({ "api": [
             "group": "Success 200",
             "type": "<p>int</p> ",
             "optional": false,
-            "field": "115",
-            "description": "<p>待分成确认</p> "
-          },
-          {
-            "group": "Success 200",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "116",
-            "description": "<p>等待麦策确认订单结束</p> "
-          },
-          {
-            "group": "Success 200",
-            "type": "<p>int</p> ",
-            "optional": false,
             "field": "117",
             "description": "<p>订单结束</p> "
-          },
-          {
-            "group": "Success 200",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "118",
-            "description": "<p>等待麦策确认分成</p> "
           },
           {
             "group": "Success 200",
@@ -684,20 +649,6 @@ define({ "api": [
             "optional": false,
             "field": "5",
             "description": "<p>项目成立</p> "
-          },
-          {
-            "group": "Success 200",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "6",
-            "description": "<p>分成确认</p> "
-          },
-          {
-            "group": "Success 200",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "7",
-            "description": "<p>订单完成</p> "
           }
         ]
       }
@@ -741,35 +692,14 @@ define({ "api": [
             "type": "<p>int</p> ",
             "optional": false,
             "field": "3",
-            "description": "<p>已成立</p> "
-          },
-          {
-            "group": "Success 200",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "4",
-            "description": "<p>已结束</p> "
+            "description": "<p>已完成</p> "
           },
           {
             "group": "Success 200",
             "type": "<p>int</p> ",
             "optional": false,
             "field": "-1",
-            "description": "<p>淘汰</p> "
-          },
-          {
-            "group": "Success 200",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "-2",
-            "description": "<p>众筹失败</p> "
-          },
-          {
-            "group": "Success 200",
-            "type": "<p>int</p> ",
-            "optional": false,
-            "field": "-3",
-            "description": "<p>直接关闭</p> "
+            "description": "<p>已关闭</p> "
           }
         ]
       }
@@ -1011,7 +941,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"action\": 1,    # 更新类型 1:确认额度, 2:邮寄合同, 3:资料报单确认, 4:确认合同扫描件，5：确认合同, 6:确认完成订单, 7:分成确认, 8：关闭\n    \"pass\": true,   # 是否通过\n    \"reason\": \"原因\",\n    \"dividends\": [{     # 分成打款列表\n        \"estimated_time\": \"2017-03-01\",\n        \"amount\": 1000\n    }]\n}",
+          "content": "{\n    \"action\": 1,    # 更新类型 1:确认额度, 2:邮寄合同, 3:资料报单确认, 4:确认合同扫描件，5：确认合同, 8：关闭\n    \"pass\": true,   # 是否通过\n    \"reason\": \"原因\"\n}",
           "type": "json"
         }
       ]
@@ -1030,7 +960,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"admin\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\",\n        \"collect_account_name\": \"募集账户名\",\n        \"collect_account\": \"募集账号\",\n        \"bank_name\": \"开户行\",\n        \"remit_remark\": \"打款备注\"\n    },\n    \"customer_name\": \"客户名称\",\n    \"type\": 1,                          # 订单当前大进度类型\n    \"sub_type\": 103,                    # 订单当前小进度\n    \"closed\": true,                     # 是否已关闭\n    \"precontract_amount\": 300,          # 金额\n    \"created_time\": \"2017-03-01T15:33:22\",  # 订单创建时间\n    \"estimate_pay_time\": \"2017-03-22\",  # 预计打款日\n    \"profit_info\": \"分成说明\",\n    \"currency\": 1,\n    \"dividends\": [{     # 分成打款\n        \"id\": 1,\n        \"estimated_time\": \"2017-03-01\", # 预计打款日期\n        \"actual_time\": \"2017-03-01\",    # 实际打款日期\n        \"amount\": 1000,\n        \"finished\": true\n    }],\n    \"whole_history\": [{\n        \"timestamp\": \"2017-03-01T15:33:22\",\n        \"type\": 103,\n        \"news\": \"xxxxxxx\",\n        \"msg\": \"关闭原因\",\n        \"province\": \"省\",\n        \"city\": \"市\",\n        \"district\": \"区\",\n        \"address\": \"地址\",\n        \"recipients\": \"收件人\",\n        \"tel\": \"联系电话\",\n        \"actual_pay_time\": \"实际打款日期\",\n        \"customer_id_card_no\": \"身份证号\",\n        \"pay_pic\": \"/api/file/3\",   # 打款凭证\n        \"bank_card_pic\": \"/api/file/44\",    # 银行卡照片\n        \"front_of_id_pic\": \"/api/file/5\",   # 身份证正面\n        \"back_of_id_pic\": \"/api/file/33\",   # 身份证背面\n        \"scanning_copy\": [\"/api/file/1\", \"/api/file/33\"],   # 合同扫描件\n\n        \"account_type\": 1,      #  账户类型1:个人,2:对公\n        \"account_name\": \"账户名\",\n        \"account\": \"账号\",\n        \"bank_name\": \"开户行\",\n        \"back_of_card_pic\": \"银行卡背面照片地址\"\n    }]\n}",
+          "content": "{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"admin\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\",\n        \"collect_account_name\": \"募集账户名\",\n        \"collect_account\": \"募集账号\",\n        \"bank_name\": \"开户行\",\n        \"remit_remark\": \"打款备注\"\n    },\n    \"customer_name\": \"客户名称\",\n    \"type\": 1,                          # 订单当前大进度类型\n    \"sub_type\": 103,                    # 订单当前小进度\n    \"closed\": true,                     # 是否已关闭\n    \"precontract_amount\": 300,          # 金额\n    \"created_time\": \"2017-03-01T15:33:22\",  # 订单创建时间\n    \"estimate_pay_time\": \"2017-03-22\",  # 预计打款日\n    \"profit_info\": \"分成说明\",\n    \"currency\": 1,\n    \"dividends\": [{     # 分成打款\n        \"id\": 1,\n        \"estimated_time\": \"2017-03-01\", # 预计打款日期\n        \"actual_time\": \"2017-03-01\",    # 实际打款日期\n        \"amount\": 1000,\n        \"finished\": true\n    }],\n    \"bank_account\": {\n        \"account_type\": 1,      #  账户类型1:个人,2:对公\n        \"account_name\": \"账户名\",\n        \"account_no\": \"账号\",\n        \"bank_name\": \"开户行\",\n    },\n    \"whole_history\": [{\n        \"timestamp\": \"2017-03-01T15:33:22\",\n        \"type\": 103,\n        \"news\": \"xxxxxxx\",\n        \"msg\": \"关闭原因\",\n        \"province\": \"省\",\n        \"city\": \"市\",\n        \"district\": \"区\",\n        \"address\": \"地址\",\n        \"recipients\": \"收件人\",\n        \"tel\": \"联系电话\",\n        \"actual_pay_time\": \"实际打款日期\",\n        \"customer_id_card_no\": \"身份证号\",\n        \"pay_pic\": \"/api/file/3\",   # 打款凭证\n        \"bank_card_pic\": \"/api/file/44\",    # 银行卡照片\n        \"front_of_id_pic\": \"/api/file/5\",   # 身份证正面\n        \"back_of_id_pic\": \"/api/file/33\",   # 身份证背面\n        \"scanning_copy\": [\"/api/file/1\", \"/api/file/33\"],   # 合同扫描件\n    }]\n}",
           "type": "json"
         }
       ]
@@ -1097,7 +1027,7 @@ define({ "api": [
             "type": "<p>int</p> ",
             "optional": true,
             "field": "sub_type",
-            "description": "<p>类型 103:待确认额度,109:待资料报单审核,112:待确认合同扫描件,111:待确认合同,116:待确认订单完成,118:待确认分成,999:待寄合同</p> "
+            "description": "<p>类型 103:待确认额度,109:待资料报单审核,112:待确认合同扫描件,111:待确认合同,999:待寄合同</p> "
           },
           {
             "group": "Parameter",
@@ -1139,7 +1069,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已成立\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款日期\n    \"strategy\": \"产品策略\",\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"产品开放日\":     # 产品开放日\n    \"dividend_type\": 1, # 分红方式\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"profit_info\": \"分成说明\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"features\": [1, 3, 5],  # 产品特点\n    \"relevant_files\": [33, 12], # 相关文件\n    \"remark\": \"备注\",\n    \"duration\": 23,             # 期限\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n    }],\n    \"dividends_interval\": [{        # 预计分成打款时间\n        \"estimated_time\": \"2016-12-23\",     # 预计打款时间\n        \"percent\": 0.33\n    }]\n}",
+          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款日期\n    \"strategy\": \"产品策略\",\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"产品开放日\":     # 产品开放日\n    \"dividend_type\": 1, # 分红方式\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"profit_info\": \"分成说明\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"features\": [1, 3, 5],  # 产品特点\n    \"relevant_files\": [33, 12], # 相关文件\n    \"remark\": \"备注\",\n    \"duration\": 23,             # 期限\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n    }],\n    \"dividends_interval\": [{        # 预计分成打款时间\n        \"estimated_time\": \"2016-12-23\",     # 预计打款时间\n        \"percent\": 0.33\n    }]\n}",
           "type": "json"
         }
       ]
@@ -1203,7 +1133,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 1,\n    \"name\": \"产品名称\"\n    \"profit_type\": 1,       # 收益类型 0：固定， 1：浮动\n    \"status\": 1,            # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已成立,4:已结束,-1:预审失败,-2:众筹失败\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"current_precontract_size\": 12, # 当前预约额度/万\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款日期\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"strategy\": \"产品策略\",\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"产品开放日\",\n    \"dividend_type\": \"分红方式\"\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"dividends_percentage\": 0.063,  # 分成比例\n    \"contract_file\": \"/api/file/3\",    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"tags\": \"tag1,tag2\",    # 标签\n    \"features\": [{\"text\": \"特点1\", \"image\": \"http://xxxx.jpg\"}],  # 产品特点\n    \"feature_ids\": [33, 35, 11, 99],\n    \"relevant_files\": [{\n        \"name\": \"相关文件1\",\n        \"url\": \"/api/file/3\"\n    }]\n    \"remark\": \"备注\",\n    \"max_prospective_earning\": 0.334,   # 最高预期年化收益\n    \"duration\": 23,             # 期限\n    \"surplus_time\": 2344444,    # 剩余时间/sec\n    \"surplus_size\": 23,         # 剩余额度/万\n    \"followed\": false,          # 是否关注\n    \"repayment_source\": \"还款来源\",\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n    }],\n    \"dividends_interval\": [{        # 预计分成打款时间\n        \"estimated_time\": \"2016-12-23\",     # 预计打款时间\n        \"percent\": 0.33\n    }],\n    \"major_timeline\": [             # 产品流程\n          {\n            \"cnt\": 0,               # 子流程数量\n            \"name\": \"项目完成\",     # 进度名称\n            \"nodes\": [],            # 子流程\n            \"status\": 0             # 进度状态 0:待进行,1:进行中,2:已结束,3:失败\n          },\n          {\n            \"cnt\": 0,\n            \"name\": \"售中服务\",\n            \"nodes\": [],\n            \"status\": 0\n          },\n          {\n            \"cnt\": 0,\n            \"name\": \"开始采购\",\n            \"nodes\": [],\n            \"status\": 0\n          },\n          {\n            \"cnt\": 0,\n            \"name\": \"尽调研究\",\n            \"nodes\": [],\n            \"status\": 0\n          },\n          {\n            \"cnt\": 0,\n            \"name\": \"项目录入\",\n            \"nodes\": [\n              {\n                \"content\": \"gCBO8i4aj3fk\",      # 进度内容\n                \"created_time\": \"2017-03-22T17:08:20\",\n                \"id\": 2,\n                \"type\": 1,              # 节点类型, 1:普通, 2:可参与\n                \"participation_status\": 0       # 用户参与状态, 0:待审核，1:审核通过, 2:未参与\n                \"status\": 0             # 进度状态 0:待进行,1:进行中,2:已结束,3:失败\n              }\n            ],\n            \"status\": 1,\n            \"time\": \"2017-03-22T17:08:20\"       # 时间\n          }\n    ]\n}",
+          "content": "{\n    \"id\": 1,\n    \"name\": \"产品名称\"\n    \"profit_type\": 1,       # 收益类型 0：固定， 1：浮动\n    \"status\": 1,            # 产品状态 0: 待上架 ，1:筹备中,2:众筹中,3:已完成,-1:项目失败\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"current_precontract_size\": 12, # 当前预约额度/万\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款日期\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"strategy\": \"产品策略\",\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"产品开放日\",\n    \"dividend_type\": 1, # 分红方式: 1份额2金额\n    \"profit_info\": \"分成说明\",\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"dividends_percentage\": 0.063,  # 分成比例\n    \"contract_file\": \"/api/file/3\",    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"tags\": \"tag1,tag2\",    # 标签\n    \"features\": [{\"text\": \"特点1\", \"image\": \"http://xxxx.jpg\"}],  # 产品特点\n    \"feature_ids\": [33, 35, 11, 99],\n    \"relevant_files\": [{\n        \"name\": \"相关文件1\",\n        \"url\": \"/api/file/3\"\n    }]\n    \"remark\": \"备注\",\n    \"max_prospective_earning\": 0.334,   # 最高预期年化收益\n    \"duration\": 23,             # 期限\n    \"surplus_time\": 2344444,    # 剩余时间/sec\n    \"surplus_size\": 23,         # 剩余额度/万\n    \"followed\": false,          # 是否关注\n    \"repayment_source\": \"还款来源\",\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n    }],\n    \"dividends_interval\": [{        # 预计分成打款时间\n        \"estimated_time\": \"2016-12-23\",     # 预计打款时间\n        \"percent\": 0.33\n    }],\n    \"major_timeline\": [             # 产品流程\n          {\n            \"cnt\": 0,               # 子流程数量\n            \"name\": \"项目完成\",     # 进度名称\n            \"nodes\": [],            # 子流程\n            \"status\": 0             # 进度状态 0:待进行,1:进行中,2:已结束,3:失败\n          },\n          {\n            \"cnt\": 0,\n            \"name\": \"开始采购\",\n            \"nodes\": [],\n            \"status\": 0\n          },\n          {\n            \"cnt\": 0,\n            \"name\": \"尽调研究\",\n            \"nodes\": [],\n            \"status\": 0\n          },\n          {\n            \"cnt\": 0,\n            \"name\": \"项目录入\",\n            \"nodes\": [\n              {\n                \"content\": \"gCBO8i4aj3fk\",      # 进度内容\n                \"created_time\": \"2017-03-22T17:08:20\",\n                \"id\": 2,\n                \"type\": 1,              # 节点类型, 1:普通, 2:可参与\n                \"participation_status\": 0       # 用户参与状态, 0:待审核，1:审核通过, 2:未参与\n                \"status\": 0             # 进度状态 0:待进行,1:进行中,2:已结束,3:失败\n              }\n            ],\n            \"status\": 1,\n            \"time\": \"2017-03-22T17:08:20\"       # 时间\n          }\n    ]\n}",
           "type": "json"
         }
       ]
@@ -1265,7 +1195,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 122,\n    \"name\": \"产品名称\"\n    \"status\": 1,            # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已成立,4:已结束,-1:预审失败,-2:众筹失败\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"current_precontract_size\": 12, # 当前募集额度/万\n    \"surplus_size\": 333,    # 剩余募集规模\n}]",
+          "content": "[{\n    \"id\": 122,\n    \"name\": \"产品名称\"\n    \"status\": 1,            # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成,-1:关闭\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"current_precontract_size\": 12, # 当前募集额度/万\n    \"surplus_size\": 333,    # 剩余募集规模\n}]",
           "type": "json"
         }
       ]
@@ -1284,7 +1214,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已成立\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款日期\n    \"strategy\": \"产品策略\",\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"产品开放日\":     # 产品开放日\n    \"dividend_type\": \"分红方式\"\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"features\": [1, 3, 5],  # 产品特点\n    \"relevant_files\": [33, 12], # 相关文件\n    \"remark\": \"备注\",\n    \"duration\": 23,             # 期限\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n    }],\n    \"dividends_interval\": [{        # 预计分成打款时间\n        \"estimated_time\": \"2016-12-23\",     # 预计打款时间\n        \"percent\": 0.33\n    }]\n}",
+          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款日期\n    \"strategy\": \"产品策略\",\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"产品开放日\":     # 产品开放日\n    \"dividend_type\": \"分红方式\"\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"features\": [1, 3, 5],  # 产品特点\n    \"relevant_files\": [33, 12], # 相关文件\n    \"remark\": \"备注\",\n    \"duration\": 23,             # 期限\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n    }],\n    \"dividends_interval\": [{        # 预计分成打款时间\n        \"estimated_time\": \"2016-12-23\",     # 预计打款时间\n        \"percent\": 0.33\n    }]\n}",
           "type": "json"
         }
       ]
