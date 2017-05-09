@@ -10,17 +10,17 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>String</p> ",
+            "type": "String",
             "optional": false,
             "field": "login",
-            "description": "<p>账号</p> "
+            "description": "<p>账号</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>String</p> ",
+            "type": "String",
             "optional": false,
             "field": "password",
-            "description": "<p>密码</p> "
+            "description": "<p>密码</p>"
           }
         ]
       }
@@ -64,7 +64,7 @@
     "title": "注销",
     "name": "Logout",
     "group": "Account",
-    "description": "<p>用户注销</p> ",
+    "description": "<p>用户注销</p>",
     "version": "0.0.0",
     "filename": "../admin/frontend/account.py",
     "groupTitle": "Account"
@@ -80,10 +80,10 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "hide",
-            "description": "<p>是否隐藏1:是, 0:否</p> "
+            "description": "<p>是否隐藏1:是, 0:否</p>"
           }
         ]
       }
@@ -112,24 +112,24 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "id",
-            "description": "<p>id</p> "
+            "description": "<p>id</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>string</p> ",
+            "type": "string",
             "optional": false,
             "field": "image",
-            "description": "<p>图片地址</p> "
+            "description": "<p>图片地址</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "link",
-            "description": "<p>跳转地址</p> "
+            "description": "<p>跳转地址</p>"
           }
         ]
       },
@@ -166,10 +166,10 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>bool</p> ",
+            "type": "bool",
             "optional": false,
             "field": "pass",
-            "description": "<p>是否通过</p> "
+            "description": "<p>是否通过</p>"
           }
         ]
       }
@@ -189,24 +189,24 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "status",
-            "description": "<p>状态,0:待处理，1：通过， 2：拒绝</p> "
+            "description": "<p>状态,0:待处理，1：通过， 2：拒绝</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "page",
-            "description": "<p>第几页</p> "
+            "description": "<p>第几页</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "per_page",
-            "description": "<p>每页数量</p> "
+            "description": "<p>每页数量</p>"
           }
         ]
       }
@@ -235,255 +235,255 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "0",
-            "description": "<p>成功</p> "
+            "description": "<p>成功</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "100001",
-            "description": "<p>未知错误</p> "
+            "description": "<p>未知错误</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "100002",
-            "description": "<p>参数错误</p> "
+            "description": "<p>参数错误</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "100003",
-            "description": "<p>用户未登录</p> "
+            "description": "<p>用户未登录</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "100004",
-            "description": "<p>无权限访问</p> "
+            "description": "<p>无权限访问</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "100005",
-            "description": "<p>资源不存在</p> "
+            "description": "<p>资源不存在</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "100006",
-            "description": "<p>注册验证码短信发送太频繁</p> "
+            "description": "<p>注册验证码短信发送太频繁</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "100007",
-            "description": "<p>验证码错误</p> "
+            "description": "<p>验证码错误</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "100008",
-            "description": "<p>手机格式错误</p> "
+            "description": "<p>手机格式错误</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "100009",
-            "description": "<p>身份证号不合法</p> "
+            "description": "<p>身份证号不合法</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "100010",
-            "description": "<p>非认证用户，无法访问</p> "
+            "description": "<p>非认证用户，无法访问</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "110001",
-            "description": "<p>产品节点无法参与</p> "
+            "description": "<p>产品节点无法参与</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "120001",
-            "description": "<p>产品无法购买</p> "
+            "description": "<p>产品无法购买</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "120002",
-            "description": "<p>产品状态无法改变</p> "
+            "description": "<p>产品状态无法改变</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "130001",
-            "description": "<p>预约额度超过产品剩余额度</p> "
+            "description": "<p>预约额度超过产品剩余额度</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "130002",
-            "description": "<p>最迟打款日期晚于产品的最迟打款日期</p> "
+            "description": "<p>最迟打款日期晚于产品的最迟打款日期</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "130003",
-            "description": "<p>存在未完成订单</p> "
+            "description": "<p>存在未完成订单</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "130004",
-            "description": "<p>不是订单管理员</p> "
+            "description": "<p>不是订单管理员</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "130005",
-            "description": "<p>订单初始化失败</p> "
+            "description": "<p>订单初始化失败</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "130006",
-            "description": "<p>订单预约额度不正确</p> "
+            "description": "<p>订单预约额度不正确</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "130007",
-            "description": "<p>订单流程错误</p> "
+            "description": "<p>订单流程错误</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140001",
-            "description": "<p>手机号已被注册</p> "
+            "description": "<p>手机号已被注册</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140002",
-            "description": "<p>初始化账户失败</p> "
+            "description": "<p>初始化账户失败</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140003",
-            "description": "<p>账号被冻结</p> "
+            "description": "<p>账号被冻结</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140004",
-            "description": "<p>登录密码错误</p> "
+            "description": "<p>登录密码错误</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140005",
-            "description": "<p>账号不存在</p> "
+            "description": "<p>账号不存在</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140006",
-            "description": "<p>当前有待处理的认证审核</p> "
+            "description": "<p>当前有待处理的认证审核</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140007",
-            "description": "<p>不是管理员</p> "
+            "description": "<p>不是管理员</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140008",
-            "description": "<p>管理员无法退出机构</p> "
+            "description": "<p>管理员无法退出机构</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140009",
-            "description": "<p>用户已加入机构</p> "
+            "description": "<p>用户已加入机构</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140010",
-            "description": "<p>不能重复邀请</p> "
+            "description": "<p>不能重复邀请</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140011",
-            "description": "<p>无法邀请管理员</p> "
+            "description": "<p>无法邀请管理员</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140012",
-            "description": "<p>无法邀请自己的旗下理财师</p> "
+            "description": "<p>无法邀请自己的旗下理财师</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140013",
-            "description": "<p>无法邀请其他机构的旗下理财师</p> "
+            "description": "<p>无法邀请其他机构的旗下理财师</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140014",
-            "description": "<p>邀请已取消</p> "
+            "description": "<p>邀请已取消</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "140015",
-            "description": "<p>无法删除非在职人员</p> "
+            "description": "<p>无法删除非在职人员</p>"
           }
         ]
       }
@@ -503,101 +503,101 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "101",
-            "description": "<p>等待管理员审核</p> "
+            "description": "<p>等待管理员审核</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "102",
-            "description": "<p>管理员审核不通过</p> "
+            "description": "<p>管理员审核不通过</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "103",
-            "description": "<p>等待麦策审核</p> "
+            "description": "<p>等待麦策审核</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "104",
-            "description": "<p>麦策审核不通过</p> "
+            "description": "<p>麦策审核不通过</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "105",
-            "description": "<p>待申领合同</p> "
+            "description": "<p>待申领合同</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "106",
-            "description": "<p>待资料报单</p> "
+            "description": "<p>待资料报单</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "109",
-            "description": "<p>等待资料报单审核</p> "
+            "description": "<p>等待资料报单审核</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "110",
-            "description": "<p>待重新资料报单</p> "
+            "description": "<p>待重新资料报单</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "111",
-            "description": "<p>待合同寄还</p> "
+            "description": "<p>待合同寄还</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "112",
-            "description": "<p>等待麦策确认合同扫描件有效性</p> "
+            "description": "<p>等待麦策确认合同扫描件有效性</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "113",
-            "description": "<p>已确认合同有效，等待寄还</p> "
+            "description": "<p>已确认合同有效，等待寄还</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "114",
-            "description": "<p>等待项目成立</p> "
+            "description": "<p>等待项目成立</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "117",
-            "description": "<p>订单结束</p> "
+            "description": "<p>订单结束</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "119",
-            "description": "<p>关闭</p> "
+            "description": "<p>关闭</p>"
           }
         ]
       }
@@ -617,38 +617,38 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "1",
-            "description": "<p>预约中</p> "
+            "description": "<p>预约中</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "2",
-            "description": "<p>合同申领</p> "
+            "description": "<p>合同申领</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "3",
-            "description": "<p>资料报单</p> "
+            "description": "<p>资料报单</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "4",
-            "description": "<p>合同寄还</p> "
+            "description": "<p>合同寄还</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "5",
-            "description": "<p>项目成立</p> "
+            "description": "<p>项目成立</p>"
           }
         ]
       }
@@ -668,38 +668,38 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "0",
-            "description": "<p>待观察</p> "
+            "description": "<p>待观察</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "1",
-            "description": "<p>观察中</p> "
+            "description": "<p>观察中</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "2",
-            "description": "<p>众筹中</p> "
+            "description": "<p>众筹中</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "3",
-            "description": "<p>已完成</p> "
+            "description": "<p>已完成</p>"
           },
           {
             "group": "Success 200",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "-1",
-            "description": "<p>已关闭</p> "
+            "description": "<p>已关闭</p>"
           }
         ]
       }
@@ -719,10 +719,10 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "status",
-            "description": "<p>状态 1:通过 -1:不通过</p> "
+            "description": "<p>状态 1:通过 -1:不通过</p>"
           }
         ]
       }
@@ -742,31 +742,31 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "status",
-            "description": "<p>状态0:待处理 1:通过 -1:不通过</p> "
+            "description": "<p>状态0:待处理 1:通过 -1:不通过</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "product_id",
-            "description": "<p>产品ID</p> "
+            "description": "<p>产品ID</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "page",
-            "description": "<p>第几页</p> "
+            "description": "<p>第几页</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "per_page",
-            "description": "<p>每页数量</p> "
+            "description": "<p>每页数量</p>"
           }
         ]
       }
@@ -805,24 +805,24 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>status</p> ",
+            "type": "status",
             "optional": true,
             "field": "name",
-            "description": "<p>状态,0:待处理,1:已处理</p> "
+            "description": "<p>状态,0:待处理,1:已处理</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "page",
-            "description": "<p>第几页</p> "
+            "description": "<p>第几页</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "per_page",
-            "description": "<p>每页数量</p> "
+            "description": "<p>每页数量</p>"
           }
         ]
       }
@@ -881,40 +881,40 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>string</p> ",
+            "type": "string",
             "optional": false,
             "field": "name",
-            "description": "<p>文件名</p> "
+            "description": "<p>文件名</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>string</p> ",
+            "type": "string",
             "optional": false,
             "field": "md5",
-            "description": "<p>OSS上的文件的md5值</p> "
+            "description": "<p>OSS上的文件的md5值</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": false,
             "field": "size",
-            "description": "<p>文件大小</p> "
+            "description": "<p>文件大小</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>bool</p> ",
+            "type": "bool",
             "optional": false,
             "field": "is_pub",
             "defaultValue": "false",
-            "description": "<p>是否公开访问</p> "
+            "description": "<p>是否公开访问</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "access_permission",
             "defaultValue": "1",
-            "description": "<p>访问权限 1:仅自己, 2:仅自己的管理员, 3:自己和自己的管理员, 4:所有机构成员</p> "
+            "description": "<p>访问权限 1:仅自己, 2:仅自己的管理员, 3:自己和自己的管理员, 4:所有机构成员</p>"
           }
         ]
       }
@@ -980,10 +980,10 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>date</p> ",
+            "type": "date",
             "optional": false,
             "field": "actual_time",
-            "description": "<p>实际打款日期</p> "
+            "description": "<p>实际打款日期</p>"
           }
         ]
       },
@@ -1010,38 +1010,38 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "user_id",
-            "description": "<p>所有人ID</p> "
+            "description": "<p>所有人ID</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "admin_id",
-            "description": "<p>管理人ID</p> "
+            "description": "<p>管理人ID</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "sub_type",
-            "description": "<p>类型 103:待确认额度,109:待资料报单审核,112:待确认合同扫描件,111:待确认合同,999:待寄合同</p> "
+            "description": "<p>类型 103:待确认额度,109:待资料报单审核,112:待确认合同扫描件,111:待确认合同,999:待寄合同</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "page",
-            "description": "<p>第几页</p> "
+            "description": "<p>第几页</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "per_page",
-            "description": "<p>每页数量</p> "
+            "description": "<p>每页数量</p>"
           }
         ]
       }
@@ -1069,7 +1069,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款日期\n    \"strategy\": \"产品策略\",\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"产品开放日\":     # 产品开放日\n    \"dividend_type\": 1, # 分红方式\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"profit_info\": \"分成说明\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"features\": [1, 3, 5],  # 产品特点\n    \"relevant_files\": [33, 12], # 相关文件\n    \"remark\": \"备注\",\n    \"duration\": 23,             # 期限\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n    }],\n    \"dividends_interval\": [{        # 预计分成打款时间\n        \"estimated_time\": \"2016-12-23\",     # 预计打款时间\n        \"percent\": 0.33\n    }]\n}",
+          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款日期\n    \"strategy\": \"产品策略\",\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"产品开放日\":     # 产品开放日\n    \"dividend_type\": 1, # 分红方式\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"max_fee_sale\": \"最高销售费用\",\n    \"profit_info\": \"分成说明\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"features\": [1, 3, 5],  # 产品特点\n    \"relevant_files\": [33, 12], # 相关文件\n    \"remark\": \"备注\",\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n    }],\n    \"dividends_interval\": [{        # 预计分成打款时间\n        \"estimated_time\": \"2016-12-23\",     # 预计打款时间\n        \"percent\": 0.33\n    }]\n}",
           "type": "json"
         }
       ]
@@ -1089,14 +1089,14 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>string</p> ",
+            "type": "string",
             "optional": false,
             "field": "content",
-            "description": "<p>动态内容</p> "
+            "description": "<p>动态内容</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "allowedValues": [
               "1",
               "2"
@@ -1104,14 +1104,14 @@
             "optional": true,
             "field": "type",
             "defaultValue": "1",
-            "description": "<p>动态类型 1: 普通, 2: 活动</p> "
+            "description": "<p>动态类型 1: 普通, 2: 活动</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>date</p> ",
+            "type": "date",
             "optional": true,
             "field": "deadline",
-            "description": "<p>开放截止日期</p> "
+            "description": "<p>开放截止日期</p>"
           }
         ]
       }
@@ -1169,24 +1169,24 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>string</p> ",
+            "type": "string",
             "optional": true,
             "field": "name",
-            "description": "<p>产品名称</p> "
+            "description": "<p>产品名称</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "page",
-            "description": "<p>第几页</p> "
+            "description": "<p>第几页</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "per_page",
-            "description": "<p>每页数量</p> "
+            "description": "<p>每页数量</p>"
           }
         ]
       }
@@ -1214,7 +1214,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款日期\n    \"strategy\": \"产品策略\",\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"产品开放日\":     # 产品开放日\n    \"dividend_type\": \"分红方式\"\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"features\": [1, 3, 5],  # 产品特点\n    \"relevant_files\": [33, 12], # 相关文件\n    \"remark\": \"备注\",\n    \"duration\": 23,             # 期限\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n    }],\n    \"dividends_interval\": [{        # 预计分成打款时间\n        \"estimated_time\": \"2016-12-23\",     # 预计打款时间\n        \"percent\": 0.33\n    }]\n}",
+          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款日期\n    \"strategy\": \"产品策略\",\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"产品开放日\":     # 产品开放日\n    \"dividend_type\": \"分红方式\"\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"max_fee_sale\": \"最高销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"features\": [1, 3, 5],  # 产品特点\n    \"relevant_files\": [33, 12], # 相关文件\n    \"remark\": \"备注\",\n    \"hide\": true,   # 隐藏\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n    }],\n    \"dividends_interval\": [{        # 预计分成打款时间\n        \"estimated_time\": \"2016-12-23\",     # 预计打款时间\n        \"percent\": 0.33\n    }]\n}",
           "type": "json"
         }
       ]
@@ -1272,10 +1272,10 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>bool</p> ",
+            "type": "bool",
             "optional": false,
             "field": "freeze",
-            "description": "<p>是否冻结</p> "
+            "description": "<p>是否冻结</p>"
           }
         ]
       }
@@ -1295,31 +1295,31 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>string</p> ",
+            "type": "string",
             "optional": true,
             "field": "name",
-            "description": "<p>用户姓名</p> "
+            "description": "<p>用户姓名</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "admin_id",
-            "description": "<p>管理员ID</p> "
+            "description": "<p>管理员ID</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "page",
-            "description": "<p>第几页</p> "
+            "description": "<p>第几页</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "per_page",
-            "description": "<p>每页数量</p> "
+            "description": "<p>每页数量</p>"
           }
         ]
       },
@@ -1355,24 +1355,24 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>string</p> ",
+            "type": "string",
             "optional": false,
             "field": "name",
-            "description": "<p>用户姓名</p> "
+            "description": "<p>用户姓名</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "page",
-            "description": "<p>第几页</p> "
+            "description": "<p>第几页</p>"
           },
           {
             "group": "Parameter",
-            "type": "<p>int</p> ",
+            "type": "int",
             "optional": true,
             "field": "per_page",
-            "description": "<p>每页数量</p> "
+            "description": "<p>每页数量</p>"
           }
         ]
       }
