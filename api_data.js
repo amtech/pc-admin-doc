@@ -984,6 +984,25 @@ define({ "api": [
     "groupTitle": "Order"
   },
   {
+    "type": "patch",
+    "url": "/api/orders/:order_no",
+    "title": "补全资料，完成订单",
+    "name": "FinishOrder",
+    "group": "Order",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"customer_name\": \"客户姓名\",\n    \"precontract_amount\": 300,  # 预约额度\n    \"actual_pay_time\": \"2017-05-28\",    # 实际打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachments\": [{           # 附件\n        \"name\": \"xxx.pdf\",\n        \"url\": \"https://wwww.api.file.xxx.pdf\"\n    }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
     "type": "get",
     "url": "/api/orders/:order_no",
     "title": "订单详情",
@@ -1206,6 +1225,14 @@ define({ "api": [
             "optional": true,
             "field": "name",
             "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "bool",
+            "optional": true,
+            "field": "fuzzy_match",
+            "defaultValue": "true",
+            "description": "<p>是否启用模糊匹配</p>"
           },
           {
             "group": "Parameter",
