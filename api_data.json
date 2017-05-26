@@ -974,7 +974,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"user_id\": 100460,\n    \"product_name\": \"产品名称\",\n    \"type\": 5,      # 订单状态（目前支持2合同申领，5项目成立）\n    \"customer_name\": \"客户姓名\",\n    \"precontract_amount\": 300,  # 预约额度\n    \"actual_pay_time\": \"2017-05-28\",    # 实际打款日期\n    \"estimate_pay_time\": \"2017-05-28\",    # 预计打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachments\": [{           # 附件\n        \"name\": \"xxx.pdf\",\n        \"url\": \"https://wwww.api.file.xxx.pdf\"\n    }]\n}",
+          "content": "{\n    \"user_id\": 100460,\n    \"product_id\": 334,\n    \"type\": 5,      # 订单状态（目前支持2合同申领，5项目成立）\n    \"customer_name\": \"客户姓名\",\n    \"precontract_amount\": 300,  # 预约额度\n    \"actual_pay_time\": \"2017-05-28\",    # 实际打款日期\n    \"estimate_pay_time\": \"2017-05-28\",    # 预计打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachments\": [{           # 附件\n        \"name\": \"xxx.pdf\",\n        \"url\": \"https://wwww.api.file.xxx.pdf\"\n    }]\n}",
           "type": "json"
         }
       ]
@@ -1228,10 +1228,10 @@
           },
           {
             "group": "Parameter",
-            "type": "bool",
+            "type": "int",
             "optional": true,
             "field": "fuzzy_match",
-            "defaultValue": "true",
+            "defaultValue": "1",
             "description": "<p>是否启用模糊匹配</p>"
           },
           {
