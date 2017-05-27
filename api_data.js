@@ -985,7 +985,7 @@ define({ "api": [
   },
   {
     "type": "patch",
-    "url": "/api/orders/:order_no",
+    "url": "/api/orders/:order_no/finish",
     "title": "补全资料，完成订单",
     "name": "FinishOrder",
     "group": "Order",
