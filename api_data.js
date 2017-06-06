@@ -1212,6 +1212,37 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/products/strategies",
+    "title": "产品策略",
+    "name": "ProductStrategies",
+    "group": "Product",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "int",
+            "description": "<p>type 1:浮动,2:固定</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"value\": \"101011\",\n    \"text\": \"主观多空\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "get",
     "url": "/api/products",
     "title": "产品列表",
     "name": "Products",
