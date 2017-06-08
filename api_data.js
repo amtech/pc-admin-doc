@@ -1404,7 +1404,7 @@ define({ "api": [
             "optional": true,
             "field": "tag",
             "defaultValue": "2",
-            "description": "<p>用户标签</p>"
+            "description": "<p>用户标签 1:内部用户,2:外部用户</p>"
           },
           {
             "group": "Parameter",
