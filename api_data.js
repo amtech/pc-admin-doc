@@ -1491,7 +1491,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/users/stats",
+    "url": "/api/users/statistic",
     "title": "用户统计",
     "name": "UserStats",
     "group": "User",
