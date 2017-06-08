@@ -1488,5 +1488,24 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "../admin/frontend/user.py",
     "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/api/users/stats",
+    "title": "用户统计",
+    "name": "UserStats",
+    "group": "User",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"internal\": 12, # 内部用户\n    \"external\": 23, # 外部用户\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/user.py",
+    "groupTitle": "User"
   }
 ] });
