@@ -1173,6 +1173,16 @@ define({ "api": [
     "groupTitle": "Product"
   },
   {
+    "type": "delete",
+    "url": "/api/products/news/:id",
+    "title": "删除产品动态",
+    "name": "DeleteProductNews",
+    "group": "Product",
+    "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
     "type": "get",
     "url": "/api/products/:pid",
     "title": "产品详情",
@@ -1202,6 +1212,25 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "[{\n    \"id\": 122,\n    \"text\": \"特性1\"\n    \"image\": \"http://dsadsadsa.jpg\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "get",
+    "url": "/api/products/:pid/news",
+    "title": "产品动态",
+    "name": "ProductNews",
+    "group": "Product",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 122,\n    \"content\": \"动态内容\"\n    \"created_time\": \"2017-12-16T16:00:00\"\n}]",
           "type": "json"
         }
       ]
@@ -1309,6 +1338,29 @@ define({ "api": [
           "type": "json"
         }
       ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "patch",
+    "url": "/api/products/news/:id",
+    "title": "更新产品动态",
+    "name": "UpdateProductNews",
+    "group": "Product",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "content",
+            "description": "<p>动态内容</p>"
+          }
+        ]
+      }
     },
     "version": "0.0.0",
     "filename": "../admin/frontend/product.py",
