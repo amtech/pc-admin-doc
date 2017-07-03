@@ -1378,13 +1378,6 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "mobile",
-            "description": "<p>手机号</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "int",
             "optional": false,
             "field": "type",
@@ -1406,6 +1399,13 @@ define({ "api": [
           },
           {
             "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "event_name",
+            "description": "<p>活动名称</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "date",
             "optional": false,
             "field": "date",
@@ -1417,6 +1417,13 @@ define({ "api": [
             "optional": false,
             "field": "product_value",
             "description": "<p>产品净值</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "manager",
+            "description": "<p>管理人</p>"
           }
         ]
       }
