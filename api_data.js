@@ -974,7 +974,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"user_id\": 100460,\n    \"product_id\": 334,\n    \"type\": 5,      # 订单状态（目前支持2合同申领，5项目成立）\n    \"customer_name\": \"客户姓名\",\n    \"precontract_amount\": 300,  # 预约额度\n    \"actual_pay_time\": \"2017-05-28\",    # 实际打款日期\n    \"estimate_pay_time\": \"2017-05-28\",    # 预计打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachments\": [{           # 附件\n        \"name\": \"xxx.pdf\",\n        \"url\": \"https://wwww.api.file.xxx.pdf\"\n    }]\n}",
+          "content": "{\n    \"user_id\": 100460,\n    \"product_id\": 334,\n    \"type\": 5,      # 订单状态（目前支持2合同申领，5项目成立）\n    \"customer_name\": \"客户姓名\",\n    \"customer_mobile\": \"1503213123\",    # 客户电话\n    \"precontract_amount\": 300,  # 预约额度\n    \"actual_pay_time\": \"2017-05-28\",    # 实际打款日期\n    \"estimate_pay_time\": \"2017-05-28\",    # 预计打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachments\": [{           # 附件\n        \"name\": \"xxx.pdf\",\n        \"url\": \"https://wwww.api.file.xxx.pdf\"\n    }]\n}",
           "type": "json"
         }
       ]
@@ -1230,7 +1230,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 122,\n    \"content\": \"动态内容\"\n    \"created_time\": \"2017-12-16T16:00:00\"\n}]",
+          "content": "[{\n    \"id\": 122,\n    \"content\": \"动态内容\"\n    \"created_time\": \"2017-12-16T16:00:00\",\n    \"type\": 1\n}]",
           "type": "json"
         }
       ]
