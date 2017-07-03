@@ -1367,6 +1367,64 @@
     "groupTitle": "Product"
   },
   {
+    "type": "post",
+    "url": "/api/sms",
+    "title": "发送短信",
+    "name": "SendSms",
+    "group": "Sms",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>手机号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "type",
+            "description": "<p>类型,1:推送净值,2:推送产品,3:推送活动,4:收益分配</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "product_id",
+            "description": "<p>产品ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "event_id",
+            "description": "<p>活动ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "date",
+            "description": "<p>日期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "product_value",
+            "description": "<p>产品净值</p>"
+          }
+        ]
+      }
+    },
+    "filename": "../admin/frontend/sms.py",
+    "groupTitle": "Sms"
+  },
+  {
     "type": "get",
     "url": "/",
     "title": "非分页返回的结构",
