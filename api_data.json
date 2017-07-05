@@ -956,25 +956,6 @@
     "groupTitle": "File"
   },
   {
-    "type": "patch",
-    "url": "/api/orders/:order_no",
-    "title": "订单更新",
-    "name": "ChangeOrderStatus",
-    "group": "Order",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"action\": 1,    # 更新类型 1:确认额度, 2:邮寄合同, 3:资料报单确认, 4:确认合同扫描件，5：确认合同, 8：关闭\n    \"pass\": true,   # 是否通过\n    \"reason\": \"原因\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
-    "groupTitle": "Order"
-  },
-  {
     "type": "post",
     "url": "/api/orders",
     "title": "创建订单",
@@ -984,7 +965,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"user_id\": 100460,\n    \"product_id\": 334,\n    \"type\": 5,      # 订单状态（目前支持2合同申领，5项目成立）\n    \"customer_name\": \"客户姓名\",\n    \"customer_mobile\": \"1503213123\",    # 客户电话\n    \"precontract_amount\": 300,  # 预约额度\n    \"actual_pay_time\": \"2017-05-28\",    # 实际打款日期\n    \"estimate_pay_time\": \"2017-05-28\",    # 预计打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachments\": [{           # 附件\n        \"name\": \"xxx.pdf\",\n        \"url\": \"https://wwww.api.file.xxx.pdf\"\n    }]\n}",
+          "content": "{\n    \"user_id\": 100460,\n    \"product_id\": 334,\n    \"customer_name\": \"客户姓名\",\n    \"customer_mobile\": \"1503213123\",    # 客户电话\n    \"precontract_amount\": 300,  # 额度\n    \"actual_pay_time\": \"2017-05-28\",    # 实际打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachments\": [{           # 附件\n        \"name\": \"xxx.pdf\",\n        \"url\": \"https://wwww.api.file.xxx.pdf\"\n    }]\n}",
           "type": "json"
         }
       ]
@@ -1083,13 +1064,6 @@
             "optional": true,
             "field": "admin_id",
             "description": "<p>管理人ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "sub_type",
-            "description": "<p>类型 103:待确认额度,109:待资料报单审核,112:待确认合同扫描件,111:待确认合同,999:待寄合同</p>"
           },
           {
             "group": "Parameter",
