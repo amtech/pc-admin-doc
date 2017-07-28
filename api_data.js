@@ -975,12 +975,216 @@ define({ "api": [
     "groupTitle": "Order"
   },
   {
+    "type": "post",
+    "url": "/api/orders/:order_no/bonus",
+    "title": "创建订单分红记录",
+    "name": "CreateOrderBONUS",
+    "group": "Order",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>金额</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datetime",
+            "optional": false,
+            "field": "bonus_time",
+            "description": "<p>赎回生效日期</p>"
+          }
+        ]
+      }
+    },
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "post",
+    "url": "/api/orders/:order_no/distributions",
+    "title": "创建订单分配记录",
+    "name": "CreateOrderDistribution",
+    "group": "Order",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>金额</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datetime",
+            "optional": false,
+            "field": "bonus_time",
+            "description": "<p>赎回生效日期</p>"
+          }
+        ]
+      }
+    },
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "post",
+    "url": "/api/orders/:order_no/redeem",
+    "title": "创建订单赎回记录",
+    "name": "CreateOrderRedeem",
+    "group": "Order",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>金额（元）/份额（份）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "remark",
+            "description": "<p>备注</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datetime",
+            "optional": false,
+            "field": "redemption_time",
+            "description": "<p>赎回生效日期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": true,
+            "field": "redeem_value",
+            "description": "<p>赎回日净值</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": true,
+            "field": "fee",
+            "description": "<p>手续费</p>"
+          }
+        ]
+      }
+    },
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "post",
+    "url": "/api/orders/:order_no/share_change",
+    "title": "创建份额变更记录",
+    "name": "CreateOrderShareChange",
+    "group": "Order",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>金额（元）/份额（份）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datetime",
+            "optional": false,
+            "field": "update_time",
+            "description": "<p>变更生效日期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "remark",
+            "description": "<p>备注</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "direction",
+            "description": "<p>1:增加,-1减少</p>"
+          }
+        ]
+      }
+    },
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
     "type": "delete",
     "url": "/api/orders/:order_no",
     "title": "删除订单",
     "name": "DeleteOrder",
     "group": "Order",
     "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "delete",
+    "url": "/api/orders/:order_no/bonus/:id",
+    "title": "删除订单分红记录",
+    "name": "DeleteOrderBonus",
+    "group": "Order",
+    "version": "1.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "delete",
+    "url": "/api/orders/:order_no/distributions/:id",
+    "title": "删除订单分配记录",
+    "name": "DeleteOrderDistribution",
+    "group": "Order",
+    "version": "1.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "delete",
+    "url": "/api/orders/:order_no/redeem/:id",
+    "title": "删除订单赎回记录",
+    "name": "DeleteOrderRedeem",
+    "group": "Order",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "1.34    # 剩余份额",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "delete",
+    "url": "/api/orders/:order_no/share_change/:id",
+    "title": "删除份额变更记录",
+    "name": "DeleteOrderShareChange",
+    "group": "Order",
+    "version": "1.0.0",
     "filename": "../admin/frontend/order.py",
     "groupTitle": "Order"
   },
@@ -1005,6 +1209,45 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/orders/:order_no/bonus",
+    "title": "订单分红记录",
+    "name": "OrderBonus",
+    "group": "Order",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"id\": 1,\n    \"amount\": 13,   # 金额\n    \"bonus_time\": \"2017-01-01T17:00:00\",   # 分配时间\n    \"remark\": \"备注\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
     "url": "/api/orders/:order_no",
     "title": "订单详情",
     "name": "OrderDetail",
@@ -1021,6 +1264,45 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "../admin/frontend/order.py",
     "groupTitle": "Order"
+  },
+  {
+    "type": "get",
+    "url": "/api/orders/:order_no/distributions",
+    "title": "订单分配记录",
+    "name": "OrderDistribution",
+    "group": "Order",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"id\": 1,\n    \"amount\": 13,   # 金额 / 元\n    \"bonus_time\": \"2017-01-01T17:00:00\",   # 分配时间\n    \"finished\": true,   # 已分配\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p>"
+          }
+        ]
+      }
+    }
   },
   {
     "type": "post",
@@ -1051,6 +1333,84 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "../admin/frontend/order.py",
     "groupTitle": "Order"
+  },
+  {
+    "type": "get",
+    "url": "/api/orders/:order_no/redeem",
+    "title": "订单赎回记录",
+    "name": "OrderRedeem",
+    "group": "Order",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"amount\": 13,   # 金额/元\n    \"redeem_value\": 1.4,    # 赎回时净值（浮动）\n    \"fee\": 13.31,   # 手续费\n    \"redemption_time\": \"2017-01-01T17:00:00\",   # 赎回生效日\n    \"remark\": \"备注\",\n    \"status\": 1,    # 状态1:等待，2：成功, 3:失败\n    \"market_value_change\": 1.33,    #市值变化\n    \"actual_profit\": 999,   # 实际收益\n    \"absolute_profit\": 999, # 绝对收益\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/api/orders/:order_no/share_change",
+    "title": "订单份额变更记录",
+    "name": "OrderShareChange",
+    "group": "Order",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"amount\": 13,   # 金额\n    \"update_time\": \"2017-01-01T17:00:00\",\n    \"remark\": \"备注\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p>"
+          }
+        ]
+      }
+    }
   },
   {
     "type": "get",
@@ -1106,6 +1466,25 @@ define({ "api": [
     "groupTitle": "Order"
   },
   {
+    "type": "get",
+    "url": "/api/orders/:order_no/distributions/:id",
+    "title": "上次订单分配记录",
+    "name": "PriorOrderDistribution",
+    "group": "Order",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response: (返回None就是没有)",
+          "content": "{\n    \"amount\": 13,   # 金额/元\n    \"bonus_time\": \"2017-01-01T17:00:00\",   # 赎回生效日\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
     "type": "post",
     "url": "/api/orders/subscribe",
     "title": "预约订单",
@@ -1144,6 +1523,170 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "put",
+    "url": "/api/orders/:order_no/bonus/:id",
+    "title": "更新订单分红记录",
+    "name": "UpdateOrderBonus",
+    "group": "Order",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>金额</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datetime",
+            "optional": false,
+            "field": "bonus_time",
+            "description": "<p>分红日期</p>"
+          }
+        ]
+      }
+    },
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "put",
+    "url": "/api/orders/:order_no/distributions/:id",
+    "title": "更新订单分配记录",
+    "name": "UpdateOrderDistribution",
+    "group": "Order",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>金额</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datetime",
+            "optional": false,
+            "field": "bonus_time",
+            "description": "<p>赎回生效日期</p>"
+          }
+        ]
+      }
+    },
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "put",
+    "url": "/api/orders/:order_no/redeem/:id",
+    "title": "更新订单赎回记录",
+    "name": "UpdateOrderRedeem",
+    "group": "Order",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>金额（元）/份额（份）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "remark",
+            "description": "<p>备注</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datetime",
+            "optional": false,
+            "field": "redemption_time",
+            "description": "<p>赎回生效日期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": true,
+            "field": "redeem_value",
+            "description": "<p>赎回日净值</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": true,
+            "field": "fee",
+            "description": "<p>手续费</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "1.34    # 剩余份额",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "put",
+    "url": "/api/orders/:order_no/share_change/:id",
+    "title": "更新份额变更记录",
+    "name": "UpdateOrderShareChange",
+    "group": "Order",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>金额（元）/份额（份）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datetime",
+            "optional": false,
+            "field": "update_time",
+            "description": "<p>变更生效日期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "remark",
+            "description": "<p>备注</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "direction",
+            "description": "<p>1:增加,-1减少</p>"
+          }
+        ]
+      }
+    },
     "filename": "../admin/frontend/order.py",
     "groupTitle": "Order"
   },
