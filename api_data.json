@@ -1036,6 +1036,36 @@
   },
   {
     "type": "post",
+    "url": "/api/orders/:order_no/dividends",
+    "title": "订单打款",
+    "name": "CreateOrderDividends",
+    "group": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "actual_time",
+            "description": "<p>实际打款日期</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"amount\": 1,\n    \"actual_time\": \"2017-12-1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "post",
     "url": "/api/orders/:order_no/redeem",
     "title": "创建订单赎回记录",
     "name": "CreateOrderRedeem",
@@ -1305,27 +1335,16 @@
     }
   },
   {
-    "type": "post",
+    "type": "get",
     "url": "/api/orders/:order_no/dividends",
-    "title": "订单打款",
+    "title": "订单打款记录",
     "name": "OrderDividends",
     "group": "Order",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "date",
-            "optional": false,
-            "field": "actual_time",
-            "description": "<p>实际打款日期</p>"
-          }
-        ]
-      },
+    "success": {
       "examples": [
         {
-          "title": "Request-Example:",
-          "content": "{\n    \"amount\": 1,\n    \"actual_time\": \"2017-12-1\"\n}",
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1\n    \"amount\": 1,\n    \"actual_time\": \"2017-12-1\",\n    \"currency\": 1\n}]",
           "type": "json"
         }
       ]
@@ -1456,7 +1475,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\"\n    },\n    \"currency\": 1,\n    \"profit_type\": 1,\n    \"customer_name\": \"客户名称\",\n    \"is_confirmed\": true,                     # 是否已完成\n    \"precontract_amount\": 300,          # 金额\n    \"pay_time\": \"2017-03-01\",  # 打款时间\n    \"closed\": true,     # 是否已关闭\n}]",
+          "content": "[{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\"\n    },\n    \"currency\": 1,\n    \"profit_type\": 1,\n    \"customer_name\": \"客户名称\",\n    \"is_confirmed\": true,                     # 是否已完成\n    \"precontract_amount\": 300,          # 金额\n    \"pay_time\": \"2017-03-01\",  # 打款时间\n    \"buy_time\": \"2017-03-01\",   # 计息确认日\n    \"closed\": true,     # 是否已关闭\n}]",
           "type": "json"
         }
       ]
@@ -1583,6 +1602,46 @@
         ]
       }
     },
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "delete",
+    "url": "/api/orders/:order_no/dividends/:id",
+    "title": "删除订单打款",
+    "name": "UpdateOrderDividends",
+    "group": "Order",
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "put",
+    "url": "/api/orders/:order_no/dividends/:id",
+    "title": "修改订单打款",
+    "name": "UpdateOrderDividends",
+    "group": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "actual_time",
+            "description": "<p>实际打款日期</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"amount\": 1,\n    \"actual_time\": \"2017-12-1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
     "filename": "../admin/frontend/order.py",
     "groupTitle": "Order"
   },
