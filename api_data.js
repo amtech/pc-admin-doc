@@ -1191,6 +1191,16 @@ define({ "api": [
   },
   {
     "type": "delete",
+    "url": "/api/orders/:order_no/dividends/:id",
+    "title": "删除订单打款",
+    "name": "DeleteOrderDividends",
+    "group": "Order",
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "delete",
     "url": "/api/orders/:order_no/redeem/:id",
     "title": "删除订单赎回记录",
     "name": "DeleteOrderRedeem",
@@ -1598,16 +1608,6 @@ define({ "api": [
         ]
       }
     },
-    "filename": "../admin/frontend/order.py",
-    "groupTitle": "Order"
-  },
-  {
-    "type": "delete",
-    "url": "/api/orders/:order_no/dividends/:id",
-    "title": "删除订单打款",
-    "name": "UpdateOrderDividends",
-    "group": "Order",
-    "version": "0.0.0",
     "filename": "../admin/frontend/order.py",
     "groupTitle": "Order"
   },
