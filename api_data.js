@@ -2118,6 +2118,13 @@ define({ "api": [
             "optional": false,
             "field": "manager",
             "description": "<p>管理人</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "target",
+            "description": "<p>目标群体,1:客户,2:理财师,3:全部</p>"
           }
         ]
       }
