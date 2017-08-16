@@ -970,7 +970,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"new_user\": 0,  #新用户\n    \"logging_user\": 0,  # 登陆\n    \"product_operation\": 0, # 产品操作\n    \"access\": 0,    # ；浏览\n    \"precontract_order_amount\": {   # 预约\n        \"rmb\": 0,\n        \"dollar\": 0,\n    },\n    \"order_amount\": {   # 成交\n        \"rmb\": 0,\n        \"dollar\": 0\n    }\n}]",
+          "content": "[{\n    \"date\": \"2017-12-11\",\n    \"new_user\": 0,  #新用户\n    \"logging_user\": 0,  # 登陆\n    \"product_operation\": 0, # 产品操作\n    \"access\": 0,    # ；浏览\n    \"precontract_order_amount\": {   # 预约\n        \"rmb\": 0,\n        \"dollar\": 0,\n    },\n    \"order_amount\": {   # 成交\n        \"rmb\": 0,\n        \"dollar\": 0\n    }\n}]",
           "type": "json"
         }
       ]
