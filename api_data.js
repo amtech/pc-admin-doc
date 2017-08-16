@@ -523,6 +523,64 @@ define({ "api": [
   {
     "type": "get",
     "url": "/",
+    "title": "日志类型",
+    "name": "LogType",
+    "group": "Constant",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "101",
+            "description": "<p>页面访问</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "201",
+            "description": "<p>登陆</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "202",
+            "description": "<p>注册</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "301",
+            "description": "<p>关注产品</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "302",
+            "description": "<p>浏览产品</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "303",
+            "description": "<p>查看附件</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/apidoc.py",
+    "groupTitle": "Constant"
+  },
+  {
+    "type": "get",
+    "url": "/",
     "title": "用户角色",
     "name": "Role",
     "group": "Constant",
@@ -856,6 +914,70 @@ define({ "api": [
     },
     "filename": "../admin/frontend/file.py",
     "groupTitle": "File"
+  },
+  {
+    "type": "get",
+    "url": "/api/logs/details",
+    "title": "日志详情列表",
+    "name": "LogDetails",
+    "group": "Log",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "type",
+            "description": "<p>类型: 1-新增用户,2-登陆,3-产品操作，4-浏览</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"ip\": \"201.33.33.198\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"姓名\",\n        \"mobile\": \"1323421321\",\n        \"source\": 1,        # 渠道,1网页,2公众号,3群聊,4:私聊，5朋友圈\n        \"certificate\": true\n    },\n    \"created_time\": \"2017-12-11T16:00:00\",\n    \"action\": 101,  # 日志类型\n    \"content\": \"日志内容\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/log.py",
+    "groupTitle": "Log"
+  },
+  {
+    "type": "get",
+    "url": "/api/logs",
+    "title": "日志列表",
+    "name": "LogList",
+    "group": "Log",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": true,
+            "field": "date",
+            "description": "<p>日期</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"new_user\": 0,  #新用户\n    \"logging_user\": 0,  # 登陆\n    \"product_operation\": 0, # 产品操作\n    \"access\": 0,    # ；浏览\n    \"precontract_order_amount\": {   # 预约\n        \"rmb\": 0,\n        \"dollar\": 0,\n    },\n    \"order_amount\": {   # 成交\n        \"rmb\": 0,\n        \"dollar\": 0\n    }\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/log.py",
+    "groupTitle": "Log"
   },
   {
     "type": "post",

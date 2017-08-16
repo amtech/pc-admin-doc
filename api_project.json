@@ -14,6 +14,7 @@
     "Certification",
     "Feedback",
     "Event",
+    "Log",
     "File",
     "Sms"
   ],
@@ -22,7 +23,7 @@
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2017-08-15T03:29:32.238Z",
+    "time": "2017-08-16T04:27:31.865Z",
     "url": "http://apidocjs.com",
     "version": "0.17.6"
   }
