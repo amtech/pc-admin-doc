@@ -930,6 +930,13 @@
             "optional": false,
             "field": "type",
             "description": "<p>类型: 1-新增用户,2-登陆,3-产品操作，4-浏览</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "date",
+            "description": "<p>日期</p>"
           }
         ]
       }
