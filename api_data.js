@@ -1777,6 +1777,25 @@ define({ "api": [
     "groupTitle": "Order"
   },
   {
+    "type": "get",
+    "url": "/api/org",
+    "title": "机构列表",
+    "name": "OrgList",
+    "group": "Org",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/org.py",
+    "groupTitle": "Org"
+  },
+  {
     "type": "post",
     "url": "/api/products",
     "title": "创建产品",

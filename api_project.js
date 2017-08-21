@@ -8,6 +8,7 @@ define({
     "Structure",
     "Account",
     "User",
+    "Org",
     "Customer",
     "Product",
     "Order",
@@ -23,7 +24,7 @@ define({
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2017-08-21T01:32:29.918Z",
+    "time": "2017-08-21T01:39:33.968Z",
     "url": "http://apidocjs.com",
     "version": "0.17.6"
   }
