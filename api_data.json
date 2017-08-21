@@ -945,7 +945,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"ip\": \"201.33.33.198\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"姓名\",\n        \"mobile\": \"1323421321\",\n        \"source\": 1,        # 渠道,1网页,2公众号,3群聊,4:私聊，5朋友圈\n        \"certificate\": true\n    },\n    \"created_time\": \"2017-12-11T16:00:00\",\n    \"action\": 101,  # 日志类型\n    \"content\": \"日志内容\"\n}]",
+          "content": "[{\n    \"ip\": \"201.33.33.198\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"姓名\",\n        \"mobile\": \"1323421321\",\n        \"source\": 1,        # 渠道,1网页,2公众号,3群聊,4:私聊，5朋友圈,6后台\n        \"certificate\": true\n    },\n    \"created_time\": \"2017-12-11T16:00:00\",\n    \"action\": 101,  # 日志类型\n    \"content\": \"日志内容\"\n}]",
           "type": "json"
         }
       ]
@@ -2298,6 +2298,78 @@
     "version": "0.0.0",
     "filename": "../admin/apidoc.py",
     "groupTitle": "Structure"
+  },
+  {
+    "type": "post",
+    "url": "/api/users",
+    "title": "创建用户",
+    "name": "CreateUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>手机号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>姓名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "position",
+            "description": "<p>职位</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "work_year",
+            "description": "<p>工作年限</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "role",
+            "description": "<p>角色</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "industry",
+            "description": "<p>行业</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "business_card_pic",
+            "description": "<p>名片</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": false,
+            "field": "org",
+            "description": "<p>机构:{&quot;id&quot;: 1, &quot;company_name&quot;: &quot;机构名称&quot;}</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/user.py",
+    "groupTitle": "User"
   },
   {
     "type": "post",
