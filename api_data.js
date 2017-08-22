@@ -945,7 +945,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"ip\": \"201.33.33.198\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"姓名\",\n        \"mobile\": \"1323421321\",\n        \"source\": 1,        # 渠道,1网页,2公众号,3群聊,4:私聊，5朋友圈,6后台\n        \"certificate\": true\n    },\n    \"created_time\": \"2017-12-11T16:00:00\",\n    \"action\": 101,  # 日志类型\n    \"content\": \"日志内容\"\n}]",
+          "content": "[{\n    \"ip\": \"201.33.33.198\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"姓名\",\n        \"mobile\": \"1323421321\",\n        \"certificate\": true\n    },\n    \"created_time\": \"2017-12-11T16:00:00\",\n    \"action\": 101,  # 日志类型\n    \"content\": \"日志内容\",\n    \"channel\": 1,   # 渠道,1网页,2公众号,3群聊,4:私聊，5朋友圈,6后台,7移动端\n}]",
           "type": "json"
         }
       ]
