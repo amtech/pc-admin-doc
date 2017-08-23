@@ -1782,6 +1782,19 @@ define({ "api": [
     "title": "机构列表",
     "name": "OrgList",
     "group": "Org",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "company_name",
+            "description": "<p>机构名称</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
@@ -2414,6 +2427,71 @@ define({ "api": [
     "groupTitle": "User"
   },
   {
+    "type": "put",
+    "url": "/api/users/:id",
+    "title": "更新用户",
+    "name": "UpdateUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>姓名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "position",
+            "description": "<p>职位</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "work_year",
+            "description": "<p>工作年限</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "role",
+            "description": "<p>角色</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "industry",
+            "description": "<p>行业</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "business_card_pic",
+            "description": "<p>名片</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": false,
+            "field": "org",
+            "description": "<p>机构:{&quot;id&quot;: 1, &quot;company_name&quot;: &quot;机构名称&quot;}</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
     "type": "get",
     "url": "/api/users",
     "title": "用户列表",
@@ -2518,7 +2596,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"user_id\": 100319,\n    \"name\": \"小明\",\n    \"mobile\": \"150432423\",\n    \"created_time\": \"2015-12-22\",   # 注册时间\n    \"role\": 1,      # 角色, 1:游客, 2:旗下理财师, 3:管理员\n    \"business_card_pic\": '/file/1',     # 名片\n    \"certification_info\": {     # 认证信息\n        \"company_name\": \"机构名称\",\n        \"position\": \"职位理财师\",\n        \"work_year\": 1,     # 工作年限(1:1~3年, 2:3~5年, 3:5~10年, 4:10年以上)\n        \"industry\": 3,      # 行业(1:银行, 2:信托, 3:资管, 4:保险, 5:证券, 6:基金, 7:P2P, 8:三方)\n    }\n}",
+          "content": "{\n    \"user_id\": 100319,\n    \"name\": \"小明\",\n    \"mobile\": \"150432423\",\n    \"created_time\": \"2015-12-22\",   # 注册时间\n    \"role\": 1,      # 角色, 1:游客, 2:旗下理财师, 3:管理员\n    \"business_card_pic\": '/file/1',     # 名片\n    \"certification_info\": {     # 认证信息\n        \"company_name\": \"机构名称\",\n        \"position\": \"职位理财师\",\n        \"work_year\": 1,     # 工作年限(1:1~3年, 2:3~5年, 3:5~10年, 4:10年以上)\n        \"industry\": 3,      # 行业(1:银行, 2:信托, 3:资管, 4:保险, 5:证券, 6:基金, 7:P2P, 8:三方)\n    },\n    \"org\": {\n        \"id\": 1,\n        \"company_name\": \"机构名称\"\n    }\n}",
           "type": "json"
         }
       ]
