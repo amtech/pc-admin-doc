@@ -673,7 +673,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"张东\",\n    \"no\": \"3213kj21l3k21j321j\"\n}]",
+          "content": "[{\n    \"name\": \"张东\",\n    \"no\": \"3213kj21l3k21j321j\",\n    \"real_name\": \"张东\",\n    \"id_card_no\": \"dsa9dsa98d9sa809dsa\",\n    \"mobile\": \"321809382180\"\n}]",
           "type": "json"
         }
       ]
@@ -996,7 +996,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"user_id\": 100460,\n    \"product_id\": 334,\n    \"customer_name\": \"客户姓名\",\n    \"customer_no\": \"客户编号\",\n    \"customer_mobile\": \"1503213123\",    # 客户电话\n    \"customer_id_card_no\": \"身份证号\"\n    \"amount\": 300,  # 认购金额\n    \"pay_time\": \"2017-05-28\",    # 打款日期\n    \"attachment_id\": 12     # 相关文件ID\n    \"buy_time\": \"2017-05-28T16:00:00\",  # 计息日\n    \"remark\": \"备注\",\n    \"prospective_earning\": 1.3, # 预期年化收益\n    \"buy_duration\": 3,\n    \"expire_time\": \"2017-05-28T16:00:00\"    # 到期时间\n    \"buy_value\": 1.33,  # 购买时净值\n    \"buy_share\": 13,    # 份额(万份)\n}",
+          "content": "{\n    \"user_id\": 100460,\n    \"product_id\": 334,\n    \"customer_name\": \"客户姓名\",\n    \"customer_real_name\": \"客户真是姓名\",\n    \"customer_no\": \"客户编号\",\n    \"customer_mobile\": \"1503213123\",    # 客户电话\n    \"customer_id_card_no\": \"身份证号\"\n    \"amount\": 300,  # 认购金额\n    \"pay_time\": \"2017-05-28\",    # 打款日期\n    \"attachment_id\": 12     # 相关文件ID\n    \"buy_time\": \"2017-05-28T16:00:00\",  # 计息日\n    \"remark\": \"备注\",\n    \"prospective_earning\": 1.3, # 预期年化收益\n    \"buy_duration\": 3,\n    \"expire_time\": \"2017-05-28T16:00:00\"    # 到期时间\n    \"buy_value\": 1.33,  # 购买时净值\n    \"buy_share\": 13,    # 份额(万份)\n}",
           "type": "json"
         }
       ]
