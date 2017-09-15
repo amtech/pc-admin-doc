@@ -844,16 +844,6 @@
     "groupTitle": "Customer"
   },
   {
-    "type": "get",
-    "url": "/api/users/reserve_list",
-    "title": "用户预约列表",
-    "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
-    "group": "E__project_maice_purchasing_consortia_admin_admin_frontend_order_py",
-    "groupTitle": "E__project_maice_purchasing_consortia_admin_admin_frontend_order_py",
-    "name": "GetApiUsersReserve_list"
-  },
-  {
     "type": "patch",
     "url": "/api/events/:id",
     "title": "审核活动报名",
@@ -1701,6 +1691,16 @@
         }
       ]
     },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "get",
+    "url": "/api/users/reserve_list",
+    "title": "用户预约列表",
+    "name": "ReserveList",
+    "group": "Order",
     "version": "0.0.0",
     "filename": "../admin/frontend/order.py",
     "groupTitle": "Order"
