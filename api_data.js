@@ -278,6 +278,45 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/channel/pusers",
+    "title": "理财师列表",
+    "name": "puser_list",
+    "group": "Channel",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "adviser_id",
+            "description": "<p>投顾ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "referrer_id",
+            "description": "<p>推荐人ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"referrer_name\": \"推荐人\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "get",
     "url": "/api/channel/referrers/:id",
     "title": "推荐人详情",
     "name": "referrer_detail",
@@ -307,45 +346,6 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "[{\n    \"id\": 12,\n    \"real_name\": \"真实姓名\",\n    \"org_name\": \"机构名称\",\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"mobile\": \"1545435435\",\n    \"remark\": \"备注\",\n    \"pusers\": {\n        \"total\": 99,    # 总计人数\n        \"valid\": 33,    # 有成交订单的\n    },\n    \"orders\": 199,  # 推荐交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/pusers",
-    "title": "理财师列表",
-    "name": "referrer_list",
-    "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "referrer_id",
-            "description": "<p>推荐人ID</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"referrer_name\": \"推荐人\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
           "type": "json"
         }
       ]
