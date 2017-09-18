@@ -259,25 +259,6 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/api/channel/referrer/check",
-    "title": "检查推荐人是否已存在",
-    "name": "check_referrer",
-    "group": "Channel",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"exists\": true\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "post",
     "url": "/api/channel/referrers",
     "title": "创建推荐人",
     "name": "create_referrer",
@@ -301,6 +282,26 @@ define({ "api": [
     "title": "推荐人详情",
     "name": "referrer_detail",
     "group": "Channel",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "adviser_id",
+            "description": "<p>投顾ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "bool",
+            "optional": true,
+            "field": "base",
+            "description": "<p>是否只显示基本信息（即不包含统计类数据）</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
@@ -376,7 +377,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"real_name\": \"真实姓名\",\n    \"introducer\": \"介绍人\",\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"pusers\": 12,   # 推荐理财师数\n    \"orders\": 199,  # 推荐交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"real_name\": \"真实姓名\",\n    \"introducer\": \"介绍人\",\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"pusers\": {   # 推荐理财师数\n        \"total\": 12,\n    },\n    \"orders\": 199,  # 推荐交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
           "type": "json"
         }
       ]
