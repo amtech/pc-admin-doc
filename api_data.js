@@ -248,7 +248,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"mobile\": \"1506554645\",\n    \"source\": 1,    # 来源，1：来自公司,2:来自投顾\n    \"referrer_type\": 1, # 绑定人类型,1:投顾，2 推荐人\n    \"referrer_id\": 100198,  # 绑定人ID\n}",
+          "content": "{\n    \"mobile\": \"1506554645\",\n    \"source\": 1,    # 来源，1：来自公司,2:来自投顾\n    \"adviser_id\": 100133,   # 投顾ID\n    \"referrer_id\": 100198,  # 推荐人ID\n}",
           "type": "json"
         }
       ]
@@ -306,7 +306,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"referrer_name\": \"推荐人\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"mobile\": \"1506712321\",\n    \"referrer_name\": \"推荐人\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
           "type": "json"
         }
       ]
@@ -381,6 +381,39 @@ define({ "api": [
           "type": "json"
         }
       ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "post",
+    "url": "/api/channel/pusers/:user_id/unbound",
+    "title": "绑定理财师",
+    "name": "unbound_puser",
+    "group": "Channel",
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "get",
+    "url": "/api/channel/referrers/:id",
+    "title": "解绑推荐人",
+    "name": "unbound_referrer",
+    "group": "Channel",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "adviser_id",
+            "description": "<p>投顾ID</p>"
+          }
+        ]
+      }
     },
     "version": "0.0.0",
     "filename": "../admin/frontend/channel.py",
@@ -1651,6 +1684,13 @@ define({ "api": [
             "group": "Parameter",
             "type": "int",
             "optional": true,
+            "field": "channel_user_id",
+            "description": "<p>渠道查询时的理财师ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
             "field": "page",
             "description": "<p>第几页</p>"
           },
@@ -1668,7 +1708,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\"\n    },\n    \"currency\": 1,\n    \"profit_type\": 1,\n    \"customer_name\": \"客户名称\",\n    \"is_confirmed\": true,                     # 是否已完成\n    \"precontract_amount\": 300,          # 金额\n    \"pay_time\": \"2017-03-01\",  # 打款时间\n    \"buy_time\": \"2017-03-01\",   # 计息确认日\n    \"closed\": true,     # 是否已关闭\n    \"persistent_share\": 100,    # 存续份额\n}]",
+          "content": "[{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\"\n    },\n    \"currency\": 1,\n    \"profit_type\": 1,\n    \"customer_name\": \"客户名称\",\n    \"is_confirmed\": true,                     # 是否已完成\n    \"precontract_amount\": 300,          # 金额\n    \"pay_time\": \"2017-03-01\",  # 打款时间\n    \"buy_time\": \"2017-03-01\",   # 计息确认日\n    \"closed\": true,     # 是否已关闭\n    \"persistent_share\": 100,    # 存续份额\n    \"created_time\": \"2017-03-01T17:33:21\"\n}]",
           "type": "json"
         }
       ]
