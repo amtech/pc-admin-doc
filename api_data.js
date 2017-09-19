@@ -239,6 +239,25 @@ define({ "api": [
     "groupTitle": "Certification"
   },
   {
+    "type": "get",
+    "url": "/api/channel/advisers",
+    "title": "投顾列表",
+    "name": "adviser_list",
+    "group": "Channel",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"referrers\": 12,    # 推荐人数\n    \"pusers\": 12,   # 理财师数\n    \"orders\": 99,   # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    }\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
     "type": "post",
     "url": "/api/channel/pusers",
     "title": "绑定理财师",
@@ -389,7 +408,7 @@ define({ "api": [
   {
     "type": "post",
     "url": "/api/channel/pusers/:user_id/unbound",
-    "title": "绑定理财师",
+    "title": "解绑理财师",
     "name": "unbound_puser",
     "group": "Channel",
     "version": "0.0.0",
@@ -414,6 +433,25 @@ define({ "api": [
           }
         ]
       }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "put",
+    "url": "/api/channel/referrers",
+    "title": "修改推荐人",
+    "name": "update_referrer",
+    "group": "Channel",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"real_name\": \"真实姓名\",\n    \"introducer\": \"介绍人\",\n    \"mobile\": \"1506554645\",\n    \"org_name\": \"机构名称\",\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"remark\": \"备注\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "../admin/frontend/channel.py",
