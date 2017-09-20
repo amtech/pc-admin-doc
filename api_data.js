@@ -406,6 +406,77 @@ define({ "api": [
     "groupTitle": "Channel"
   },
   {
+    "type": "get",
+    "url": "/api/channel/stats/base",
+    "title": "数据统计",
+    "name": "stats_base",
+    "group": "Channel",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "adviser_id",
+            "description": "<p>投顾ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "source",
+            "description": "<p>来源，1：来自投顾自身，2：来自推荐人</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "get",
+    "url": "/api/channel/stats/graph",
+    "title": "占比统计",
+    "name": "stats_graph",
+    "group": "Channel",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "adviser_id",
+            "description": "<p>投顾ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
     "type": "post",
     "url": "/api/channel/pusers/:user_id/unbound",
     "title": "解绑理财师",
@@ -416,7 +487,7 @@ define({ "api": [
     "groupTitle": "Channel"
   },
   {
-    "type": "get",
+    "type": "delete",
     "url": "/api/channel/referrers/:id",
     "title": "解绑推荐人",
     "name": "unbound_referrer",
@@ -440,7 +511,7 @@ define({ "api": [
   },
   {
     "type": "put",
-    "url": "/api/channel/referrers",
+    "url": "/api/channel/referrers/:id",
     "title": "修改推荐人",
     "name": "update_referrer",
     "group": "Channel",
@@ -2039,7 +2110,26 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/org.py",
+    "groupTitle": "Org"
+  },
+  {
+    "type": "get",
+    "url": "/api/org/:org_id",
+    "title": "机构详情",
+    "name": "OrgList",
+    "group": "Org",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
           "type": "json"
         }
       ]
@@ -2830,7 +2920,7 @@ define({ "api": [
             "optional": true,
             "field": "tag",
             "defaultValue": "2",
-            "description": "<p>用户标签 1:内部用户,2:外部用户</p>"
+            "description": "<p>用户标签 1:内部用户,2:外部用户,3:游客</p>"
           },
           {
             "group": "Parameter",
