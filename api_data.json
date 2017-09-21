@@ -297,6 +297,25 @@
   },
   {
     "type": "get",
+    "url": "/api/channel/pusers/:id",
+    "title": "理财师详情",
+    "name": "puser_detail",
+    "group": "Channel",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"mobile\": \"1506712321\",\n    \"referrer_name\": \"推荐人\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "get",
     "url": "/api/channel/pusers",
     "title": "理财师列表",
     "name": "puser_list",
@@ -468,6 +487,59 @@
         {
           "title": "Success-Response:",
           "content": "{\n    \"adviser\": [],\n    \"channel\": [    # 渠道\n        {\n            \"name\": \"adviser\",  # 投顾\n            \"value\": 0\n        },\n        {\n            \"name\": \"company\",  # 来自公司\n            \"value\": 0\n        },\n        {\n            \"name\": \"internal_referrer\",    # 内部\n            \"value\": 0\n        },\n        {\n            \"name\": \"external_referrer\",    # 外部\n            \"value\": 0\n        }\n    ],\n    \"puser\": [{\"name\": \"dsadsa\", \"value\": 0.13}],   # 理财师\n    \"referrer\": [{\"name\": \"dsadsa\", \"value\": 0.13}],    # 推荐人\n    \"rate\": {\n        \"date\": \"2017-09-20\",\n        \"value\": 6.5666\n    },\n\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "get",
+    "url": "/api/channel/stats/trend",
+    "title": "趋势统计",
+    "name": "stats_trend",
+    "group": "Channel",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "adviser_id",
+            "description": "<p>投顾ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "source",
+            "description": "<p>来源，1：来自投顾自身，2：来自推荐人</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "target",
+            "description": "<p>数据对象,1:人民币，2：美元</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "interval",
+            "description": "<p>间隔,day:天,week:周,month:月</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"date\": \"2017-12-11\",\n    \"value\": 12\n}]",
           "type": "json"
         }
       ]
@@ -2089,6 +2161,25 @@
   },
   {
     "type": "get",
+    "url": "/api/org/:org_id",
+    "title": "机构详情",
+    "name": "OrgList",
+    "group": "Org",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/org.py",
+    "groupTitle": "Org"
+  },
+  {
+    "type": "get",
     "url": "/api/org",
     "title": "机构列表",
     "name": "OrgList",
@@ -2106,25 +2197,6 @@
         ]
       }
     },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/org.py",
-    "groupTitle": "Org"
-  },
-  {
-    "type": "get",
-    "url": "/api/org/:org_id",
-    "title": "机构详情",
-    "name": "OrgList",
-    "group": "Org",
     "success": {
       "examples": [
         {
