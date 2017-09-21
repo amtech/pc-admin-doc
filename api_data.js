@@ -435,7 +435,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{}",
+          "content": "{\n    \"amounts\": {\n        \"dollar\": 0,\n        \"rmb\": 0\n    },\n    \"orders\": 0,    # 单量\n    \"pusers\": {     # 理财师\n        \"total\": 9,\n        \"valid\": 0\n    },\n    \"referrer\": {   # 推荐人\n        \"total\": 6,\n        \"valid\": 0\n    }\n}",
           "type": "json"
         }
       ]
@@ -467,7 +467,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{}",
+          "content": "{\n    \"adviser\": [],\n    \"channel\": [    # 渠道\n        {\n            \"name\": \"adviser\",  # 投顾\n            \"value\": 0\n        },\n        {\n            \"name\": \"company\",  # 来自公司\n            \"value\": 0\n        },\n        {\n            \"name\": \"internal_referrer\",    # 内部\n            \"value\": 0\n        },\n        {\n            \"name\": \"external_referrer\",    # 外部\n            \"value\": 0\n        }\n    ],\n    \"puser\": [{\"name\": \"dsadsa\", \"value\": 0.13}],   # 理财师\n    \"referrer\": [{\"name\": \"dsadsa\", \"value\": 0.13}],    # 推荐人\n    \"rate\": {\n        \"date\": \"2017-09-20\",\n        \"value\": 6.5666\n    },\n\n}",
           "type": "json"
         }
       ]
