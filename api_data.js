@@ -1283,6 +1283,25 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/logs/channel",
+    "title": "渠道日志",
+    "name": "ChannelLogList",
+    "group": "Log",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"created_time\": \"2015-12-11T13:00:00\",\n    \"name\": \"xiaom1\"，\n    \"operate_type\": 1,  # 操作类型,2:增加，5:删除，15：更新，16：绑定，17：解绑\n    \"operate_target\": 2,    # 操作对象, 30:推荐人,31:理财师\n    \"operate_content\": \"内容\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/log.py",
+    "groupTitle": "Log"
+  },
+  {
+    "type": "get",
     "url": "/api/logs/details",
     "title": "日志详情列表",
     "name": "LogDetails",
@@ -2161,25 +2180,6 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/org/:org_id",
-    "title": "机构详情",
-    "name": "OrgList",
-    "group": "Org",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/org.py",
-    "groupTitle": "Org"
-  },
-  {
-    "type": "get",
     "url": "/api/org",
     "title": "机构列表",
     "name": "OrgList",
@@ -2197,6 +2197,25 @@ define({ "api": [
         ]
       }
     },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/org.py",
+    "groupTitle": "Org"
+  },
+  {
+    "type": "get",
+    "url": "/api/org/:org_id",
+    "title": "机构详情",
+    "name": "OrgList",
+    "group": "Org",
     "success": {
       "examples": [
         {
