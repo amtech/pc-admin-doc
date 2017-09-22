@@ -523,7 +523,7 @@ define({ "api": [
             "type": "int",
             "optional": false,
             "field": "target",
-            "description": "<p>数据对象,1:人民币，2：美元</p>"
+            "description": "<p>数据对象,1:人民币，2：美元,3:有效推荐人,4:推荐人总数，5：成交理财师，6：理财师总数，7：总交易</p>"
           },
           {
             "group": "Parameter",
