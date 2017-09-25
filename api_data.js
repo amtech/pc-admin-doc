@@ -49,7 +49,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"name\": \"孙谷宇\",\n    \"role\": 1           # 角色 0:普通, 1:管理员, 2:运营管理员, 3:数据管理员, 4:财务管理员\n}",
+          "content": "{\n    \"id\": 12,\n    \"name\": \"孙谷宇\",\n    \"role\": 1           # 角色 0:普通, 1:管理员, 2:运营管理员, 3:数据管理员, 4:财务管理员\n}",
           "type": "json"
         }
       ]
@@ -240,6 +240,25 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/channel/advisers/:id",
+    "title": "投顾详情",
+    "name": "adviser_detail",
+    "group": "Channel",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"id\": 12,\n    \"name\": \"姓名\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "get",
     "url": "/api/channel/advisers",
     "title": "投顾列表",
     "name": "adviser_list",
@@ -344,7 +363,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"mobile\": \"1506712321\",\n    \"referrer_name\": \"推荐人\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"source\":1,\n    \"mobile\": \"1506712321\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
           "type": "json"
         }
       ]
