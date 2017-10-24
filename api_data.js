@@ -2258,7 +2258,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成, 4:募集结束\n    \"profit_type\": 1,   # 产品类型 0：固定， 1：浮动\n    \"type\": 1,\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款时间 日期或时间格式字符串都行\n    \"strategy\": {\n        \"value\": \"101010\",\n        \"text\": \"\"\n    },\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"first_open_date\": \"2017-12-16\":     # 首次开放日\n    \"current_open_date\": \"2017-12-16\":     # 本期开放日\n    \"dividend_type\": 1, # 分红方式\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"max_fee_sale\": \"最高销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"relevant_files\": [{\"id\": 23, \"type\": 1}], # 相关文件\n    \"remark\": \"备注\",\n    \"hide\": true,\n    \"top\": true,\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n    }],\n    \"distribution_period\": 3,   # 分配周期\n    \"first_distribution_date\": \"2017-12-11\",    # 首次分配日\n    \"estimated_dividends_time_description\": \"预计打款时间描述\",\n    \"increment_size\": 3,        # 递增金额\n    \"period_type\": 1,           # 定期开放类型,1:自动,2:手动\n    \"period\": 3,                # 开放周期\n    \"period_unit\": 1,           # 开放周期单位,1:月，2：周\n    \"distributions\": [{         # 手动分配记录\n        \"date\": \"2017-12-11\",   # 分配日\n        \"redeem_percent\": 3.11  # 本金分配比例\n    }]\n}",
+          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成, 4:募集结束\n    \"profit_type\": 1,   # 产品类型 0：固定， 1：浮动\n    \"type\": 1,\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款时间 日期或时间格式字符串都行\n    \"strategy\": {\n        \"value\": \"101010\",\n        \"text\": \"\"\n    },\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"first_open_date\": \"2017-12-16\":     # 首次开放日\n    \"current_open_date\": \"2017-12-16\":     # 本期开放日\n    \"dividend_type\": 1, # 分红方式\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"max_fee_sale\": \"最高销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"relevant_files\": [{\"id\": 23, \"type\": 1}], # 相关文件\n    \"remark\": \"备注\",\n    \"hide\": true,\n    \"top\": true,\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"settlement_days\": 33,      # 结算天数\n        \"sales_expense\": 0.33,      # 销售费用比例\n    }],\n    \"distribution_period\": 3,   # 分配周期\n    \"first_distribution_date\": \"2017-12-11\",    # 首次分配日\n    \"estimated_dividends_time_description\": \"预计打款时间描述\",\n    \"increment_size\": 3,        # 递增金额\n    \"period_type\": 1,           # 定期开放类型,1:自动,2:手动\n    \"period\": 3,                # 开放周期\n    \"period_unit\": 1,           # 开放周期单位,1:月，2：周\n    \"distributions\": [{         # 手动分配记录\n        \"date\": \"2017-12-11\",   # 分配日\n        \"redeem_percent\": 3.11  # 本金分配比例\n    }],\n    \"expenses_type\": 1,         # 产品费用类型\n    \"tax_rate\": 12,             # 税率\n    \"expenses\": [{              # 费用\n        \"condition_floor\": 12,  # 金额下限/万\n        \"condition_ceiling\": 33,# 金额上限/万\n        \"total\": 3,             # 总费用\n        \"exploit\": 4,           # 开发费\n        \"underwrite\":1,         # 包销费\n        distribution: 3,        # 发行费\n        sales: 3,               # 销售费\n        management: 1,          # 管理费\n        management_sales: 3.9,  # 管理销售费用\n        management_exploit: 1,  # 管理开发费用\n        management_underwrite: 3,   # 管理包销费用\n        management_distribution: 1, # 管理发行费用\n        performance:3,          # 业绩费\n        performance_sales: 1,   # 业绩销售费用\n        performance_exploit: 9, # 业绩开发费用\n        performance_underwrite: 9,  # 业绩包销费用\n        performance_distribution: 1 # 业绩发行费用\n    }]\n}",
           "type": "json"
         }
       ]
@@ -2370,6 +2370,25 @@ define({ "api": [
     "groupTitle": "Product"
   },
   {
+    "type": "post",
+    "url": "/api/products/:pid/settlement",
+    "title": "创建产品结算记录",
+    "name": "CreateSettlement",
+    "group": "Product",
+    "version": "1.0.0",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"days\":  12，    # 结算天数\n    \"amount\": 122,  # 金额\n    \"remark\": \"备注\",\n    \"date\": \"2015-12-01\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
     "type": "delete",
     "url": "/api/products/:pid/distributions/:id",
     "title": "删除临时分配记录",
@@ -2386,6 +2405,16 @@ define({ "api": [
     "name": "DeleteProductNews",
     "group": "Product",
     "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "delete",
+    "url": "/api/products/:pid/settlement/:id",
+    "title": "删除产品结算记录",
+    "name": "DeleteSettlement",
+    "group": "Product",
+    "version": "1.0.0",
     "filename": "../admin/frontend/product.py",
     "groupTitle": "Product"
   },
@@ -2590,6 +2619,25 @@ define({ "api": [
     "groupTitle": "Product"
   },
   {
+    "type": "get",
+    "url": "/api/products/:pid/settlement",
+    "title": "产品结算记录",
+    "name": "Settlements",
+    "group": "Product",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"days\":  12，    # 结算天数\n    \"amount\": 122,  # 金额\n    \"date\": \"2015-12-01\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
     "type": "put",
     "url": "/api/products/:pid",
     "title": "更新产品",
@@ -2658,6 +2706,25 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "put",
+    "url": "/api/products/:pid/settlement/:id",
+    "title": "修改产品结算记录",
+    "name": "UpdateSettlement",
+    "group": "Product",
+    "version": "1.0.0",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "参数同创建",
+          "type": "json"
+        }
+      ]
+    },
     "filename": "../admin/frontend/product.py",
     "groupTitle": "Product"
   },
