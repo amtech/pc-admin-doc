@@ -1653,6 +1653,25 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/expense/total",
+    "title": "费用总计",
+    "name": "TotalExpense",
+    "group": "Expense",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"distribution\": {\"rmb\":0, \"dollar\": 0}, # 发行\n    \"underwrite\": {\"rmb\":0, \"dollar\": 0},    # 包销\n    \"exploit\": {\"rmb\":0, \"dollar\": 0},  # 开发\n    \"tax\": {\"rmb\":0, \"dollar\": 0},   # 税费\n    \"sales\": {\"rmb\":0, \"dollar\": 0},    # 销售\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"performance\": {\"rmb\":0, \"dollar\": 0},  # 业绩\n    \"waiting\": {\"rmb\":0, \"dollar\": 0}   # 待结算\n    \"total\": {\"rmb\":0, \"dollar\": 0}   # 总计\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
     "url": "/api/expense/users",
     "title": "理财师费用",
     "name": "UserExpenseList",
