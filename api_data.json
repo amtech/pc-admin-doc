@@ -297,6 +297,44 @@
   },
   {
     "type": "post",
+    "url": "/api/channel/introducers/bound_user",
+    "title": "绑定兼职投顾/推荐人",
+    "name": "bound_user",
+    "group": "Channel",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"type\": 1,  # 1:推荐人,2:兼职投顾\n    \"id\": 33,\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "post",
+    "url": "/api/channel/introducers",
+    "title": "创建介绍人",
+    "name": "create_introducer",
+    "group": "Channel",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"name\": \"真实姓名\",\n    \"mobile\": \"1506554645\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "post",
     "url": "/api/channel/referrers",
     "title": "创建推荐人",
     "name": "create_referrer",
@@ -306,6 +344,35 @@
         {
           "title": "Request-Example:",
           "content": "{\n    \"real_name\": \"真实姓名\",\n    \"introducer\": \"介绍人\",\n    \"mobile\": \"1506554645\",\n    \"org_name\": \"机构名称\",\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"remark\": \"备注\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "DELETE",
+    "url": "/api/channel/introducer/:id",
+    "title": "删除介绍人",
+    "name": "delete_introducer",
+    "group": "Channel",
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "get",
+    "url": "/api/channel/introducers",
+    "title": "介绍人列表",
+    "name": "introducer_list",
+    "group": "Channel",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"真实姓名\",\n    \"investors\": 12,    # 投顾人数\n    \"referrers\": 1,  # 推荐人数\n}]",
           "type": "json"
         }
       ]
@@ -595,6 +662,25 @@
           }
         ]
       }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "put",
+    "url": "/api/channel/introducer/:id",
+    "title": "修改介绍人",
+    "name": "update_introducer",
+    "group": "Channel",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"name\": \"真实姓名\",\n    \"mobile\": \"1506554645\",\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "../admin/frontend/channel.py",
@@ -1152,6 +1238,133 @@
     "version": "0.0.0",
     "filename": "../admin/frontend/event.py",
     "groupTitle": "Event"
+  },
+  {
+    "type": "post",
+    "url": "/api/expense/product_settlements",
+    "title": "创建产品结算记录",
+    "name": "CreateProductSettlement",
+    "group": "Expense",
+    "version": "1.0.0",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"product_id\": 13,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"days\":  12，    # 结算天数\n    \"amount\": 122,  # 金额\n    \"remark\": \"备注\",\n    \"date\": \"2015-12-01\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
+    "url": "/api/expense/order/:order_no",
+    "title": "订单费用列表",
+    "name": "OrderExpense",
+    "group": "Expense",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"total\": {\n        \"total\": 33,\n        \"distribution\": 33, # 发行\n        \"sales\": 9, # 销售\n        \"underwrite\": 9,    # 包销\n        \"exploit\": 99,  # 开发\n        \"tax\": 3,   # 税费\n    },\n    \"data\": [{\n        \"id\": 3,\n        \"name\": \"小明\",\n        \"user_id\": 333,\n        \"role\": 3,\n        \"total\": 33,\n        \"distribution\": 33, # 发行\n        \"sales\": 9, # 销售\n        \"underwrite\": 9,    # 包销\n        \"exploit\": 99,  # 开发\n        \"tax\": 3,   # 税费\n    }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
+    "url": "/api/expense/order/:order_no",
+    "title": "订单结算费用",
+    "name": "OrderExpenseList",
+    "group": "Expense",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"expense\": 33, # 结算费\n    \"sales\": 9, # 已结算销售天数/认购费\n    \"distribution\": 9,  #已结算发行天数\n    \"underwrite\": 9,    # 已结算包销天数\n    \"exploit\": 99,  # 已结算开发天数\n    \"tax\": 3,   # 税费\n    \"remained_distribution\": 3, # 未结算发行天数\n    \"remained_underwrite\": 3, # 未结算包销天数\n    \"remained_exploit\": 3, # 未结算开发天数\n    \"sales_expense\": 3, # 结算认购费\n    \"management_expense\": 3,    # 结算管理费\n    \"performance_expense\": 3,   # 结算业绩费\n    \"total\": 33,    # 总费用\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
+    "url": "/api/expense/order_settlements/:order_no",
+    "title": "订单结算记录",
+    "name": "OrderSettlements",
+    "group": "Expense",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"name\": \"小明\",\n    \"user_id\": 333,\n    \"role\": 3,\n    \"settlement_expense\": 33,   # 结算费用\n    \"type\": 3, # 结算费用类型\n    \"settlement_days\": 9, # 结算天数\n    \"remark\": \"备注\",\n    \"tax\": 3,   # 税费\n    \"date\": \"2015-12-01\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
+    "url": "/api/expense/product_settlements",
+    "title": "产品结算记录",
+    "name": "ProductSettlements",
+    "group": "Expense",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "product_id",
+            "description": "<p>产品ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"days\":  12，    # 结算天数\n    \"amount\": 122,  # 金额\n    \"date\": \"2015-12-01\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
+    "url": "/api/expense/users",
+    "title": "理财师费用",
+    "name": "UserExpenseList",
+    "group": "Expense",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"sales\": {\"rmb\":0, \"dollar\": 0},    # 销售\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"performance\": {\"rmb\":0, \"dollar\": 0},  # 业绩\n    \"waiting\": {\"rmb\":0, \"dollar\": 0}   # 待结算\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
   },
   {
     "type": "patch",
@@ -1910,6 +2123,13 @@
             "group": "Parameter",
             "type": "int",
             "optional": true,
+            "field": "product_id",
+            "description": "<p>产品ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
             "field": "page",
             "description": "<p>第几页</p>"
           },
@@ -2370,25 +2590,6 @@
     "groupTitle": "Product"
   },
   {
-    "type": "post",
-    "url": "/api/products/:pid/settlement",
-    "title": "创建产品结算记录",
-    "name": "CreateSettlement",
-    "group": "Product",
-    "version": "1.0.0",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"days\":  12，    # 结算天数\n    \"amount\": 122,  # 金额\n    \"remark\": \"备注\",\n    \"date\": \"2015-12-01\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "../admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
     "type": "delete",
     "url": "/api/products/:pid/distributions/:id",
     "title": "删除临时分配记录",
@@ -2410,12 +2611,44 @@
   },
   {
     "type": "delete",
-    "url": "/api/products/:pid/settlement/:id",
+    "url": "/api/expense/product_settlement/:id",
     "title": "删除产品结算记录",
-    "name": "DeleteSettlement",
+    "name": "DeleteProductSettlement",
     "group": "Product",
     "version": "1.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "get",
+    "url": "/api/expense/product_statistic",
+    "title": "产品费用统计",
+    "name": "ExpenseStatistic",
+    "group": "Product",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "product_id",
+            "description": "<p>产品ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 3,\n    \"name\": \"产品名称\",\n    \"maximum_size\": 1,  # 总额度\n    \"current_precontract_size\": 1,  # 已募集\n    \"surplus_size\": 99, # 剩余\n    \"total\": 99, # 总计\n    \"sales\": 12, # 销售费\n    \"distribution\":  12，    # 发行\n    \"underwrite\": 122,  # 包销\n    \"exploit\": 99,  # 开发\n    \"tax\": 99,  # 税费\n    \"management\": 99,  # 管理\n    \"performance\": 99,  # 业绩\n    \"waiting\": 99,  # 待结算\n    \"currency\": 1,\n    \"profit_type\": 1,\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
     "groupTitle": "Product"
   },
   {
@@ -2619,25 +2852,6 @@
     "groupTitle": "Product"
   },
   {
-    "type": "get",
-    "url": "/api/products/:pid/settlement",
-    "title": "产品结算记录",
-    "name": "Settlements",
-    "group": "Product",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"days\":  12，    # 结算天数\n    \"amount\": 122,  # 金额\n    \"date\": \"2015-12-01\"\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
     "type": "put",
     "url": "/api/products/:pid",
     "title": "更新产品",
@@ -2711,9 +2925,9 @@
   },
   {
     "type": "put",
-    "url": "/api/products/:pid/settlement/:id",
+    "url": "/api/expense/product_settlement/:id",
     "title": "修改产品结算记录",
-    "name": "UpdateSettlement",
+    "name": "UpdateProductSettlement",
     "group": "Product",
     "version": "1.0.0",
     "parameter": {
@@ -2725,7 +2939,7 @@
         }
       ]
     },
-    "filename": "../admin/frontend/product.py",
+    "filename": "../admin/frontend/expense.py",
     "groupTitle": "Product"
   },
   {
