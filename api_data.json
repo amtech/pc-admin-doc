@@ -1062,6 +1062,173 @@
   {
     "type": "get",
     "url": "/",
+    "title": "产品费中的各类角色",
+    "name": "ProductExpenseRole",
+    "group": "Constant",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "1",
+            "description": "<p>理财师</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "2",
+            "description": "<p>理财师推荐人</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "3",
+            "description": "<p>推荐人介绍人</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "4",
+            "description": "<p>投顾介绍人</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "5",
+            "description": "<p>投顾</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "6",
+            "description": "<p>兼职投顾</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "7",
+            "description": "<p>产品部</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "8",
+            "description": "<p>公司</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/apidoc.py",
+    "groupTitle": "Constant"
+  },
+  {
+    "type": "get",
+    "url": "/",
+    "title": "产品费用类型",
+    "name": "ProductExpensesType",
+    "group": "Constant",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "1",
+            "description": "<p>代理</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "2",
+            "description": "<p>包销</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "3",
+            "description": "<p>裸</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/apidoc.py",
+    "groupTitle": "Constant"
+  },
+  {
+    "type": "get",
+    "url": "/",
+    "title": "产品费用结算类型",
+    "name": "ProductSettlementType",
+    "group": "Constant",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "1",
+            "description": "<p>销售</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "2",
+            "description": "<p>发行</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "4",
+            "description": "<p>开发</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "8",
+            "description": "<p>包销</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "16",
+            "description": "<p>管理</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "32",
+            "description": "<p>业绩</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/apidoc.py",
+    "groupTitle": "Constant"
+  },
+  {
+    "type": "get",
+    "url": "/",
     "title": "用户角色",
     "name": "Role",
     "group": "Constant",
@@ -1102,6 +1269,43 @@
             "optional": false,
             "field": "24",
             "description": "<p>合伙人</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/apidoc.py",
+    "groupTitle": "Constant"
+  },
+  {
+    "type": "get",
+    "url": "/",
+    "title": "用户标签",
+    "name": "Tag",
+    "group": "Constant",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "1",
+            "description": "<p>内部用户</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "2",
+            "description": "<p>外部用户</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "4",
+            "description": "<p>推荐人</p>"
           }
         ]
       }
@@ -2419,6 +2623,25 @@
   },
   {
     "type": "get",
+    "url": "/api/org/:org_id",
+    "title": "机构详情",
+    "name": "OrgList",
+    "group": "Org",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/org.py",
+    "groupTitle": "Org"
+  },
+  {
+    "type": "get",
     "url": "/api/org",
     "title": "机构列表",
     "name": "OrgList",
@@ -2436,25 +2659,6 @@
         ]
       }
     },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/org.py",
-    "groupTitle": "Org"
-  },
-  {
-    "type": "get",
-    "url": "/api/org/:org_id",
-    "title": "机构详情",
-    "name": "OrgList",
-    "group": "Org",
     "success": {
       "examples": [
         {
