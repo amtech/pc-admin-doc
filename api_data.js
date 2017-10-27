@@ -383,6 +383,25 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/channel/introducers/:id/members",
+    "title": "介绍人介绍的人员列表",
+    "name": "introducer_members",
+    "group": "Channel",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"真实姓名\",\n    \"role\": 1,  # 1：推荐人，2：兼职投顾\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "get",
     "url": "/api/channel/pusers/:id",
     "title": "理财师详情",
     "name": "puser_detail",
@@ -1742,7 +1761,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"days\":  12，    # 结算天数\n    \"amount\": 122,  # 金额\n    \"date\": \"2015-12-01\"\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"days\":  12，    # 结算天数\n    \"amount\": 122,  # 金额\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\"\n}]",
           "type": "json"
         }
       ]
@@ -1851,6 +1870,45 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "[{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"sales\": {\"rmb\":0, \"dollar\": 0},    # 销售\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"performance\": {\"rmb\":0, \"dollar\": 0},  # 业绩\n    \"waiting\": {\"rmb\":0, \"dollar\": 0}   # 待结算\n    \"total\": {\"rmb\":0, \"dollar\": 0}   # 总计\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
+    "url": "/api/expense/user_total_detail",
+    "title": "用户费用统计",
+    "name": "UserExpenseStatistic",
+    "group": "Expense",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "role",
+            "description": "<p>角色</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "user_id",
+            "description": "<p>用户ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"settlemented\": {\"rmb\":0, \"dollar\": 0},   # 已结算\n    \"waiting\": {\"rmb\":0, \"dollar\": 0},   # 待结算\n    \"tax\": {\"rmb\":0, \"dollar\": 0},   # 税费\n}",
           "type": "json"
         }
       ]
@@ -2912,25 +2970,6 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/org/:org_id",
-    "title": "机构详情",
-    "name": "OrgList",
-    "group": "Org",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/org.py",
-    "groupTitle": "Org"
-  },
-  {
-    "type": "get",
     "url": "/api/org",
     "title": "机构列表",
     "name": "OrgList",
@@ -2948,6 +2987,25 @@ define({ "api": [
         ]
       }
     },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/org.py",
+    "groupTitle": "Org"
+  },
+  {
+    "type": "get",
+    "url": "/api/org/:org_id",
+    "title": "机构详情",
+    "name": "OrgList",
+    "group": "Org",
     "success": {
       "examples": [
         {
