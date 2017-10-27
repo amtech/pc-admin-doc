@@ -402,6 +402,38 @@
   },
   {
     "type": "get",
+    "url": "/api/channel/parttime_advisers",
+    "title": "兼职投顾列表",
+    "name": "parttime_adviser_list",
+    "group": "Channel",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "no_introducer_name",
+            "description": "<p>姓名</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/channel.py",
+    "groupTitle": "Channel"
+  },
+  {
+    "type": "get",
     "url": "/api/channel/pusers/:id",
     "title": "理财师详情",
     "name": "puser_detail",
@@ -512,6 +544,13 @@
             "optional": true,
             "field": "adviser_id",
             "description": "<p>投顾ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "no_introducer_name",
+            "description": "<p>姓名</p>"
           }
         ]
       }
