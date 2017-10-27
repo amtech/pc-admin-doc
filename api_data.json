@@ -1652,7 +1652,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"expense\": 33, # 结算费\n    \"sales\": 9, # 已结算销售天数/认购费\n    \"distribution\": 9,  #已结算发行天数\n    \"underwrite\": 9,    # 已结算包销天数\n    \"exploit\": 99,  # 已结算开发天数\n    \"tax\": 3,   # 税费\n    \"remained_distribution\": 3, # 未结算发行天数\n    \"remained_underwrite\": 3, # 未结算包销天数\n    \"remained_exploit\": 3, # 未结算开发天数\n    \"sales_expense\": 3, # 结算认购费\n    \"management_expense\": 3,    # 结算管理费\n    \"performance_expense\": 3,   # 结算业绩费\n    \"total\": 33,    # 总费用\n}",
+          "content": "{\n    \"expense\": 33, # 结算费\n    \"sales\": 9, # 已结算销售天数\n    \"distribution\": 9,  #已结算发行天数\n    \"underwrite\": 9,    # 已结算包销天数\n    \"exploit\": 99,  # 已结算开发天数\n    \"tax\": 3,   # 税费\n    \"remained_distribution\": 3, # 未结算发行天数\n    \"remained_underwrite\": 3, # 未结算包销天数\n    \"remained_exploit\": 3, # 未结算开发天数\n    \"sales_expense\": 3, # 结算认购费\n    \"management_expense\": 3,    # 结算管理费\n    \"performance_expense\": 3,   # 结算业绩费\n    \"total\": 33,    # 总费用\n}",
           "type": "json"
         }
       ]
@@ -1663,7 +1663,7 @@
   },
   {
     "type": "get",
-    "url": "/api/expense/order_settlements/:order_no",
+    "url": "/api/expense/order_settlement/:order_no",
     "title": "订单结算记录",
     "name": "OrderSettlements",
     "group": "Expense",
