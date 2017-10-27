@@ -1574,6 +1574,45 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/expense",
+    "title": "费用列表",
+    "name": "ExpenseList",
+    "group": "Expense",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "role",
+            "description": "<p>角色</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "user_id",
+            "description": "<p>用户ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"user_name\": \"理财师名\"\n    \"product_name\": \"产品名\"\n    \"order_no\": \"809d809sa809dsa\",  # 订单号\n    \"tax\": 0,   # 税费\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"settlemented\": 0,  # 已结算\n    \"waiting\": 0   # 待结算\n    \"currency\": 1,  # 币种\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
     "url": "/api/expense/product_statistic",
     "title": "产品费用统计",
     "name": "ExpenseStatistic",
