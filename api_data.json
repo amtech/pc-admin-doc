@@ -1614,7 +1614,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"total\": {\n        \"total\": 33,\n        \"distribution\": 33, # 发行\n        \"sales\": 9, # 销售\n        \"underwrite\": 9,    # 包销\n        \"exploit\": 99,  # 开发\n        \"tax\": 3,   # 税费\n    },\n    \"data\": [{\n        \"id\": 3,\n        \"name\": \"小明\",\n        \"user_id\": 333,\n        \"role\": 3,\n        \"total\": 33,\n        \"distribution\": 33, # 发行\n        \"sales\": 9, # 销售\n        \"underwrite\": 9,    # 包销\n        \"exploit\": 99,  # 开发\n        \"tax\": 3,   # 税费\n    }]\n}",
+          "content": "[{\n        \"id\": 3,\n        \"name\": \"小明\",\n        \"user_id\": 333,\n        \"role\": 3,\n        \"total\": 33,\n        \"distribution\": 33, # 发行\n        \"sales\": 9, # 销售\n        \"underwrite\": 9,    # 包销\n        \"exploit\": 99,  # 开发\n        \"tax\": 3,   # 税费\n}]",
           "type": "json"
         }
       ]
@@ -1625,9 +1625,28 @@
   },
   {
     "type": "get",
-    "url": "/api/expense/order/:order_no",
-    "title": "订单结算费用",
-    "name": "OrderExpenseList",
+    "url": "/api/expense/order/total/:order_no",
+    "title": "订单费用统计",
+    "name": "OrderExpenseStatistic",
+    "group": "Expense",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"total\": 33,\n    \"distribution\": 33, # 发行\n    \"sales\": 9, # 销售\n    \"underwrite\": 9,    # 包销\n    \"exploit\": 99,  # 开发\n    \"tax\": 3,   # 税费\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
+    "url": "/api/expense//order_settlement/total/:order_no",
+    "title": "订单结算费用统计",
+    "name": "OrderSettlementStatistic",
     "group": "Expense",
     "success": {
       "examples": [
@@ -1703,7 +1722,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"sales\": {\"rmb\":0, \"dollar\": 0},    # 销售\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"performance\": {\"rmb\":0, \"dollar\": 0},  # 业绩\n    \"waiting\": {\"rmb\":0, \"dollar\": 0}   # 待结算\n}]",
+          "content": "[{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"role\": 3,  # 角色\n    \"distribution\": {\"rmb\":0, \"dollar\": 0},    # 发行\n    \"underwrite\": {\"rmb\":0, \"dollar\": 0},    # 包销\n    \"exploit\": {\"rmb\":0, \"dollar\": 0},    # 开发\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"performance\": {\"rmb\":0, \"dollar\": 0},  # 业绩\n    \"waiting\": {\"rmb\":0, \"dollar\": 0}   # 待结算\n    \"total\": {\"rmb\":0, \"dollar\": 0}   # 总计\n}]",
           "type": "json"
         }
       ]
@@ -1760,7 +1779,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"sales\": {\"rmb\":0, \"dollar\": 0},    # 销售\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"performance\": {\"rmb\":0, \"dollar\": 0},  # 业绩\n    \"waiting\": {\"rmb\":0, \"dollar\": 0}   # 待结算\n}]",
+          "content": "[{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"sales\": {\"rmb\":0, \"dollar\": 0},    # 销售\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"performance\": {\"rmb\":0, \"dollar\": 0},  # 业绩\n    \"waiting\": {\"rmb\":0, \"dollar\": 0}   # 待结算\n    \"total\": {\"rmb\":0, \"dollar\": 0}   # 总计\n}]",
           "type": "json"
         }
       ]
