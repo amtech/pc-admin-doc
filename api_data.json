@@ -354,7 +354,7 @@
   },
   {
     "type": "DELETE",
-    "url": "/api/channel/introducer/:id",
+    "url": "/api/channel/introducers/:id",
     "title": "删除介绍人",
     "name": "delete_introducer",
     "group": "Channel",
@@ -372,7 +372,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"真实姓名\",\n    \"investors\": 12,    # 投顾人数\n    \"referrers\": 1,  # 推荐人数\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"真实姓名\",\n    \"investors\": 12,    # 投顾人数\n    \"referrers\": 1,  # 推荐人数\n    \"mobile\": \"1412312312\"\n}]",
           "type": "json"
         }
       ]
@@ -688,7 +688,7 @@
   },
   {
     "type": "put",
-    "url": "/api/channel/introducer/:id",
+    "url": "/api/channel/introducers/:id",
     "title": "修改介绍人",
     "name": "update_introducer",
     "group": "Channel",
@@ -2669,6 +2669,13 @@
             "optional": true,
             "field": "channel_user_id",
             "description": "<p>渠道查询时的理财师ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "user_id",
+            "description": "<p>理财师ID</p>"
           },
           {
             "group": "Parameter",
