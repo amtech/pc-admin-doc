@@ -1768,7 +1768,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"小明\",\n    \"user_id\": 333,\n    \"role\": 3,\n    \"settlement_expense\": 33,   # 结算费用\n    \"type\": 3, # 结算费用类型\n    \"settlement_days\": 9, # 结算天数\n    \"remark\": \"备注\",\n    \"tax\": 3,   # 税费\n    \"date\": \"2015-12-01\"\n}]",
+          "content": "[{\n    \"name\": \"小明\",\n    \"user_id\": 333,\n    \"role\": 3,\n    \"settlement_expense\": 33,   # 结算费用\n    \"type\": 3, # 结算费用类型\n    \"settlement_days\": 9, # 结算天数\n    \"remark\": \"备注\",\n    \"tax\": 3,   # 税费\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-01T16:00:00\"\n}]",
           "type": "json"
         }
       ]
