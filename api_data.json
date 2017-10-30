@@ -305,7 +305,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"type\": 1,  # 1:推荐人,2:兼职投顾\n    \"id\": 33,\n}",
+          "content": "{\n    \"type\": 1,  # 1:推荐人,2:兼职投顾\n    \"id\": 33,\n    \"introducer_id\": 23 # 介绍人ID\n}",
           "type": "json"
         }
       ]
@@ -1741,7 +1741,7 @@
   },
   {
     "type": "get",
-    "url": "/api/expense//order_settlement/total/:order_no",
+    "url": "/api/expense/order_settlement/total/:order_no",
     "title": "订单结算费用统计",
     "name": "OrderSettlementStatistic",
     "group": "Expense",
@@ -1779,7 +1779,7 @@
   },
   {
     "type": "get",
-    "url": "/api/expense/product_settlements",
+    "url": "/api/expense/product_settlement",
     "title": "产品结算记录",
     "name": "ProductSettlements",
     "group": "Expense",
@@ -1800,7 +1800,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"days\":  12，    # 结算天数\n    \"amount\": 122,  # 金额\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\"\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"days\":  12，    # 结算天数\n    \"amount\": 122,  # 金额\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n}]",
           "type": "json"
         }
       ]
