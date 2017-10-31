@@ -3269,6 +3269,19 @@
     "title": "产品收益区间",
     "name": "ProductProfitIntervals",
     "group": "Product",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "unique_duration",
+            "description": "<p>1:期限去重，0：不去重</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
