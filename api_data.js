@@ -3641,6 +3641,25 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/statistic/order/user/:user_id",
+    "title": "用户订单统计",
+    "name": "UserOrderStats",
+    "group": "Statistic",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"product_count\": {\"total\": 0, \"existence\": 0}   # 产品数量\n    \"order_amount\": {   # 单量\n        \"total\": {\"rmb\": 0, \"dollar\": 0},       # 总计\n        \"existence\": {\"rmb\": 0, \"dollar\": 0}    #  存续\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/statistic.py",
+    "groupTitle": "Statistic"
+  },
+  {
+    "type": "get",
     "url": "/",
     "title": "非分页返回的结构",
     "name": "NormalStructure",
