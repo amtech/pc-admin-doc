@@ -1613,9 +1613,30 @@
           {
             "group": "Parameter",
             "type": "int",
-            "optional": false,
+            "optional": true,
             "field": "product_settlement_id",
             "description": "<p>产品结算记录ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "status",
+            "description": "<p>状态, 1:结算中，2：已结算</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "role",
+            "description": "<p>角色</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "user_id",
+            "description": "<p>用户ID</p>"
           }
         ]
       }
@@ -1624,7 +1645,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"order_no\": \"80932138092183091\",\n    \"amount\": 99,   # 结算金额\n    \"tax_rate\": 12,   # 税率\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 8888,    # 实际到手金额\n    \"status\": 1,    # 状态, 1:结算中，2：已结算\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"80932138092183091\",\n    \"amount\": 99,   # 结算金额\n    \"tax_rate\": 12,   # 税率\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 8888,    # 实际到手金额\n    \"status\": 1,    # 状态, 1:结算中，2：已结算\n    \"name\": \"姓名\",\n    \"type\": 1,  # 费用类型\n}]",
           "type": "json"
         }
       ]
