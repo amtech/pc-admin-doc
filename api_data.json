@@ -1714,6 +1714,15 @@
         }
       ]
     },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "id",
+          "type": "json"
+        }
+      ]
+    },
     "filename": "../admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
@@ -1767,7 +1776,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"user_name\": \"理财师名\"\n    \"product_name\": \"产品名\"\n    \"order_no\": \"809d809sa809dsa\",  # 订单号\n    \"tax\": 0,   # 税费\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"settlemented\": 0,  # 已结算\n    \"waiting\": 0   # 待结算\n    \"currency\": 1,  # 币种\n}]",
+          "content": "[{\n    \"user_name\": \"理财师名\"\n    \"product_name\": \"产品名\"\n    \"order_no\": \"809d809sa809dsa\",  # 订单号\n    \"currency\": 1,  # 币种\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n}]",
           "type": "json"
         }
       ]
@@ -1779,7 +1788,7 @@
   {
     "type": "get",
     "url": "/api/expense/product_statistic",
-    "title": "产品费用统计",
+    "title": "产品费用统计(列表/单条)",
     "name": "ExpenseStatistic",
     "group": "Expense",
     "parameter": {
@@ -1799,7 +1808,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"name\": \"产品名称\",\n    \"maximum_size\": 1,  # 总额度\n    \"current_precontract_size\": 1,  # 已募集\n    \"surplus_size\": 99, # 剩余\n    \"total\": 99, # 总计\n    \"sales\": 12, # 销售费\n    \"distribution\":  12，    # 发行\n    \"underwrite\": 122,  # 包销\n    \"exploit\": 99,  # 开发\n    \"tax\": 99,  # 税费\n    \"management\": 99,  # 管理\n    \"performance\": 99,  # 业绩\n    \"waiting\": 99,  # 待结算\n    \"currency\": 1,\n    \"profit_type\": 1,\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"name\": \"产品名称\",\n    \"maximum_size\": 1,  # 总额度\n    \"current_precontract_size\": 1,  # 已募集\n    \"surplus_size\": 99, # 剩余\n    \"currency\": 1,\n    \"profit_type\": 1,\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n}]",
           "type": "json"
         }
       ]
@@ -1809,9 +1818,60 @@
     "groupTitle": "Expense"
   },
   {
-    "type": "put",
+    "type": "get",
+    "url": "/api/expense/statistic",
+    "title": "费用统计详情(用户/订单/角色等维度)",
+    "name": "ExpenseStatistic",
+    "group": "Expense",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "order_no",
+            "description": "<p>订单号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "user_id",
+            "description": "<p>用户ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "roles",
+            "description": "<p>用户角色</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "单币种:",
+          "content": "{\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n}",
+          "type": "json"
+        },
+        {
+          "title": "多币种:",
+          "content": "{\n    \"total_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 总计费用\n    \"finished_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 已结算费用\n    \"wait_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 待结算费用\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
     "url": "/api/expense/product_settlement/:id",
-    "title": "获取产品结算记录",
+    "title": "产品结算记录明细",
     "name": "GetProductSettlementDetail",
     "group": "Expense",
     "version": "1.0.0",
@@ -1850,7 +1910,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"小明\",\n    \"user_id\": 100898,\n    \"role\": 3,\n    \"order_amount\": 99,   # 订单成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
+          "content": "[{\n    \"name\": \"小明\",\n    \"user_id\": 100898,\n    \"role\": 3,\n    \"type\": 3,  # 费用类型\n    \"order_amount\": 99,   # 订单成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
           "type": "json"
         }
       ]
@@ -1869,7 +1929,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n        \"id\": 3,\n        \"name\": \"小明\",\n        \"user_id\": 333,\n        \"role\": 3,\n        \"total\": 33,\n        \"distribution\": 33, # 发行\n        \"sales\": 9, # 销售\n        \"underwrite\": 9,    # 包销\n        \"exploit\": 99,  # 开发\n        \"tax\": 3,   # 税费\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"name\": \"小明\",\n    \"user_id\": 333,\n    \"role\": 3,\n    \"type\": 3,      # 费用类型\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n}]",
           "type": "json"
         }
       ]
@@ -1880,34 +1940,15 @@
   },
   {
     "type": "get",
-    "url": "/api/expense/order/total/:order_no",
-    "title": "订单费用统计",
-    "name": "OrderExpenseStatistic",
+    "url": "/api/expense/order/:order_no/grouped_by_user",
+    "title": "订单费用列表(根据用户角色分组)",
+    "name": "OrderExpenseGroupedByUser",
     "group": "Expense",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"total\": 33,\n    \"distribution\": 33, # 发行\n    \"sales\": 9, # 销售\n    \"underwrite\": 9,    # 包销\n    \"exploit\": 99,  # 开发\n    \"tax\": 3,   # 税费\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/order_settlement/total/:order_no",
-    "title": "订单结算费用统计",
-    "name": "OrderSettlementStatistic",
-    "group": "Expense",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"expense\": 33, # 结算费\n    \"sales\": 9, # 已结算销售天数\n    \"distribution\": 9,  #已结算发行天数\n    \"underwrite\": 9,    # 已结算包销天数\n    \"exploit\": 99,  # 已结算开发天数\n    \"tax\": 3,   # 税费\n    \"remained_distribution\": 3, # 未结算发行天数\n    \"remained_underwrite\": 3, # 未结算包销天数\n    \"remained_exploit\": 3, # 未结算开发天数\n    \"sales_expense\": 3, # 结算认购费\n    \"management_expense\": 3,    # 结算管理费\n    \"performance_expense\": 3,   # 结算业绩费\n    \"total\": 33,    # 总费用\n}",
+          "content": "[{\n    \"id\": 3,\n    \"name\": \"小明\",\n    \"user_id\": 333,\n    \"role\": 3,\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n}]",
           "type": "json"
         }
       ]
@@ -1965,7 +2006,7 @@
   {
     "type": "get",
     "url": "/api/expense/product_settlement",
-    "title": "产品结算记录",
+    "title": "产品结算记录列表",
     "name": "ProductSettlements",
     "group": "Expense",
     "parameter": {
@@ -1985,7 +2026,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n    \"committed\": true,      # 是否已有提交记录\n}]",
           "type": "json"
         }
       ]
@@ -2004,7 +2045,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"role\": 3,  # 角色\n    \"distribution\": {\"rmb\":0, \"dollar\": 0},    # 发行\n    \"underwrite\": {\"rmb\":0, \"dollar\": 0},    # 包销\n    \"exploit\": {\"rmb\":0, \"dollar\": 0},    # 开发\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"performance\": {\"rmb\":0, \"dollar\": 0},  # 业绩\n    \"waiting\": {\"rmb\":0, \"dollar\": 0}   # 待结算\n    \"total\": {\"rmb\":0, \"dollar\": 0}   # 总计\n}]",
+          "content": "[{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"role\": 3,  # 角色\n    \"total_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 总计费用\n    \"finished_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 已结算费用\n    \"wait_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 待结算费用\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n}]",
           "type": "json"
         }
       ]
@@ -2023,7 +2064,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"distribution\": {\"rmb\":0, \"dollar\": 0}, # 发行\n    \"underwrite\": {\"rmb\":0, \"dollar\": 0},    # 包销\n    \"exploit\": {\"rmb\":0, \"dollar\": 0},  # 开发\n    \"tax\": {\"rmb\":0, \"dollar\": 0},   # 税费\n    \"sales\": {\"rmb\":0, \"dollar\": 0},    # 销售\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"performance\": {\"rmb\":0, \"dollar\": 0},  # 业绩\n    \"waiting\": {\"rmb\":0, \"dollar\": 0}   # 待结算\n    \"total\": {\"rmb\":0, \"dollar\": 0}   # 总计\n}",
+          "content": "{\n    \"total_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 总计费用\n    \"finished_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 已结算费用\n    \"wait_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 待结算费用\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n}",
           "type": "json"
         }
       ]
@@ -2070,6 +2111,64 @@
     "groupTitle": "Expense"
   },
   {
+    "type": "post",
+    "url": "/api/expense/update_order_expense_params",
+    "title": "修改订单费用",
+    "name": "UpdateOrderExpenseParams",
+    "group": "Expense",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "product_settlement_id",
+            "description": "<p>产品结算记录ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "role",
+            "description": "<p>角色</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "user_id",
+            "description": "<p>用户ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "sales",
+            "description": "<p>销售费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "manage_sales",
+            "description": "<p>管理销售费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "performance_sales",
+            "description": "<p>业绩销售费</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
     "type": "put",
     "url": "/api/expense/product_settlement/:id",
     "title": "修改产品结算记录",
@@ -2090,25 +2189,6 @@
   },
   {
     "type": "get",
-    "url": "/api/expense/users/:user_id",
-    "title": "理财师费用",
-    "name": "UserExpenseDetail",
-    "group": "Expense",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"sales\": {\"rmb\":0, \"dollar\": 0},    # 销售\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"performance\": {\"rmb\":0, \"dollar\": 0},  # 业绩\n    \"waiting\": {\"rmb\":0, \"dollar\": 0}   # 待结算\n    \"total\": {\"rmb\":0, \"dollar\": 0}   # 总计\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
     "url": "/api/expense/users",
     "title": "理财师费用列表",
     "name": "UserExpenseList",
@@ -2117,46 +2197,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"sales\": {\"rmb\":0, \"dollar\": 0},    # 销售\n    \"management\": {\"rmb\":0, \"dollar\": 0},   # 管理\n    \"performance\": {\"rmb\":0, \"dollar\": 0},  # 业绩\n    \"waiting\": {\"rmb\":0, \"dollar\": 0}   # 待结算\n    \"total\": {\"rmb\":0, \"dollar\": 0}   # 总计\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/user_total_detail",
-    "title": "用户费用统计",
-    "name": "UserExpenseStatistic",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "role",
-            "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "user_id",
-            "description": "<p>用户ID</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"settlemented\": {\"rmb\":0, \"dollar\": 0},   # 已结算\n    \"waiting\": {\"rmb\":0, \"dollar\": 0},   # 待结算\n    \"tax\": {\"rmb\":0, \"dollar\": 0},   # 税费\n}",
+          "content": "[{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"total_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 总计费用\n    \"finished_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 已结算费用\n    \"wait_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 待结算费用\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n}]",
           "type": "json"
         }
       ]
