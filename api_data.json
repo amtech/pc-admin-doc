@@ -1656,7 +1656,46 @@
   },
   {
     "type": "get",
-    "url": "/api/expense//committed_order_settlement/grouped_by_user",
+    "url": "/api/expense/committed_order_settlement/detail",
+    "title": "结算中费用明细列表",
+    "name": "CommittedOrderSettlementsDetail",
+    "group": "Expense",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "role",
+            "description": "<p>角色</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "user_id",
+            "description": "<p>用户ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"32139129321912\",\n    \"product_name\": \"产品名\",\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 9888,   # 到手,\n    \"currency\": 1,\n    \"type\": 1,\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
+    "url": "/api/expense/committed_order_settlement/grouped_by_user",
     "title": "根据用户分组的结算中费用列表",
     "name": "CommittedOrderSettlementsGroupByUser",
     "group": "Expense",
@@ -1664,7 +1703,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"姓名\",\n    \"role\": 3,\n    \"user_id\": 100094,\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n    \"actual\": {\"rmb\":8888, \"dollar\": 9888},   # 到手\n}]",
+          "content": "[{\n    \"name\": \"姓名\",\n    \"role\": 3,\n    \"user_id\": 100094,\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n    \"actual_amount\": {\"rmb\":8888, \"dollar\": 9888},   # 到手\n}]",
           "type": "json"
         }
       ]
