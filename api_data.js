@@ -1994,6 +1994,25 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/expense/product/<int:pid>/grouped_by_role",
+    "title": "产品费用列表(根据角色分组)",
+    "name": "ProductExpenseGroupedByUser",
+    "group": "Expense",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"role\": 3,\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费,\n    \"actual_amount\": 8888,    # 实际到手金额\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
     "url": "/api/expense/product_statistic",
     "title": "产品费用统计(列表/单条)",
     "name": "ProductExpenseStatistic",
@@ -2047,7 +2066,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n    \"committed\": true,      # 是否已有提交记录\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"date\": \"2015-12-01\",\n    \"amount\": 9999,\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n    \"committed\": true,      # 是否已有提交记录\n}]",
           "type": "json"
         }
       ]
