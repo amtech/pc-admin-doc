@@ -1655,6 +1655,25 @@ define({ "api": [
     "groupTitle": "Expense"
   },
   {
+    "type": "get",
+    "url": "/api/expense//committed_order_settlement/grouped_by_user",
+    "title": "根据用户分组的结算中费用列表",
+    "name": "CommittedOrderSettlementsGroupByUser",
+    "group": "Expense",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"name\": \"姓名\",\n    \"role\": 3,\n    \"user_id\": 100094,\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n    \"actual\": {\"rmb\":8888, \"dollar\": 9888},   # 到手\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
     "type": "post",
     "url": "/api/expense/committed_order_settlement",
     "title": "提交订单结算",
@@ -1918,7 +1937,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"name\": \"小明\",\n    \"user_id\": 333,\n    \"role\": 3,\n    \"type\": 3,      # 费用类型\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n}]",
+          "content": "[{\n    \"name\": \"小明\",\n    \"user_id\": 333,\n    \"role\": 3,\n    \"type\": 3,      # 费用类型\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n}]",
           "type": "json"
         }
       ]
@@ -1937,7 +1956,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"name\": \"小明\",\n    \"user_id\": 333,\n    \"role\": 3,\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n}]",
+          "content": "[{\n    \"name\": \"小明\",\n    \"user_id\": 333,\n    \"role\": 3,\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n}]",
           "type": "json"
         }
       ]
