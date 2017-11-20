@@ -1788,7 +1788,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"product_id\": 13,\n    \"type\": [1,4,8],  # 结算费用类型\n    \"amount\": 122,  # 金额\n    \"remark\": \"备注\",\n    \"date\": \"2015-12-01\"\n}",
+          "content": "{\n    \"product_id\": 13,\n    \"type\": [1,4,8],  # 结算费用类型\n    \"amount\": 122,  # 金额\n    \"remark\": \"备注\",\n    \"date\": \"2015-12-01\",\n    \"start_date\": \"2017-12-11\"  # 成立日\n}",
           "type": "json"
         }
       ]
@@ -3603,7 +3603,7 @@ define({ "api": [
   },
   {
     "type": "delete",
-    "url": "/api/products/:pid/raise/:id",
+    "url": "/api/products/:pid/raises/:id",
     "title": "删除募集记录",
     "name": "DeleteProductRaise",
     "group": "Product",
@@ -3613,7 +3613,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/products/:pid/raise/:id",
+    "url": "/api/products/:pid/raises/:id",
     "title": "获取募集记录明细",
     "name": "GetProductRaiseDetail",
     "group": "Product",
@@ -3622,6 +3622,25 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "{\n    \"id\": 33,\n    \"start_date\": \"2017-12-11\",\n    \"first_distribution_date\": \"2018-01-01\",    # 首次分配日\n    \"distribution_period\": 3,       # 分配周期\n    \"profit_intervals\\\": [{  # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33      # 销售费用比例\n    }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "get",
+    "url": "/api/products/:pid/raises",
+    "title": "获取募集记录列表",
+    "name": "GetProductRaiseList",
+    "group": "Product",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 33,\n    \"start_date\": \"2017-12-11\"\n}]",
           "type": "json"
         }
       ]
@@ -3917,7 +3936,7 @@ define({ "api": [
   },
   {
     "type": "put",
-    "url": "/api/products/:pid/raise/:id",
+    "url": "/api/products/:pid/raises/:id",
     "title": "更新募集记录",
     "name": "UpdateProductRaise",
     "group": "Product",
