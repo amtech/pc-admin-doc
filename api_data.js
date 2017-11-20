@@ -1645,7 +1645,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"80932138092183091\",\n    \"amount\": 99,   # 结算金额\n    \"tax_rate\": 12,   # 税率\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 8888,    # 实际到手金额\n    \"status\": 1,    # 状态, 1:结算中，2：已结算\n    \"name\": \"姓名\",\n    \"type\": 1,  # 费用类型\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"80932138092183091\",\n    \"amount\": 99,   # 结算金额\n    \"tax_rate\": 12,   # 税率\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 8888,    # 实际到手金额\n    \"status\": 1,    # 状态, 1:结算中，2：已结算\n    \"name\": \"姓名\",\n    \"type\": 1,  # 费用类型\n    \"currency\": 1\n}]",
           "type": "json"
         }
       ]
@@ -1788,16 +1788,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"product_id\": 13,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"amount\": 122,  # 金额\n    \"remark\": \"备注\",\n    \"date\": \"2015-12-01\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "id",
+          "content": "{\n    \"product_id\": 13,\n    \"type\": [1,4,8],  # 结算费用类型\n    \"amount\": 122,  # 金额\n    \"remark\": \"备注\",\n    \"date\": \"2015-12-01\"\n}",
           "type": "json"
         }
       ]
@@ -1957,7 +1948,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"小明\",\n    \"user_id\": 100898,\n    \"role\": 3,\n    \"type\": 3,  # 费用类型\n    \"order_amount\": 99,   # 订单成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
+          "content": "[{\n    \"name\": \"小明\",\n    \"user_id\": 100898,\n    \"role\": 3,\n    \"order_amount\": 99,   # 订单成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
           "type": "json"
         }
       ]
@@ -2124,7 +2115,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"condition_floor\": 99, # 金额下限/万\n    \"condition_ceiling\": 99, # 金额上限/万\n    \"duration\": 12, # 期限\n    \"date\": \"2015-12-01\",\n    \"amount\": 9999,\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n    \"committed\": true,      # 是否已有提交记录\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"start_date\": \"2015-12-33T16:20:20\",    # 成立日\n    \"date\": \"2015-12-01\",\n    \"amount\": 9999,\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n    \"committed\": true,      # 是否已有提交记录\n}]",
           "type": "json"
         }
       ]
@@ -3543,6 +3534,25 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/api/products/:pid/raises",
+    "title": "创建产品募集记录",
+    "name": "CreateProductRaise",
+    "group": "Product",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"start_date\": \"2017-12-11\", # 产品成立日\n    \"first_distribution_date\": \"2017-12-11\",    # 首次分配日\n    \"distribution_period\": 3,   # 分配周期\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"settlement_days\": 33,      # 结算天数\n        \"sales_expense\": 0.33,      # 销售费用比例\n    }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "post",
     "url": "/api/products/:pid/values",
     "title": "创建产品净值",
     "name": "CreateProductValues",
@@ -3592,9 +3602,38 @@ define({ "api": [
     "groupTitle": "Product"
   },
   {
+    "type": "delete",
+    "url": "/api/products/:pid/raise/:id",
+    "title": "删除募集记录",
+    "name": "DeleteProductRaise",
+    "group": "Product",
+    "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "get",
+    "url": "/api/products/:pid/raise/:id",
+    "title": "获取募集记录明细",
+    "name": "GetProductRaiseDetail",
+    "group": "Product",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"id\": 33,\n    \"start_date\": \"2017-12-11\",\n    \"first_distribution_date\": \"2018-01-01\",    # 首次分配日\n    \"distribution_period\": 3,       # 分配周期\n    \"profit_intervals\\\": [{  # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33      # 销售费用比例\n    }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
     "type": "get",
     "url": "/api/products/:pid",
-    "title": "产品详情",
+    "title": "联合采购产品详情",
     "name": "ProductDetail",
     "group": "Product",
     "version": "0.0.0",
@@ -3871,6 +3910,25 @@ define({ "api": [
           }
         ]
       }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "put",
+    "url": "/api/products/:pid/raise/:id",
+    "title": "更新募集记录",
+    "name": "UpdateProductRaise",
+    "group": "Product",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "参数同创建",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "../admin/frontend/product.py",
