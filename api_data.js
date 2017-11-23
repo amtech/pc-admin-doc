@@ -1788,7 +1788,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"product_id\": 13,\n    \"type\": [1,4,8],  # 结算费用类型\n    \"amount\": 122,  # 金额\n    \"remark\": \"备注\",\n    \"date\": \"2015-12-01\",\n    \"start_date\": \"2017-12-11\"  # 成立日\n    \"duration\": 3,  # 期限\n}",
+          "content": "{\n    \"product_id\": 13,\n    \"type\": [1,4,8],  # 结算费用类型\n    \"amount\": 122,  # 金额\n    \"remark\": \"备注\",\n    \"date\": \"2015-12-01\",\n    \"percent\": 33.33,  # 比例\n    \"start_date\": \"2017-12-11\"  # 成立日\n    \"duration\": 3,  # 期限\n}",
           "type": "json"
         }
       ]
@@ -1917,7 +1917,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 1,\n    \"profit_type\": 1,\n    \"currency\": 2,\n    \"type\": 1,  # 结算费用类型\n    \"duration\": 3,\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n}",
+          "content": "{\n    \"id\": 1,\n    \"profit_type\": 1,\n    \"currency\": 2,\n    \"type\": 1,  # 结算费用类型\n    \"duration\": 3,\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n    \"percent\": 33.33\n}",
           "type": "json"
         }
       ]
@@ -2115,7 +2115,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"start_date\": \"2015-12-33T16:20:20\",    # 成立日\n    \"date\": \"2015-12-01\",\n    \"duration\": 3,\n    \"amount\": 9999,\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n    \"committed\": true,      # 是否已有提交记录\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"start_date\": \"2015-12-33T16:20:20\",    # 成立日\n    \"date\": \"2015-12-01\",\n    \"duration\": 3,\n    \"amount\": 9999,\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n    \"committed\": true,      # 是否已有提交记录\n    \"percent\": 33.33\n}]",
           "type": "json"
         }
       ]
@@ -4283,13 +4283,6 @@ define({ "api": [
             "optional": false,
             "field": "work_year",
             "description": "<p>工作年限</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "role",
-            "description": "<p>角色</p>"
           },
           {
             "group": "Parameter",
