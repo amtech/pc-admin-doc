@@ -1917,7 +1917,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 1,\n    \"profit_type\": 1,\n    \"currency\": 2,\n    \"type\": 1,  # 结算费用类型\n    \"duration\": 3,\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n    \"percent\": 33.33\n}",
+          "content": "{\n    \"id\": 1,\n    \"profit_type\": 1,\n    \"currency\": 2,\n    \"type\": 1,  # 结算费用类型\n    \"duration\": 3,\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n    \"percent\": 33.33,\n    \"start_date\": \"2017-12-11\"\n}",
           "type": "json"
         }
       ]
@@ -3084,6 +3084,20 @@ define({ "api": [
             "optional": true,
             "field": "channel_user_id",
             "description": "<p>渠道查询时的理财师ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "channel_adviser_id",
+            "description": "<p>渠道查询时的投顾ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "channel_referrer_id",
+            "description": "<p>渠道查询时的推荐人ID</p>"
           },
           {
             "group": "Parameter",
