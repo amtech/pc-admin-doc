@@ -1917,7 +1917,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 1,\n    \"profit_type\": 1,\n    \"currency\": 2,\n    \"type\": 1,  # 结算费用类型\n    \"duration\": 3,\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n    \"percent\": 33.33,\n    \"start_date\": \"2017-12-11\"\n}",
+          "content": "{\n    \"id\": 1,\n    \"profit_type\": 1,\n    \"currency\": 2,\n    \"type\": 1,  # 结算费用类型\n    \"duration\": 3,\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"percent\": 33.33,\n    \"start_date\": \"2017-12-11\"\n}",
           "type": "json"
         }
       ]
@@ -2107,6 +2107,13 @@ define({ "api": [
             "optional": false,
             "field": "product_id",
             "description": "<p>产品ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": true,
+            "field": "start_date",
+            "description": "<p>成立日</p>"
           }
         ]
       }
@@ -2115,7 +2122,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"start_date\": \"2015-12-33T16:20:20\",    # 成立日\n    \"date\": \"2015-12-01\",\n    \"duration\": 3,\n    \"amount\": 9999,\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"remark\": \"备注\",\n    \"committed\": true,      # 是否已有提交记录\n    \"percent\": 33.33\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"start_date\": \"2015-12-33T16:20:20\",    # 成立日\n    \"date\": \"2015-12-01\",\n    \"duration\": 3,\n    \"amount\": 9999,\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"committed\": true,      # 是否已有提交记录\n    \"percent\": 33.33\n}]",
           "type": "json"
         }
       ]
@@ -3556,7 +3563,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"start_date\": \"2017-12-11\", # 产品成立日\n    \"first_distribution_date\": \"2017-12-11\",    # 首次分配日\n    \"distribution_period\": 3,   # 分配周期\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"settlement_days\": 33,      # 结算天数\n        \"sales_expense\": 0.33,      # 销售费用比例\n    }]\n}",
+          "content": "{\n    \"start_date\": \"2017-12-11\", # 产品成立日\n    \"first_distribution_date\": \"2017-12-11\",    # 首次分配日\n    \"distribution_period\": 3,   # 分配周期\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33,      # 销售费用比例\n        \"percent\": 3.3,     # 计算比例\n        \"calc_date\": \"2017-12-11\"   # 计算日期\n    }]\n}",
           "type": "json"
         }
       ]
