@@ -1645,7 +1645,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"80932138092183091\",\n    \"amount\": 99,   # 结算金额\n    \"tax_rate\": 12,   # 税率\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 8888,    # 实际到手金额\n    \"status\": 1,    # 状态, 1:结算中，2：已结算\n    \"name\": \"姓名\",\n    \"type\": 1,  # 费用类型\n    \"currency\": 1\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"80932138092183091\",\n    \"amount\": 99,   # 结算金额\n    \"tax_rate\": 12,   # 税率\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 8888,    # 实际到手金额\n    \"status\": 1,    # 状态, 1:结算中，2：已结算\n    \"name\": \"姓名\",\n    \"type\": 1,  # 费用类型\n    \"currency\": 1,\n    \"exchange_rate\": 3.3,       # 汇率\n}]",
           "type": "json"
         }
       ]
@@ -1684,7 +1684,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"32139129321912\",\n    \"product_name\": \"产品名\",\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 9888,   # 到手,\n    \"currency\": 1,\n    \"type\": 1,\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"32139129321912\",\n    \"product_name\": \"产品名\",\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 9888,   # 到手,\n    \"currency\": 1,\n    \"type\": 1,\n    \"exchange_rate\": 3.3,   # 汇率\n}]",
           "type": "json"
         }
       ]
@@ -1703,7 +1703,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"姓名\",\n    \"role\": 3,\n    \"user_id\": 100094,\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n    \"actual_amount\": {\"rmb\":8888, \"dollar\": 9888},   # 到手\n}]",
+          "content": "[{\n    \"name\": \"姓名\",\n    \"role\": 3,\n    \"user_id\": 100094,\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n    \"actual_amount\":8888,   # 到手\n}]",
           "type": "json"
         }
       ]
@@ -1769,6 +1769,13 @@ define({ "api": [
             "optional": true,
             "field": "tax_rate",
             "description": "<p>税率</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": true,
+            "field": "exchange_rate",
+            "description": "<p>汇率</p>"
           }
         ]
       }
@@ -2198,6 +2205,13 @@ define({ "api": [
             "optional": true,
             "field": "tax_rate",
             "description": "<p>税率</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": true,
+            "field": "exchange_rate",
+            "description": "<p>汇率</p>"
           }
         ]
       }
@@ -4066,7 +4080,7 @@ define({ "api": [
             "type": "int",
             "optional": false,
             "field": "type",
-            "description": "<p>类型,1:推送净值,2:推送产品,3:推送活动</p>"
+            "description": "<p>类型,1:推送净值,2:推送产品,3:推送活动,4:推送分配</p>"
           },
           {
             "group": "Parameter",
@@ -4116,6 +4130,20 @@ define({ "api": [
             "optional": true,
             "field": "target",
             "description": "<p>目标群体,1:客户,2:理财师,3:全部</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "start_date",
+            "description": "<p>成立日</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "duration",
+            "description": "<p>期限</p>"
           }
         ]
       }
