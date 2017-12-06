@@ -2291,6 +2291,48 @@
             "optional": false,
             "field": "distribution",
             "description": "<p>发行费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "management_exploit",
+            "description": "<p>管理开发</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "management_underwrite",
+            "description": "<p>管理包销</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "management_distribution",
+            "description": "<p>管理发行</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "performance_exploit",
+            "description": "<p>业绩开发费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "performance_underwrite",
+            "description": "<p>业绩包销费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "performance_distribution",
+            "description": "<p>业绩发行费</p>"
           }
         ]
       }
