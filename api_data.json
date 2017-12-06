@@ -2270,6 +2270,27 @@
             "optional": false,
             "field": "performance_sales",
             "description": "<p>业绩销售费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "exploit",
+            "description": "<p>开发费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "underwrite",
+            "description": "<p>包销费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "distribution",
+            "description": "<p>发行费</p>"
           }
         ]
       }
