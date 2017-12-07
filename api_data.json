@@ -1939,6 +1939,19 @@
     "name": "GetProductSettlementDetail",
     "group": "Expense",
     "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "submitter",
+            "description": "<p>是否是提交人 1:是, 0:不是</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
