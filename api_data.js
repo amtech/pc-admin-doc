@@ -1713,6 +1713,25 @@ define({ "api": [
     "groupTitle": "Expense"
   },
   {
+    "type": "get",
+    "url": "/api/expense/product_settlement/confirmed",
+    "title": "费用确认列表",
+    "name": "ConfirmedProductSettlements",
+    "group": "Expense",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"product_name\": \"产品名称\",\n    \"type\": 1,  # 结算费用类型\n    \"start_date\": \"2015-12-33T16:20:20\",    # 成立日\n    \"confirmed_status\": 0,  # 0:待确认,1:待其他人确认,2:已确认\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
     "type": "post",
     "url": "/api/expense/committed_order_settlement",
     "title": "提交订单结算",
@@ -1924,7 +1943,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 1,\n    \"profit_type\": 1,\n    \"currency\": 2,\n    \"type\": 1,  # 结算费用类型\n    \"duration\": 3,\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"percent\": 33.33,\n    \"start_date\": \"2017-12-11\",\n    \"amount\": 3\n}",
+          "content": "{\n    \"id\": 1,\n    \"profit_type\": 1,\n    \"currency\": 2,\n    \"type\": 1,  # 结算费用类型\n    \"duration\": 3,\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"percent\": 33.33,\n    \"start_date\": \"2017-12-11\",\n    \"amount\": 3,\n    \"confirmed_status\": 0,  # 0:待提交确认,1:确认中,2:已确认\n}",
           "type": "json"
         }
       ]
@@ -2129,7 +2148,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"start_date\": \"2015-12-33T16:20:20\",    # 成立日\n    \"date\": \"2015-12-01\",\n    \"duration\": 3,\n    \"amount\": 9999,\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"committed\": true,      # 是否已有提交记录\n    \"percent\": 33.33\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"start_date\": \"2015-12-33T16:20:20\",    # 成立日\n    \"date\": \"2015-12-01\",\n    \"duration\": 3,\n    \"amount\": 9999,\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"committed\": true,      # 是否已有提交记录\n    \"percent\": 33.33,\n    \"confirmed_status\": 0,  # 0:待提交确认,1:确认中,2:已确认\n}]",
           "type": "json"
         }
       ]
@@ -2333,6 +2352,20 @@ define({ "api": [
             "optional": false,
             "field": "performance_distribution",
             "description": "<p>业绩发行费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "management",
+            "description": "<p>管理费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "performance",
+            "description": "<p>业绩费</p>"
           }
         ]
       }
@@ -2408,6 +2441,29 @@ define({ "api": [
             "optional": false,
             "field": "user_id",
             "description": "<p>用户ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "patch",
+    "url": "/api/expense/product_settlement/:id/confirmed",
+    "title": "修改确认状态",
+    "name": "updateConfirmedStatus",
+    "group": "Expense",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "status",
+            "description": "<p>确认状态,0:待确认,2:确认，3：有无否决</p>"
           }
         ]
       }
