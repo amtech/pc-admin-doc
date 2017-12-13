@@ -3255,7 +3255,7 @@ define({ "api": [
             "type": "string",
             "optional": true,
             "field": "name",
-            "description": "<p>产品名</p>"
+            "description": "<p>产品名或理财师名</p>"
           },
           {
             "group": "Parameter",
