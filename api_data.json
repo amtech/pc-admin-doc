@@ -2503,6 +2503,13 @@
             "optional": false,
             "field": "status",
             "description": "<p>确认状态,0:待确认,2:确认，3：有无否决</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "remark",
+            "description": "<p>备注</p>"
           }
         ]
       }
@@ -2758,7 +2765,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"user_id\": 100460,\n    \"product_id\": 334,\n    \"customer_name\": \"客户姓名\",\n    \"customer_real_name\": \"客户真是姓名\",\n    \"customer_no\": \"客户编号\",\n    \"customer_mobile\": \"1503213123\",    # 客户电话\n    \"customer_id_card_no\": \"身份证号\"\n    \"amount\": 300,  # 认购金额\n    \"pay_time\": \"2017-05-28\",    # 打款日期\n    \"attachment_id\": 12     # 相关文件ID\n    \"buy_time\": \"2017-05-28T16:00:00\",  # 计息日\n    \"remark\": \"备注\",\n    \"prospective_earning\": 1.3, # 预期年化收益\n    \"buy_duration\": 3,\n    \"expire_time\": \"2017-05-28T16:00:00\"    # 到期时间\n    \"buy_value\": 1.33,  # 购买时净值\n    \"buy_share\": 13,    # 份额(万份)\n}",
+          "content": "{\n    \"user_id\": 100460,\n    \"product_id\": 334,\n    \"customer_name\": \"客户姓名\",\n    \"customer_real_name\": \"客户真是姓名\",\n    \"customer_no\": \"客户编号\",\n    \"customer_mobile\": \"1503213123\",    # 客户电话\n    \"customer_id_card_no\": \"身份证号\"\n    \"amount\": 300,  # 认购金额\n    \"pay_time\": \"2017-05-28\",    # 打款日期\n    \"attachment_id\": 12     # 相关文件ID\n    \"buy_time\": \"2017-05-28T16:00:00\",  # 计息日\n    \"confirm_time\": \"2017-05-28T16:00:00\",  # 确认日\n    \"remark\": \"备注\",\n    \"prospective_earning\": 1.3, # 预期年化收益\n    \"buy_duration\": 3,\n    \"expire_time\": \"2017-05-28T16:00:00\"    # 到期时间\n    \"buy_value\": 1.33,  # 购买时净值\n    \"buy_share\": 13,    # 份额(万份)\n}",
           "type": "json"
         }
       ]
@@ -2824,36 +2831,6 @@
         ]
       }
     },
-    "filename": "../admin/frontend/order.py",
-    "groupTitle": "Order"
-  },
-  {
-    "type": "post",
-    "url": "/api/orders/:order_no/dividends",
-    "title": "订单打款",
-    "name": "CreateOrderDividends",
-    "group": "Order",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "date",
-            "optional": false,
-            "field": "actual_time",
-            "description": "<p>实际打款日期</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"amount\": 1,\n    \"actual_time\": \"2017-12-1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
     "filename": "../admin/frontend/order.py",
     "groupTitle": "Order"
   },
@@ -2984,16 +2961,6 @@
   },
   {
     "type": "delete",
-    "url": "/api/orders/:order_no/dividends/:id",
-    "title": "删除订单打款",
-    "name": "DeleteOrderDividends",
-    "group": "Order",
-    "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
-    "groupTitle": "Order"
-  },
-  {
-    "type": "delete",
     "url": "/api/orders/:order_no/redeem/:id",
     "title": "删除订单赎回记录",
     "name": "DeleteOrderRedeem",
@@ -3031,7 +2998,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"customer_name\": \"客户姓名\",\n    \"customer_mobile\": \"1504342323\",\n    \"amount\": 300,  # 认购金额\n    \"pay_time\": \"2017-05-28\",    # 打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachment_id\": 12     # 相关文件ID\n    \"buy_time\": \"2017-05-28T16:00:00\",  # 计息日\n    \"remark\": \"备注\",\n    \"prospective_earning\": 1.3, # 预期年化收益\n    \"buy_duration\": 3,\n    \"expire_time\": \"2017-05-28T16:00:00\"    # 到期时间\n    \"buy_value\": 1.33,  # 购买时净值\n    \"buy_share\": 13,    # 份额(万份)\n}",
+          "content": "{\n    \"customer_name\": \"客户姓名\",\n    \"customer_mobile\": \"1504342323\",\n    \"amount\": 300,  # 认购金额\n    \"pay_time\": \"2017-05-28\",    # 打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachment_id\": 12     # 相关文件ID\n    \"buy_time\": \"2017-05-28T16:00:00\",  # 计息日\n    \"confirm_time\": \"2017-05-28T16:00:00\",  # 确认日\n    \"remark\": \"备注\",\n    \"prospective_earning\": 1.3, # 预期年化收益\n    \"buy_duration\": 3,\n    \"expire_time\": \"2017-05-28T16:00:00\"    # 到期时间\n    \"buy_value\": 1.33,  # 购买时净值\n    \"buy_share\": 13,    # 份额(万份)\n}",
           "type": "json"
         }
       ]
@@ -3136,25 +3103,6 @@
         ]
       }
     }
-  },
-  {
-    "type": "get",
-    "url": "/api/orders/:order_no/dividends",
-    "title": "订单打款记录",
-    "name": "OrderDividends",
-    "group": "Order",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1\n    \"amount\": 1,\n    \"actual_time\": \"2017-12-1\",\n    \"currency\": 1\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
-    "groupTitle": "Order"
   },
   {
     "type": "get",
@@ -3380,7 +3328,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"customer_name\": \"客户姓名\",\n    \"customer_mobile\": \"1504342323\",\n    \"amount\": 300,  # 认购金额\n    \"pay_time\": \"2017-05-28\",    # 打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachment_id\": 12     # 相关文件ID\n    \"buy_time\": \"2017-05-28T16:00:00\",  # 计息日\n    \"remark\": \"备注\",\n    \"prospective_earning\": 1.3, # 预期年化收益\n    \"buy_duration\": 3,\n    \"expire_time\": \"2017-05-28T16:00:00\"    # 到期时间\n    \"buy_value\": 1.33,  # 购买时净值\n    \"buy_share\": 13,    # 份额(万份)\n    \"closed\": true,     # 是否关闭\n    \"attachment_id\": 3, # 相关文件ID\n}",
+          "content": "{\n    \"customer_name\": \"客户姓名\",\n    \"customer_mobile\": \"1504342323\",\n    \"amount\": 300,  # 认购金额\n    \"pay_time\": \"2017-05-28\",    # 打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachment_id\": 12     # 相关文件ID\n    \"buy_time\": \"2017-05-28T16:00:00\",  # 计息日\n    \"confirm_time\": \"2017-05-28T16:00:00\",  # 确认日\n    \"remark\": \"备注\",\n    \"prospective_earning\": 1.3, # 预期年化收益\n    \"buy_duration\": 3,\n    \"expire_time\": \"2017-05-28T16:00:00\"    # 到期时间\n    \"buy_value\": 1.33,  # 购买时净值\n    \"buy_share\": 13,    # 份额(万份)\n    \"closed\": true,     # 是否关闭\n    \"attachment_id\": 3, # 相关文件ID\n}",
           "type": "json"
         }
       ]
@@ -3446,36 +3394,6 @@
         ]
       }
     },
-    "filename": "../admin/frontend/order.py",
-    "groupTitle": "Order"
-  },
-  {
-    "type": "put",
-    "url": "/api/orders/:order_no/dividends/:id",
-    "title": "修改订单打款",
-    "name": "UpdateOrderDividends",
-    "group": "Order",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "date",
-            "optional": false,
-            "field": "actual_time",
-            "description": "<p>实际打款日期</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"amount\": 1,\n    \"actual_time\": \"2017-12-1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
     "filename": "../admin/frontend/order.py",
     "groupTitle": "Order"
   },
@@ -3617,15 +3535,15 @@
   },
   {
     "type": "get",
-    "url": "/api/org/:org_id",
-    "title": "机构详情",
+    "url": "/api/org/roles",
+    "title": "机构角色列表",
     "name": "OrgList",
     "group": "Org",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]\n:return:",
           "type": "json"
         }
       ]
@@ -3636,15 +3554,15 @@
   },
   {
     "type": "get",
-    "url": "/api/org/roles",
-    "title": "机构角色列表",
+    "url": "/api/org/:org_id",
+    "title": "机构详情",
     "name": "OrgList",
     "group": "Org",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]\n:return:",
+          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
           "type": "json"
         }
       ]
