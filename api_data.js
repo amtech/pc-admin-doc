@@ -2014,7 +2014,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"739821398217\",\n    \"order_amount\": 99,   # 订单成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"user_name\": \"理财师姓名\",\n    \"order_no\": \"739821398217\",\n    \"order_amount\": 99,   # 订单成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
           "type": "json"
         }
       ]
