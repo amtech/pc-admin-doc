@@ -3577,7 +3577,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"open_date\": \"2017-12-11\", # 产品开放日\n    \"last_pay_time\": \"2017-12-11\",  # 最迟打款时间\n    \"start_date\": \"2017-12-11\", # 产品成立日\n    \"profit_interval\": [{       # 收益区间\n        \"first_distribution_date\": \"2017-12-11\",    # 首次分配日\n        \"distribution_period\": 3,   # 分配周期\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33,      # 销售费用比例\n        \"percent\": 3.3,     # 计算比例\n        \"calc_date\": \"2017-12-11\"   # 计算日期\n        \"days\": 3\n    }]\n}",
+          "content": "{\n    \"open_date\": \"2017-12-11\", # 产品开放日\n    \"last_pay_time\": \"2017-12-11\",  # 最迟打款时间\n    \"start_date\": \"2017-12-11\", # 产品成立日\n    \"profit_interval\": [{       # 收益区间\n        \"first_distribution_date\": \"2017-12-11\",    # 首次分配日\n        \"distribution_period\": 3,   # 分配周期\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33,      # 销售费用比例\n        \"percent\": 3.3,     # 计算比例\n        \"calc_date\": \"2017-12-11\"   # 计算日期\n        \"expire_days\": 3    # 到期间隔天数\n        \"calc_days\": 3      # 计算间隔天数\n    }]\n}",
           "type": "json"
         }
       ]
@@ -3656,7 +3656,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 33,\n    \"start_date\": \"2017-12-11\",\n    \"profit_intervals\": [{  # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33      # 销售费用比例\n        \"first_distribution_date\": \"2018-01-01\",    # 首次分配日\n        \"distribution_period\": 3,       # 分配周期\n        \"days\": 3\n    }]\n}",
+          "content": "{\n    \"id\": 33,\n    \"start_date\": \"2017-12-11\",\n    \"profit_intervals\": [{  # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33      # 销售费用比例\n        \"first_distribution_date\": \"2018-01-01\",    # 首次分配日\n        \"distribution_period\": 3,       # 分配周期\n        \"expire_days\": 3    # 到期间隔天数\n        \"calc_days\": 3      # 计算间隔天数\n    }]\n}",
           "type": "json"
         }
       ]
