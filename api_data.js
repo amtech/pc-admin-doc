@@ -1880,7 +1880,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 1,\n    \"profit_type\": 1,\n    \"currency\": 2,\n    \"type\": 1,  # 结算费用类型\n    \"duration\": 3,\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"percent\": 33.33,\n    \"start_date\": \"2017-12-11\",\n    \"amount\": 3,\n    \"confirmed_status\": 0,  # 0:待提交确认,1:确认中,2:已确认\n}",
+          "content": "{\n    \"id\": 1,\n    \"profit_type\": 1,\n    \"currency\": 2,\n    \"type\": 1,  # 结算费用类型\n    \"duration\": 3,\n    \"date\": \"2015-12-01\",\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"percent\": 33.33,\n    \"start_date\": \"2017-12-11\",\n    \"amount\": 3,\n    \"confirmed_status\": 0,  # 0:待提交确认,1:确认中,2:已确认\n    \"order_amount\": 13, # 订单成交金额\n    \"total_amount\": 33  # 总费用\n}",
           "type": "json"
         }
       ]
@@ -2014,7 +2014,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"user\": {\n        \"id\": 100788,\n        \"name\": \"理财师姓名\"\n    },\n    \"order_no\": \"739821398217\",\n    \"order_amount\": 99,   # 订单成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"user\": {\n        \"id\": 100788,\n        \"name\": \"理财师姓名\"\n    },\n    \"order_no\": \"739821398217\",\n    \"order_amount\": 99,   # 订单成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"rate\": 0.32,       # 比例\n}]",
           "type": "json"
         }
       ]
