@@ -1996,14 +1996,14 @@
           {
             "group": "Parameter",
             "type": "int",
-            "optional": false,
+            "optional": true,
             "field": "role",
             "description": "<p>角色</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": false,
+            "optional": true,
             "field": "user_id",
             "description": "<p>用户ID</p>"
           }
