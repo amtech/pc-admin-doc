@@ -1151,6 +1151,13 @@ define({ "api": [
             "optional": false,
             "field": "150001",
             "description": "<p>无法删除存在订单的客户</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "180001",
+            "description": "<p>募集记录已绑定费用锁定的订单</p>"
           }
         ]
       }
