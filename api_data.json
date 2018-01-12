@@ -1886,7 +1886,7 @@
   },
   {
     "type": "get",
-    "url": "/api/expense/product_settlement/detail",
+    "url": "/api/expense/product_settlement/group/:group_no",
     "title": "产品结算记录明细",
     "name": "GetProductSettlementDetail",
     "group": "Expense",
@@ -1900,20 +1900,6 @@
             "optional": false,
             "field": "submitter",
             "description": "<p>是否是提交人 1:是, 0:不是</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "group_no",
-            "description": "<p>组编号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "user_id",
-            "description": "<p>用户</p>"
           }
         ]
       }
