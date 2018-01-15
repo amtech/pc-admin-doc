@@ -1656,6 +1656,19 @@
     "title": "费用确认列表",
     "name": "ConfirmedProductSettlements",
     "group": "Expense",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "product_name",
+            "description": "<p>产品名称</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
