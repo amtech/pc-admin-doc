@@ -1673,7 +1673,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"product_name\": \"产品名称\",\n    \"type\": 1,  # 结算费用类型\n    \"start_date\": \"2015-12-33T16:20:20\",    # 成立日\n    \"duration\": 23,\n    \"confirmed_status\": 0,  # 0:待确认,1:待其他人确认,2:已确认\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"product_name\": \"产品名称\",\n    \"type\": 1,  # 结算费用类型\n    \"start_date\": \"2015-12-33T16:20:20\",    # 成立日\n    \"duration\": 23,\n    \"percent\": 50,  # 比例\n    \"date\": \"2016-12-11\",   # 计算日期\n    \"prior_date\": \"2016-12-11\", # 上一次计算日期\n    \"confirmed_status\": 0,  # 0:待确认,1:待其他人确认,2:已确认\n}]",
           "type": "json"
         }
       ]
@@ -2243,6 +2243,13 @@
             "optional": false,
             "field": "user_id",
             "description": "<p>用户ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "remark",
+            "description": "<p>备注</p>"
           }
         ]
       }
