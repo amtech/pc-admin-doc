@@ -1583,7 +1583,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"80932138092183091\",\n    \"product_name\": \"产品名称\",\n    \"amount\": 99,   # 结算金额\n    \"order_amount\": 999,    # 订单费用\n    \"tax_rate\": 12,   # 税率\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 8888,    # 实际到手金额\n    \"status\": 1,    # 状态, 1:结算中，2：已结算\n    \"name\": \"姓名\",\n    \"type\": 1,  # 费用类型\n    \"currency\": 1,\n    \"exchange_rate\": 3.3,       # 汇率\n    \"role\": 3,  # 角色\n    \"customer\": {\n        \"no\": \"38210932109321\",\n        \"name\": \"客户姓名\"\n    },\n    \"settlement_rate\": 1.33 # 结算比例\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"80932138092183091\",\n    \"product_name\": \"产品名称\",\n    \"amount\": 99,   # 结算金额\n    \"order_amount\": 999,    # 订单费用\n    \"tax_rate\": 12,   # 税率\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 8888,    # 实际到手金额\n    \"status\": 1,    # 状态, 1:结算中，2：已结算\n    \"name\": \"姓名\",\n    \"type\": 1,  # 费用类型\n    \"currency\": 1,\n    \"exchange_rate\": 3.3,       # 汇率\n    \"role\": 3,  # 角色\n    \"customer\": {\n        \"no\": \"38210932109321\",\n        \"name\": \"客户姓名\"\n    },\n    \"settlement_rate\": 1.33 # 结算比例\n    \"invoice_type\": 1,  # 发票类型\n    \"remark\": \"备注\",\n    \"user_name\": \"理财师\"\n}]",
           "type": "json"
         }
       ]
