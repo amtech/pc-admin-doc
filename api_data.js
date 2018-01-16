@@ -1622,7 +1622,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"32139129321912\",\n    \"product_name\": \"产品名\",\n    \"order_amount\": 123,    # 订单金额\n    \"user_name\": \"理财师姓名\",\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 9888,   # 到手,\n    \"currency\": 1,\n    \"type\": 1,\n    \"exchange_rate\": 3.3,   # 汇率\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"32139129321912\",\n    \"product_name\": \"产品名\",\n    \"order_amount\": 123,    # 订单金额\n    \"user_name\": \"理财师姓名\",\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 9888,   # 到手,\n    \"currency\": 1,\n    \"type\": 1,\n    \"exchange_rate\": 3.3,   # 汇率\n    \"invoice_type\": 1,  # 发票类型\n}]",
           "type": "json"
         }
       ]
