@@ -1890,7 +1890,7 @@ define({ "api": [
       "examples": [
         {
           "title": "单币种:",
-          "content": "{\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n    \"total_order_amount\": 999,  # 计提金额\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n}",
+          "content": "{\n    \"product_name\": \"产品名称\",\n    \"currency\": 1,\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n    \"total_order_amount\": 999,  # 计提金额\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n}",
           "type": "json"
         },
         {
