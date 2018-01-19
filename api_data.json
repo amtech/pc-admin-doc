@@ -1753,6 +1753,13 @@
             "optional": true,
             "field": "exchange_rate",
             "description": "<p>汇率</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "remark",
+            "description": "<p>备注</p>"
           }
         ]
       }
@@ -2108,7 +2115,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"739821398217\",\n    \"customer_name\": \"客户姓名\",\n    \"order_amount\": 99,   # 订单成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"739821398217\",\n    \"customer_name\": \"客户姓名\",\n    \"order_amount\": 99,   # 订单成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n    \"calc_days\": 3, # 天数\n    \"rate\": {   # 比例\n        \"sales\": 999,   # 销售费\n        \"distribution\": 999,    # 发行费\n        \"exploit\": 999, # 开发费\n        \"underwrite\": 999,  # 包销费\n        \"management\": 999,  # 管理费\n        \"performance\": 999  # 业绩费\n    }\n}]",
           "type": "json"
         }
       ]
@@ -2332,6 +2339,13 @@
             "optional": true,
             "field": "exchange_rate",
             "description": "<p>汇率</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "remark",
+            "description": "<p>备注</p>"
           }
         ]
       }
