@@ -731,6 +731,33 @@
     "title": "解绑理财师",
     "name": "unbound_puser",
     "group": "Channel",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "remove",
+            "description": "<p>1:删除</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "reffer_id",
+            "description": "<p>推荐人</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "adviser_id",
+            "description": "<p>投顾</p>"
+          }
+        ]
+      }
+    },
     "version": "0.0.0",
     "filename": "../admin/frontend/channel.py",
     "groupTitle": "Channel"
@@ -750,6 +777,13 @@
             "optional": false,
             "field": "adviser_id",
             "description": "<p>投顾ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "remove",
+            "description": "<p>1:删除</p>"
           }
         ]
       }
