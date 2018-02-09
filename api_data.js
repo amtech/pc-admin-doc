@@ -451,6 +451,26 @@ define({ "api": [
     "title": "理财师详情",
     "name": "puser_detail",
     "group": "Channel",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "adviser_id",
+            "description": "<p>投顾ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "referrer_id",
+            "description": "<p>推荐人ID</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
@@ -494,7 +514,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"source\":1,\n    \"mobile\": \"1506712321\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n    \"referrer\": {   # 推荐人\n        \"id\": 12,\n        \"type\": 1   # 类型\n    }\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"source\":1,\n    \"status\": 1,    # 状态，1：有效，2：无效\n    \"mobile\": \"1506712321\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n    \"referrer\": {   # 推荐人\n        \"id\": 12,\n        \"type\": 1   # 类型\n        \"name\": \"ss\"\n    }\n}]",
           "type": "json"
         }
       ]
@@ -572,7 +592,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"real_name\": \"真实姓名\",\n    \"introducer\": {\n        \"id\": 335,\n        \"name\": \"介绍人\"\n    },\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"pusers\": {   # 推荐理财师数\n        \"total\": 12,\n    },\n    \"orders\": 199,  # 推荐交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"real_name\": \"真实姓名\",\n    \"introducer\": {\n        \"id\": 335,\n        \"name\": \"介绍人\"\n    },\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"status\": 1,    1:有效，2：无效\n    \"pusers\": {   # 推荐理财师数\n        \"total\": 12,\n    },\n    \"orders\": 199,  # 推荐交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
           "type": "json"
         }
       ]
@@ -2061,28 +2081,9 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/expense/rate/:order_no",
-    "title": "订单费用比例",
-    "name": "OrderFeeRate",
-    "group": "Expense",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"sales\",\n    \"value\": 1.3\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
     "url": "/api/expense/order",
     "title": "订单交易列表（费用相关）",
-    "name": "OrderFeeRate",
+    "name": "OrderFeeList",
     "group": "Expense",
     "parameter": {
       "fields": {
@@ -2090,42 +2091,42 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "int",
-            "optional": false,
+            "optional": true,
             "field": "product_id",
             "description": "<p>产品ID</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": false,
+            "optional": true,
             "field": "role",
             "description": "<p>角色</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": false,
+            "optional": true,
             "field": "user_id",
             "description": "<p>用户ID</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": false,
+            "optional": true,
             "field": "org_id",
             "description": "<p>机构ID</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
-            "optional": false,
+            "optional": true,
             "field": "name",
             "description": "<p>产品名或者客户名</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": false,
+            "optional": true,
             "field": "exist",
             "description": "<p>1：存续，0：结束</p>"
           }
@@ -2137,6 +2138,25 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "[{\n    \"order_no\": \"321321321kj\",\n    \"order_amount\": 999,\n    \"product_name\": \"产品名称\",\n    \"customer_name\": \"客户姓名\",\n    \"user_name\": \"理财师姓名\",\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
+    "url": "/api/expense/rate/:order_no",
+    "title": "订单费用比例",
+    "name": "OrderFeeRate",
+    "group": "Expense",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"name\": \"sales\",\n    \"value\": 1.3\n}]",
           "type": "json"
         }
       ]
