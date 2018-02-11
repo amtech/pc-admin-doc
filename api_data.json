@@ -2190,7 +2190,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"sales\",\n    \"value\": 1.3\n}]",
+          "content": "[{\n    \"name\": \"sales\",\n    \"value\": 1.3,\n    \"amount\": 3,\n    \"percent\": 12,\n    \"last_date\": \"2015-12-12\",\n    \"prior_date\": \"2015-12-12\",\n}]",
           "type": "json"
         }
       ]
