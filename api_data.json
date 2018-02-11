@@ -267,7 +267,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"referrers\": 12,    # 推荐人数\n    \"pusers\": 12,   # 理财师数\n    \"orders\": 99,   # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    }\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"total_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 总计费用\n    \"finished_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 已结算费用\n    \"wait_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 待结算费用\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n    \"total_order_amount\": {\"rmb\":8888, \"dollar\": 9888},  # 计提金额\n    \"sales\": {\"rmb\":8888, \"dollar\": 9888},   # 销售费\n    \"distribution\": {\"rmb\":8888, \"dollar\": 9888},    # 发行费\n    \"exploit\": {\"rmb\":8888, \"dollar\": 9888}, # 开发费\n    \"underwrite\": {\"rmb\":8888, \"dollar\": 9888},  # 包销费\n    \"management\": {\"rmb\":8888, \"dollar\": 9888},  # 管理费\n    \"performance\": {\"rmb\":8888, \"dollar\": 9888}  # 业绩费\n}]",
           "type": "json"
         }
       ]
