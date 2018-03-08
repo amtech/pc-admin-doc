@@ -267,7 +267,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"total_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 总计费用\n    \"finished_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 已结算费用\n    \"wait_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 待结算费用\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n    \"total_order_amount\": {\"rmb\":8888, \"dollar\": 9888},  # 计提金额\n    \"sales\": {\"rmb\":8888, \"dollar\": 9888},   # 销售费\n    \"distribution\": {\"rmb\":8888, \"dollar\": 9888},    # 发行费\n    \"exploit\": {\"rmb\":8888, \"dollar\": 9888}, # 开发费\n    \"underwrite\": {\"rmb\":8888, \"dollar\": 9888},  # 包销费\n    \"management\": {\"rmb\":8888, \"dollar\": 9888},  # 管理费\n    \"performance\": {\"rmb\":8888, \"dollar\": 9888}  # 业绩费\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"referrers\": 12,    # 推荐人数\n    \"pusers\": 12,   # 理财师数\n    \"orders\": 99,   # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    }\n}]",
           "type": "json"
         }
       ]
@@ -368,19 +368,6 @@
     "title": "介绍人列表",
     "name": "introducer_list",
     "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "name",
-            "description": "<p>姓名</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
@@ -404,7 +391,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"真实姓名\",\n    \"role\": 1,  # 1：推荐人，2：兼职投顾\n    \"orders\": 33,\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"真实姓名\",\n    \"role\": 1,  # 1：推荐人，2：兼职投顾\n}]",
           "type": "json"
         }
       ]
@@ -451,31 +438,11 @@
     "title": "理财师详情",
     "name": "puser_detail",
     "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "referrer_id",
-            "description": "<p>推荐人ID</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"mobile\": \"1506712321\",\n    \"referrer_name\": \"推荐人\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n    \"source\": 1,    # 渠道\n}",
+          "content": "{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"mobile\": \"1506712321\",\n    \"referrer_name\": \"推荐人\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}",
           "type": "json"
         }
       ]
@@ -514,7 +481,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"source\":1,\n    \"status\": 1,    # 状态，1：有效，2：无效\n    \"mobile\": \"1506712321\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n    \"referrer\": {   # 推荐人\n        \"id\": 12,\n        \"type\": 1   # 类型\n        \"name\": \"ss\"\n    }\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"source\":1,\n    \"mobile\": \"1506712321\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n    \"referrer\": {   # 推荐人\n        \"id\": 12,\n        \"type\": 1   # 类型\n    }\n}]",
           "type": "json"
         }
       ]
@@ -592,39 +559,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"real_name\": \"真实姓名\",\n    \"introducer\": {\n        \"id\": 335,\n        \"name\": \"介绍人\"\n    },\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"status\": 1,    1:有效，2：无效\n    \"pusers\": {   # 推荐理财师数\n        \"total\": 12,\n    },\n    \"orders\": 199,  # 推荐交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/referrers/:id/orders",
-    "title": "推荐人推荐订单",
-    "name": "referrer_orders",
-    "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"order_no\": \"321321321kj\",\n    \"order_amount\": 999,\n    \"product_name\": \"产品名称\",\n    \"user_name\": \"理财师姓名\",\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"real_name\": \"真实姓名\",\n    \"introducer\": {\n        \"id\": 335,\n        \"name\": \"介绍人\"\n    },\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"pusers\": {   # 推荐理财师数\n        \"total\": 12,\n    },\n    \"orders\": 199,  # 推荐交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
           "type": "json"
         }
       ]
@@ -763,33 +698,6 @@
     "title": "解绑理财师",
     "name": "unbound_puser",
     "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "remove",
-            "description": "<p>1:删除</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "reffer_id",
-            "description": "<p>推荐人</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾</p>"
-          }
-        ]
-      }
-    },
     "version": "0.0.0",
     "filename": "../admin/frontend/channel.py",
     "groupTitle": "Channel"
@@ -809,35 +717,9 @@
             "optional": false,
             "field": "adviser_id",
             "description": "<p>投顾ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "remove",
-            "description": "<p>1:删除</p>"
           }
         ]
       }
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/introducers/:id",
-    "title": "介绍人详情",
-    "name": "update_introducer",
-    "group": "Channel",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"name\": \"真实姓名\",\n    \"mobile\": \"1506554645\",\n    \"investors\": 12,    # 投顾人数\n    \"referrers\": 1,  # 推荐人数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n    \"orders\": 33\n}",
-          "type": "json"
-        }
-      ]
     },
     "version": "0.0.0",
     "filename": "../admin/frontend/channel.py",
@@ -1691,13 +1573,6 @@
             "group": "Parameter",
             "type": "int",
             "optional": true,
-            "field": "org_id",
-            "description": "<p>机构ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
             "field": "product_id",
             "description": "<p>产品ID</p>"
           },
@@ -1707,13 +1582,6 @@
             "optional": true,
             "field": "name",
             "description": "<p>产品名称或姓名</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "order_no",
-            "description": "<p>订单号</p>"
           }
         ]
       }
@@ -1836,6 +1704,13 @@
             "optional": false,
             "field": "product_settlement_group_no",
             "description": "<p>产品结算记录组编号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "order_no",
+            "description": "<p>订单号</p>"
           },
           {
             "group": "Parameter",
@@ -2156,7 +2031,7 @@
     "type": "get",
     "url": "/api/expense/order",
     "title": "订单交易列表（费用相关）",
-    "name": "OrderFeeList",
+    "name": "OrderFeeRate",
     "group": "Expense",
     "parameter": {
       "fields": {
@@ -2164,44 +2039,23 @@
           {
             "group": "Parameter",
             "type": "int",
-            "optional": true,
+            "optional": false,
             "field": "product_id",
             "description": "<p>产品ID</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": true,
+            "optional": false,
             "field": "role",
             "description": "<p>角色</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": true,
+            "optional": false,
             "field": "user_id",
             "description": "<p>用户ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "org_id",
-            "description": "<p>机构ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "name",
-            "description": "<p>产品名或者客户名</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "exist",
-            "description": "<p>1：存续，0：结束</p>"
           }
         ]
       }
@@ -2210,7 +2064,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"order_no\": \"321321321kj\",\n    \"order_amount\": 999,\n    \"product_name\": \"产品名称\",\n    \"customer_name\": \"客户姓名\",\n    \"user_name\": \"理财师姓名\",\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
+          "content": "[{\n    \"order_no\": \"321321321kj\",\n    \"order_amount\": 999,\n    \"customer_name\": \"客户姓名\",\n    \"user_name\": \"理财师姓名\",\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
           "type": "json"
         }
       ]
@@ -2229,7 +2083,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"sales\",\n    \"value\": 1.3,\n    \"amount\": 3,\n    \"percent\": 12,\n    \"last_date\": \"2015-12-12\",\n    \"prior_date\": \"2015-12-12\",\n}]",
+          "content": "[{\n    \"name\": \"sales\",\n    \"value\": 1.3\n}]",
           "type": "json"
         }
       ]
@@ -2325,20 +2179,6 @@
             "optional": true,
             "field": "role",
             "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "user_id",
-            "description": "<p>用户ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "org_id",
-            "description": "<p>机构ID</p>"
           },
           {
             "group": "Parameter",
@@ -3320,7 +3160,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"product_id\": 3,\n    \"product_name\": \"产品名称\",\n    \"customer_name\": \"客户名称\",\n    \"customer_id_card_no\": \"客户证件号\",\n    \"customer_mobile\": \"客户手机号\",\n    \"pay_time\": \"2017-12-21\",   # 打款日期\n    \"amount\": 12,   # 认购金额\n    \"persistent_share\": 100,    # 存续份额\n    \"buy_share\": 100,       # 认购份额\n    \"prospective_earning\": 0.11,    # 预期年化收益\n    \"buy_duration\": 12, # 期限\n    \"start_date\": \"2017-11-11T17:00:00\",    # 成立日\n    \"buy_time\": \"2017-11-11T17:00:00\",    # 认购日\n    \"confirm_time\": \"2017-11-11T17:00:00\",    # 确认日\n    \"last_redemption_time\": \"2017-11-11T17:00:00\",    # 最后赎回日\n    \"expire_time\": \"2017-11-11T17:00:00\",    # 到期日\n    \"user_name\": \"理财师\",\n    \"remark\": \"备注\",\n    \"book_profit\": \"133\",   # 账面收益\n    \"currency\": 1,\n    \"distribution\": 999,    # 分配金额\n    \"book_profit_percent\": 0.12,    # 账面收益率\n    \"buy_value\": 1, # 认购日净值\n    \"last_redemption_value\": 1.33,  # 最后赎回净值\n    \"last_value_update_time\": \"2017-11-11T17:00:00\",    # 最新净值日\n    \"last_value\": 1.33,    # 最新净值\n    \"persistent_amount\": 933,    # 存续金额 / 万\n    \"bonus\": 933,    # 分红金额\n    \"survival\": true,   # 是否存续中\n    \"profit_type\": 1,\n    \"attachment\": {\n        \"id\": 1,\n        \"name\": \"xxx',\n        \"url\": 地址\n    }\n}",
+          "content": "{\n    \"product_name\": \"产品名称\",\n    \"customer_name\": \"客户名称\",\n    \"customer_id_card_no\": \"客户证件号\",\n    \"customer_mobile\": \"客户手机号\",\n    \"pay_time\": \"2017-12-21\",   # 打款日期\n    \"amount\": 12,   # 认购金额\n    \"persistent_share\": 100,    # 存续份额\n    \"buy_share\": 100,       # 认购份额\n    \"prospective_earning\": 0.11,    # 预期年化收益\n    \"buy_duration\": 12, # 期限\n    \"start_date\": \"2017-11-11T17:00:00\",    # 成立日\n    \"buy_time\": \"2017-11-11T17:00:00\",    # 认购日\n    \"confirm_time\": \"2017-11-11T17:00:00\",    # 确认日\n    \"last_redemption_time\": \"2017-11-11T17:00:00\",    # 最后赎回日\n    \"expire_time\": \"2017-11-11T17:00:00\",    # 到期日\n    \"user_name\": \"理财师\",\n    \"remark\": \"备注\",\n    \"book_profit\": \"133\",   # 账面收益\n    \"currency\": 1,\n    \"distribution\": 999,    # 分配金额\n    \"book_profit_percent\": 0.12,    # 账面收益率\n    \"buy_value\": 1, # 认购日净值\n    \"last_redemption_value\": 1.33,  # 最后赎回净值\n    \"last_value_update_time\": \"2017-11-11T17:00:00\",    # 最新净值日\n    \"last_value\": 1.33,    # 最新净值\n    \"persistent_amount\": 933,    # 存续金额 / 万\n    \"bonus\": 933,    # 分红金额\n    \"survival\": true,   # 是否存续中\n    \"profit_type\": 1,\n    \"attachment\": {\n        \"id\": 1,\n        \"name\": \"xxx',\n        \"url\": 地址\n    }\n}",
           "type": "json"
         }
       ]
@@ -3766,54 +3606,6 @@
     "groupTitle": "Order"
   },
   {
-    "type": "delete",
-    "url": "/api/org/:org_id",
-    "title": "机构删除",
-    "name": "OrgDelete",
-    "group": "Org",
-    "version": "0.0.0",
-    "filename": "../admin/frontend/org.py",
-    "groupTitle": "Org"
-  },
-  {
-    "type": "get",
-    "url": "/api/org/:org_id",
-    "title": "机构详情",
-    "name": "OrgList",
-    "group": "Org",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n    \"industry\": 1,  # 行业\n    \"order_amount\": {\n        \"total\": {\"rmb\":0, \"dollar\": 0},\n        \"existence\": {\"rmb\":0, \"dollar\": 0},\n    },\n    \"product_amount\": {\"total\":3, \"existence\": 1}\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/org.py",
-    "groupTitle": "Org"
-  },
-  {
-    "type": "get",
-    "url": "/api/org/roles",
-    "title": "机构角色列表",
-    "name": "OrgList",
-    "group": "Org",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]\n:return:",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/org.py",
-    "groupTitle": "Org"
-  },
-  {
     "type": "get",
     "url": "/api/org",
     "title": "机构列表",
@@ -3836,7 +3628,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n    \"order_amount\": {\"dollar\": 0, \"rmb\": 0}\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
           "type": "json"
         }
       ]
@@ -3847,15 +3639,34 @@
   },
   {
     "type": "get",
-    "url": "/api/org/:org_id/members",
-    "title": "机构成员",
-    "name": "OrgMembers",
+    "url": "/api/org/:org_id",
+    "title": "机构详情",
+    "name": "OrgList",
     "group": "Org",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"user\": {\n        \"id\": 3,\n        \"name\": \"小米\"\n    },\n    \"order_amount\": {\n        \"rmb\":0,\n        \"dollar\": 0\n    },\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../admin/frontend/org.py",
+    "groupTitle": "Org"
+  },
+  {
+    "type": "get",
+    "url": "/api/org/roles",
+    "title": "机构角色列表",
+    "name": "OrgList",
+    "group": "Org",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]\n:return:",
           "type": "json"
         }
       ]
@@ -4025,7 +3836,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 33,\n    \"start_date\": \"2017-12-11\",\n    \"profit_intervals\": [{  # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33      # 销售费用比例\n        \"first_distribution_date\": \"2018-01-01\",    # 首次分配日\n        \"distribution_period\": 3,       # 分配周期\n        \"expire_days\": 3    # 到期间隔天数\n        \"calc_days\": 3      # 计算间隔天数\n    }]\n}",
+          "content": "{\n    \"id\": 33,\n    \"start_date\": \"2017-12-11\",\n    \"profit_intervals\": [{  # 收益区间\n        \"id\": 3,\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33      # 销售费用比例\n        \"first_distribution_date\": \"2018-01-01\",    # 首次分配日\n        \"distribution_period\": 3,       # 分配周期\n        \"expire_days\": 3    # 到期间隔天数\n        \"calc_days\": 3      # 计算间隔天数\n    }]\n}",
           "type": "json"
         }
       ]
@@ -4744,7 +4555,7 @@
             "type": "string",
             "optional": true,
             "field": "name",
-            "description": "<p>用户姓名/机构名称</p>"
+            "description": "<p>用户姓名</p>"
           },
           {
             "group": "Parameter",
@@ -4789,7 +4600,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"user_id\": 100377,\n    \"name\": \"小明\",\n    \"mobile\": \"150679876523\",\n    \"role\": 1,      # 角色, 1:游客, 2:旗下理财师, 3:管理员\n    \"frozen\": true      # 是否已被冻结\n    \"join_time\": \"2016-12-23T12:23:33\", # 加入时间\n    \"certification_info\": {     # 认证信息\n        \"company_name\": \"机构名称\",\n        \"position\": \"职位理财师\",\n        \"work_year\": 1,     # 工作年限(1:1~3年, 2:3~5年, 3:5~10年, 4:10年以上)\n        \"industry\": 3,      # 行业(1:银行, 2:信托, 3:资管, 4:保险, 5:证券, 6:基金, 7:P2P, 8:三方)\n    },\n    \"org\": {\n        \"id\": 1,\n        \"company_name\": \"机构名称\"\n    },\n    \"order_amount\": {   # 成交金额\n        \"dollar\":999,\n        \"rmb\": 999\n    }\n}]",
+          "content": "[{\n    \"user_id\": 100377,\n    \"name\": \"小明\",\n    \"mobile\": \"150679876523\",\n    \"role\": 1,      # 角色, 1:游客, 2:旗下理财师, 3:管理员\n    \"frozen\": true      # 是否已被冻结\n    \"join_time\": \"2016-12-23T12:23:33\", # 加入时间\n    \"certification_info\": {     # 认证信息\n        \"company_name\": \"机构名称\",\n        \"position\": \"职位理财师\",\n        \"work_year\": 1,     # 工作年限(1:1~3年, 2:3~5年, 3:5~10年, 4:10年以上)\n        \"industry\": 3,      # 行业(1:银行, 2:信托, 3:资管, 4:保险, 5:证券, 6:基金, 7:P2P, 8:三方)\n    },\n    \"org\": {\n        \"id\": 1,\n        \"company_name\": \"机构名称\"\n    }\n}]",
           "type": "json"
         }
       ]
@@ -4835,7 +4646,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"user_id\": 100319,\n    \"name\": \"小明\",\n    \"mobile\": \"150432423\",\n    \"created_time\": \"2015-12-22\",   # 注册时间\n    \"role\": 1,      # 角色, 1:游客, 2:旗下理财师, 3:管理员\n    \"business_card_pic\": '/file/1',     # 名片\n    \"certification_info\": {     # 认证信息\n        \"company_name\": \"机构名称\",\n        \"position\": \"职位理财师\",\n        \"work_year\": 1,     # 工作年限(1:1~3年, 2:3~5年, 3:5~10年, 4:10年以上)\n        \"industry\": 3,      # 行业(1:银行, 2:信托, 3:资管, 4:保险, 5:证券, 6:基金, 7:P2P, 8:三方)\n    },\n    \"org\": {\n        \"id\": 1,\n        \"company_name\": \"机构名称\"\n    },\n    \"reffer\": {\"id\":3, \"name\": \"2\"},    # 推荐人\n    \"advisor\": {\"id\":3, \"name\": \"2\"},   # 投资顾问\n    \"order_amount\": {\n        \"total\": {\"rmb\":0, \"dollar\": 0},\n        \"existence\": {\"rmb\":0, \"dollar\": 0},\n    },\n    \"product_amount\": {\"total\":3, \"existence\": 1}\n}",
+          "content": "{\n    \"user_id\": 100319,\n    \"name\": \"小明\",\n    \"mobile\": \"150432423\",\n    \"created_time\": \"2015-12-22\",   # 注册时间\n    \"role\": 1,      # 角色, 1:游客, 2:旗下理财师, 3:管理员\n    \"business_card_pic\": '/file/1',     # 名片\n    \"certification_info\": {     # 认证信息\n        \"company_name\": \"机构名称\",\n        \"position\": \"职位理财师\",\n        \"work_year\": 1,     # 工作年限(1:1~3年, 2:3~5年, 3:5~10年, 4:10年以上)\n        \"industry\": 3,      # 行业(1:银行, 2:信托, 3:资管, 4:保险, 5:证券, 6:基金, 7:P2P, 8:三方)\n    },\n    \"org\": {\n        \"id\": 1,\n        \"company_name\": \"机构名称\"\n    }\n}",
           "type": "json"
         }
       ]
