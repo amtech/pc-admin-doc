@@ -3705,7 +3705,7 @@ define({ "api": [
             "type": "Datetime",
             "optional": false,
             "field": "date",
-            "description": "<p>风险日期</p>"
+            "description": "<p>风险日期,必须晚于募集记录的成立日/起息日</p>"
           },
           {
             "group": "Parameter",
