@@ -3737,7 +3737,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "string",
             "size": "..100",
             "optional": true,
             "field": "remark",
