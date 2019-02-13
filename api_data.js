@@ -26,7 +26,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/account.py",
+    "filename": "admin/frontend/account.py",
     "groupTitle": "Account"
   },
   {
@@ -36,7 +36,7 @@ define({ "api": [
     "name": "LoginStatus",
     "group": "Account",
     "version": "0.0.0",
-    "filename": "../admin/frontend/account.py",
+    "filename": "admin/frontend/account.py",
     "groupTitle": "Account"
   },
   {
@@ -55,7 +55,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/account.py",
+    "filename": "admin/frontend/account.py",
     "groupTitle": "Account"
   },
   {
@@ -66,7 +66,7 @@ define({ "api": [
     "group": "Account",
     "description": "<p>用户注销</p>",
     "version": "0.0.0",
-    "filename": "../admin/frontend/account.py",
+    "filename": "admin/frontend/account.py",
     "groupTitle": "Account"
   },
   {
@@ -98,7 +98,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/banner.py",
+    "filename": "admin/frontend/banner.py",
     "groupTitle": "Banner"
   },
   {
@@ -142,7 +142,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/banner.py",
+    "filename": "admin/frontend/banner.py",
     "groupTitle": "Banner"
   },
   {
@@ -152,7 +152,7 @@ define({ "api": [
     "name": "delete_banner",
     "group": "Banner",
     "version": "0.0.0",
-    "filename": "../admin/frontend/banner.py",
+    "filename": "admin/frontend/banner.py",
     "groupTitle": "Banner"
   },
   {
@@ -189,7 +189,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/certification.py",
+    "filename": "admin/frontend/certification.py",
     "groupTitle": "Certification"
   },
   {
@@ -235,7 +235,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/certification.py",
+    "filename": "admin/frontend/certification.py",
     "groupTitle": "Certification"
   },
   {
@@ -254,7 +254,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -273,7 +273,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -292,7 +292,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -311,7 +311,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -330,7 +330,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -349,7 +349,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -359,7 +359,7 @@ define({ "api": [
     "name": "delete_introducer",
     "group": "Channel",
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -378,7 +378,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -397,7 +397,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -429,7 +429,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -448,7 +448,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -487,7 +487,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -526,7 +526,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -565,7 +565,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -604,7 +604,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -636,7 +636,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -689,7 +689,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -699,7 +699,7 @@ define({ "api": [
     "name": "unbound_puser",
     "group": "Channel",
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -722,7 +722,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -741,7 +741,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -760,7 +760,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/channel.py",
+    "filename": "admin/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -860,7 +860,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/apidoc.py",
+    "filename": "admin/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1163,7 +1163,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/apidoc.py",
+    "filename": "admin/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1221,7 +1221,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/apidoc.py",
+    "filename": "admin/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1293,7 +1293,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/apidoc.py",
+    "filename": "admin/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1330,7 +1330,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/apidoc.py",
+    "filename": "admin/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1388,7 +1388,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/apidoc.py",
+    "filename": "admin/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1439,7 +1439,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/apidoc.py",
+    "filename": "admin/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1476,8 +1476,27 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/apidoc.py",
+    "filename": "admin/apidoc.py",
     "groupTitle": "Constant"
+  },
+  {
+    "type": "get",
+    "url": "/api/customers/:id",
+    "title": "客户详情",
+    "name": "CustomerDetail",
+    "group": "Customer",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"id\": 12,\n    \"no\": \"8302183921889301\",  # 客户编号\n    \"name\": \"张东\",\n    \"type\": {\n        \"id\": 12,\n        \"text\": \"VIP客户\"\n    },\n    \"first_invest_time\": \"2017-12-16\",\n    \"last_invest_time\": \"2017-11-16\",\n    \"remark\": \"备注\",\n    \"order_amount\": {   # 成交金额\n        \"total\": {  # 累计\n            \"rmb\": 0,\n            \"dollar\": 0\n        },\n        \"existence\": {  #  存续\n            \"rmb\": 0,\n            \"dollar\": 0\n        }\n    },\n    \"profit\": {     # 收益    / 元\n        \"total\": {  # 账面收益\n            \"rmb\": 0,\n            \"dollar\": 0\n        },\n        \"finished\": {   # 已分配收益\n            \"rmb\": 0,\n            \"dollar\": 0\n        }\n    },\n    \"existence_percent_by_profit_type\": [   # 浮动/固定存续\n        {\"name\": \"fixed\": \"value\": 0.12},\n        {\"name\": \"float\": \"value\": 0.12},\n    }],\n    \"existence_percent_by_currency\": {  # 人民币/美元存续\n        {\"name\": \"rmb\": \"value\": 0.12},\n        {\"name\": \"dollar\": \"value\": 0.12},\n    },\n    \"existence_percent_by_strategy\": {  # 存续产品策略\n        {\"name\": \"主管多空\": \"value\": 0.12},\n        {\"name\": \"基建\": \"value\": 0.12},\n    },\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "admin/frontend/customer.py",
+    "groupTitle": "Customer"
   },
   {
     "type": "get",
@@ -1529,7 +1548,26 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/customer.py",
+    "filename": "admin/frontend/customer.py",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "get",
+    "url": "/api/customers/types",
+    "title": "客户类型",
+    "name": "CustomersTypes",
+    "group": "Customer",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 1,\n    \"text\": \"VIP\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "admin/frontend/customer.py",
     "groupTitle": "Customer"
   },
   {
@@ -1596,7 +1634,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -1635,7 +1673,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -1654,7 +1692,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -1686,7 +1724,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -1779,7 +1817,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -1793,12 +1831,12 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"product_id\": 13,\n    \"type\": [1,4,8],  # 结算费用类型\n    \"amount\": 122,  # 金额\n    \"remark\": \"备注\",\n    \"date\": \"2015-12-01\",\n    \"percent\": 33.33,  # 比例\n    \"start_date\": \"2017-12-11\"  # 成立日\n    \"duration\": 3,  # 期限\n}",
+          "content": "{\n    \"product_id\": 13,\n    \"type\": [16],  # 结算费用类型\n    \"amount\": 122,  # 金额\n    \"remark\": \"备注\",\n    \"date\": \"2015-12-01\",\n    \"percent\": 33.33,  # 比例\n    \"start_date\": \"2017-12-11\"  # 成立日\n    \"duration\": 3,  # 期限\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -1808,7 +1846,7 @@ define({ "api": [
     "name": "DeleteCommittedOrderSettlements",
     "group": "Expense",
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -1818,7 +1856,7 @@ define({ "api": [
     "name": "DeleteProductSettlement",
     "group": "Expense",
     "version": "1.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -1857,7 +1895,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -1922,7 +1960,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -1954,7 +1992,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -1986,7 +2024,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2005,7 +2043,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2024,7 +2062,26 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
+    "groupTitle": "Expense"
+  },
+  {
+    "type": "get",
+    "url": "/api/expense/rate/:order_no",
+    "title": "订单费用比例",
+    "name": "OrderFeeRate",
+    "group": "Expense",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"role\": 1,\n    \"sales\": 3.3,\n    ......\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2070,26 +2127,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/rate/:order_no",
-    "title": "订单费用比例",
-    "name": "OrderFeeRate",
-    "group": "Expense",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"sales\",\n    \"value\": 1.3\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2135,7 +2173,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2154,7 +2192,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2200,7 +2238,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2239,7 +2277,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2283,7 +2321,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2302,7 +2340,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2321,7 +2359,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2372,7 +2410,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2411,110 +2449,12 @@ define({ "api": [
             "optional": true,
             "field": "user_id",
             "description": "<p>用户ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "sales",
-            "description": "<p>销售费</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "management_sales",
-            "description": "<p>管理销售费</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "performance_sales",
-            "description": "<p>业绩销售费</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "exploit",
-            "description": "<p>开发费</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "underwrite",
-            "description": "<p>包销费</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "distribution",
-            "description": "<p>发行费</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "management_exploit",
-            "description": "<p>管理开发</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "management_underwrite",
-            "description": "<p>管理包销</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "management_distribution",
-            "description": "<p>管理发行</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "performance_exploit",
-            "description": "<p>业绩开发费</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "performance_underwrite",
-            "description": "<p>业绩包销费</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "performance_distribution",
-            "description": "<p>业绩发行费</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "management",
-            "description": "<p>管理费</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "performance",
-            "description": "<p>业绩费</p>"
           }
         ]
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2533,7 +2473,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2552,7 +2492,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2589,7 +2529,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2619,7 +2559,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/expense.py",
+    "filename": "admin/frontend/expense.py",
     "groupTitle": "Expense"
   },
   {
@@ -2629,7 +2569,7 @@ define({ "api": [
     "name": "feedback_handle",
     "group": "Feedback",
     "version": "0.0.0",
-    "filename": "../admin/frontend/feedback.py",
+    "filename": "admin/frontend/feedback.py",
     "groupTitle": "Feedback"
   },
   {
@@ -2675,7 +2615,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/feedback.py",
+    "filename": "admin/frontend/feedback.py",
     "groupTitle": "Feedback"
   },
   {
@@ -2685,7 +2625,7 @@ define({ "api": [
     "name": "AccessFile",
     "group": "File",
     "version": "1.0.0",
-    "filename": "../admin/frontend/file.py",
+    "filename": "admin/frontend/file.py",
     "groupTitle": "File"
   },
   {
@@ -2704,7 +2644,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "../admin/frontend/file.py",
+    "filename": "admin/frontend/file.py",
     "groupTitle": "File"
   },
   {
@@ -2766,7 +2706,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "../admin/frontend/file.py",
+    "filename": "admin/frontend/file.py",
     "groupTitle": "File"
   },
   {
@@ -2785,7 +2725,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/log.py",
+    "filename": "admin/frontend/log.py",
     "groupTitle": "Log"
   },
   {
@@ -2824,7 +2764,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/log.py",
+    "filename": "admin/frontend/log.py",
     "groupTitle": "Log"
   },
   {
@@ -2856,7 +2796,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/log.py",
+    "filename": "admin/frontend/log.py",
     "groupTitle": "Log"
   },
   {
@@ -2875,7 +2815,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -2905,7 +2845,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -2935,7 +2875,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -2967,7 +2907,14 @@ define({ "api": [
             "type": "datetime",
             "optional": false,
             "field": "redemption_time",
-            "description": "<p>赎回生效日期</p>"
+            "description": "<p>赎回确认日</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datetime",
+            "optional": false,
+            "field": "redemption_open_time",
+            "description": "<p>赎回开放日</p>"
           },
           {
             "group": "Parameter",
@@ -2986,7 +2933,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3030,7 +2977,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3040,7 +2987,7 @@ define({ "api": [
     "name": "DeleteOrder",
     "group": "Order",
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3050,7 +2997,7 @@ define({ "api": [
     "name": "DeleteOrderBonus",
     "group": "Order",
     "version": "1.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3060,7 +3007,7 @@ define({ "api": [
     "name": "DeleteOrderDistribution",
     "group": "Order",
     "version": "1.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3079,7 +3026,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3089,7 +3036,7 @@ define({ "api": [
     "name": "DeleteOrderShareChange",
     "group": "Order",
     "version": "1.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3108,7 +3055,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3127,7 +3074,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order",
     "parameter": {
       "fields": {
@@ -3166,7 +3113,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3185,7 +3132,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order",
     "parameter": {
       "fields": {
@@ -3218,13 +3165,13 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"amount\": 13,   # 金额/元\n    \"redeem_value\": 1.4,    # 赎回时净值（浮动）\n    \"fee\": 13.31,   # 手续费\n    \"redemption_time\": \"2017-01-01T17:00:00\",   # 赎回生效日\n    \"remark\": \"备注\",\n    \"status\": 1,    # 状态1:等待，2：成功, 3:失败\n    \"market_value_change\": 1.33,    #市值变化\n    \"actual_profit\": 999,   # 实际收益\n    \"absolute_profit\": 999, # 绝对收益\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"amount\": 13,   # 金额/元\n    \"redeem_value\": 1.4,    # 赎回时净值（浮动）\n    \"fee\": 13.31,   # 手续费\n    \"redemption_time\": \"2017-01-01T17:00:00\",   # 赎回确认日\n    \"redemption_open_time\": \"2017-01-01T17:00:00\",   # 赎回开放日\n    \"remark\": \"备注\",\n    \"status\": 1,    # 状态1:等待，2：成功, 3:失败\n    \"market_value_change\": 1.33,    #市值变化\n    \"actual_profit\": 999,   # 实际收益\n    \"absolute_profit\": 999, # 绝对收益\n}]",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order",
     "parameter": {
       "fields": {
@@ -3263,7 +3210,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order",
     "parameter": {
       "fields": {
@@ -3365,13 +3312,13 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\"\n    },\n    \"currency\": 1,\n    \"profit_type\": 1,\n    \"customer_name\": \"客户名称\",\n    \"is_confirmed\": true,                     # 是否已完成\n    \"precontract_amount\": 300,          # 金额\n    \"pay_time\": \"2017-03-01\",  # 打款时间\n    \"buy_time\": \"2017-03-01\",   # 计息确认日\n    \"closed\": true,     # 是否已关闭\n    \"persistent_share\": 100,    # 存续份额\n    \"created_time\": \"2017-03-01T17:33:21\"\n}]",
+          "content": "[{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\"\n    },\n    \"currency\": 1,\n    \"profit_type\": 1,\n    \"customer_name\": \"客户名称\",\n    \"is_confirmed\": true,                     # 是否已完成\n    \"precontract_amount\": 300,          # 金额\n    \"pay_time\": \"2017-03-01\",  # 打款时间\n    \"buy_time\": \"2017-03-01\",   # 计息确认日\n    \"closed\": true,     # 是否已关闭\n    \"persistent_share\": 100,    # 存续份额\n    \"created_time\": \"2017-03-01T17:33:21\",\n    \"last_distribution_time\": \"2017-03-01T17:33:21\"\n}]",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3390,7 +3337,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3400,7 +3347,7 @@ define({ "api": [
     "name": "ReserveList",
     "group": "Order",
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3419,7 +3366,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3438,7 +3385,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3468,7 +3415,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3498,7 +3445,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3534,6 +3481,13 @@ define({ "api": [
           },
           {
             "group": "Parameter",
+            "type": "datetime",
+            "optional": false,
+            "field": "redemption_open_time",
+            "description": "<p>赎回开放日</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "float",
             "optional": true,
             "field": "redeem_value",
@@ -3558,7 +3512,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3602,7 +3556,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "../admin/frontend/order.py",
+    "filename": "admin/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3634,7 +3588,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/org.py",
+    "filename": "admin/frontend/org.py",
     "groupTitle": "Org"
   },
   {
@@ -3653,7 +3607,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/org.py",
+    "filename": "admin/frontend/org.py",
     "groupTitle": "Org"
   },
   {
@@ -3672,7 +3626,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/org.py",
+    "filename": "admin/frontend/org.py",
     "groupTitle": "Org"
   },
   {
@@ -3685,43 +3639,13 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成, 4:募集结束\n    \"profit_type\": 1,   # 产品类型 0：固定， 1：浮动\n    \"type\": 1,\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款时间 日期或时间格式字符串都行\n    \"strategy\": {\n        \"value\": \"101010\",\n        \"text\": \"\"\n    },\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"first_open_date\": \"2017-12-16\":     # 首次开放日\n    \"current_open_date\": \"2017-12-16\":     # 本期开放日\n    \"dividend_type\": 1, # 分红方式\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"max_fee_sale\": \"最高销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"tags\": [{\"name\": \"标签名\", \"description\": \"描述\"}],\n    \"relevant_files\": [{\"id\": 23, \"type\": 1}], # 相关文件\n    \"remark\": \"备注\",\n    \"hide\": true,\n    \"top\": true,\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"sales_expense\": 0.33,      # 销售费用比例\n    }],\n    \"distribution_period\": 3,   # 分配周期\n    \"first_distribution_date\": \"2017-12-11\",    # 首次分配日\n    \"estimated_dividends_time_description\": \"预计打款时间描述\",\n    \"increment_size\": 3,        # 递增金额\n    \"period\": 3,                # 开放周期\n    \"period_unit\": 1,           # 开放周期单位,1:月，2：周\n    \"distributions\": [{         # 手动分配记录\n        \"date\": \"2017-12-11\",   # 分配日\n        \"redeem_percent\": 3.11  # 本金分配比例\n    }],\n    \"expenses_type\": 1,         # 产品费用类型\n    \"tax_rate\": 12,             # 税率\n    \"expenses\": [{              # 费用\n        \"condition_floor\": 12,  # 金额下限/万\n        \"condition_ceiling\": 33,# 金额上限/万\n        \"total\": 3,             # 总费用\n        \"exploit\": 4,           # 开发费\n        \"underwrite\":1,         # 包销费\n        distribution: 3,        # 发行费\n        sales: 3,               # 销售费\n        management: 1,          # 管理费\n        management_sales: 3.9,  # 管理销售费用\n        management_exploit: 1,  # 管理开发费用\n        management_underwrite: 3,   # 管理包销费用\n        management_distribution: 1, # 管理发行费用\n        performance:3,          # 业绩费\n        performance_sales: 1,   # 业绩销售费用\n        performance_exploit: 9, # 业绩开发费用\n        performance_underwrite: 9,  # 业绩包销费用\n        performance_distribution: 1 # 业绩发行费用\n    }]\n}",
+          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成, 4:募集结束\n    \"profit_type\": 1,   # 产品类型 0：固定， 1：浮动\n    \"type\": 1,\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款时间 日期或时间格式字符串都行\n    \"strategy\": {\n        \"value\": \"101010\",\n        \"text\": \"\"\n    },\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"first_open_date\": \"2017-12-16\":     # 首次开放日\n    \"current_open_date\": \"2017-12-16\":     # 本期开放日\n    \"dividend_type\": 1, # 分红方式\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"max_fee_sale\": \"最高销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"tags\": [{\"name\": \"标签名\", \"description\": \"描述\"}],\n    \"relevant_files\": [{\"id\": 23, \"type\": 1}], # 相关文件\n    \"remark\": \"备注\",\n    \"hide\": true,\n    \"top\": true,\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"sales_expense\": 0.33,      # 销售费用比例\n    }],\n    \"distribution_period\": 3,   # 分配周期\n    \"first_distribution_date\": \"2017-12-11\",    # 首次分配日\n    \"estimated_dividends_time_description\": \"预计打款时间描述\",\n    \"increment_size\": 3,        # 递增金额\n    \"period\": 3,                # 开放周期\n    \"period_unit\": 1,           # 开放周期单位,1:月，2：周\n    \"distributions\": [{         # 手动分配记录\n        \"date\": \"2017-12-11\",   # 分配日\n        \"redeem_percent\": 3.11  # 本金分配比例\n    }],\n    \"expenses_type\": 1,         # 产品费用类型\n    \"tax_rate\": 12,             # 税率\n    \"expenses\": [{              # 费用\n        \"condition_floor\": 12,  # 金额下限/万\n        \"condition_ceiling\": 33,# 金额上限/万\n        \"total\": 3,             # 总费用\n        \"tag\": 1,               # 类型\n        \"data\": [{\n            \"role\": 1,\n            \"type\": 1,\n            \"value\": 3.3\n        }]\n    }]\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
-    "type": "post",
-    "url": "/api/products/:pid/distributions",
-    "title": "创建临时分配记录",
-    "name": "CreateProductDistributions",
-    "group": "Product",
-    "version": "1.0.0",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": false,
-            "field": "redeem_percent",
-            "description": "<p>比例</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "datetime",
-            "optional": false,
-            "field": "date",
-            "description": "<p>时间</p>"
-          }
-        ]
-      }
-    },
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -3744,7 +3668,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -3763,7 +3687,66 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "post",
+    "url": "/api/products/{产品ID}/raises/{募集记录ID}/risks",
+    "title": "创建产品风险记录",
+    "name": "CreateProductRisks",
+    "group": "Product",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Datetime",
+            "optional": false,
+            "field": "date",
+            "description": "<p>风险日期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "allowedValues": [
+              "1",
+              "2"
+            ],
+            "optional": false,
+            "field": "type",
+            "description": "<p>风险类型,1:遭遇风险，2：解除风险</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "profit_effect",
+            "defaultValue": "false",
+            "description": "<p>是否影响收益,仅当type=1时需要</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "size": "0-100",
+            "optional": true,
+            "field": "principal_remain",
+            "defaultValue": "100",
+            "description": "<p>本金剩余百分比,仅当type=1时需要</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "..100",
+            "optional": true,
+            "field": "remark",
+            "description": "<p>备注</p>"
+          }
+        ]
+      }
+    },
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -3793,17 +3776,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "../admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
-    "type": "delete",
-    "url": "/api/products/:pid/distributions/:id",
-    "title": "删除临时分配记录",
-    "name": "DeleteProductDistributions",
-    "group": "Product",
-    "version": "1.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -3813,7 +3786,7 @@ define({ "api": [
     "name": "DeleteProductNews",
     "group": "Product",
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -3823,7 +3796,17 @@ define({ "api": [
     "name": "DeleteProductRaise",
     "group": "Product",
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "delete",
+    "url": "/api/products/{产品ID}/raises/{募集记录ID}/risks/{风险记录ID}",
+    "title": "删除产品风险记录",
+    "name": "DeleteProductRisks",
+    "group": "Product",
+    "version": "1.0.0",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -3836,13 +3819,13 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 33,\n    \"start_date\": \"2017-12-11\",\n    \"profit_intervals\": [{  # 收益区间\n        \"id\": 3,\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33      # 销售费用比例\n        \"first_distribution_date\": \"2018-01-01\",    # 首次分配日\n        \"distribution_period\": 3,       # 分配周期\n        \"expire_days\": 3    # 到期间隔天数\n        \"calc_days\": 3      # 计算间隔天数\n    }]\n}",
+          "content": "{\n    \"id\": 33,\n    \"start_date\": \"2017-12-11\",\n    \"profit_intervals\": [{  # 收益区间\n        \"id\": 3,\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33      # 外部渠道费\n        \"internal_sales_expense\": 0.33      # 内部渠道费\n        \"first_distribution_date\": \"2018-01-01\",    # 首次分配日\n        \"distribution_period\": 3,       # 分配周期\n        \"expire_days\": 3    # 到期间隔天数\n        \"calc_days\": 3      # 计算间隔天数\n    }]\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -3861,7 +3844,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -3871,7 +3854,7 @@ define({ "api": [
     "name": "ProductDetail",
     "group": "Product",
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product",
     "success": {
       "examples": [
@@ -3899,7 +3882,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -3938,7 +3921,26 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "get",
+    "url": "/api/products/{产品ID}/raises/{募集记录ID}/risks",
+    "title": "获取产品风险记录",
+    "name": "ProductRisks",
+    "group": "Product",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 113,\n    \"date\": \"2017-12-16T16:00:00\",  // 风险日期\n    \"type\": 1,      // 1:遭遇风险，2：解除风险\n    \"profit_effect\": true,        // 是否影响收益\n    \"principal_remain\": 80,       // 本金剩余%\n    \"remark\": \"备注\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -3969,7 +3971,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -3988,7 +3990,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product",
     "parameter": {
       "fields": {
@@ -4027,7 +4029,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4081,7 +4083,60 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "get",
+    "url": "/api/products/search",
+    "title": "产品搜索",
+    "name": "SearchProducts",
+    "group": "Product",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "source",
+            "description": "<p>来源,1:麦策2:机构</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "name",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 113,\n    \"name\": \"产品名称\",\n    \"org_id\": 1,        # 如果来自麦策，就是null\n    \"invest_info\": \"投资方向\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4100,37 +4155,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
-    "type": "put",
-    "url": "/api/products/:pid/distributions/:id",
-    "title": "修改临时分配记录",
-    "name": "UpdateProductDistributions",
-    "group": "Product",
-    "version": "1.0.0",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": false,
-            "field": "redeem_percent",
-            "description": "<p>比例</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "datetime",
-            "optional": false,
-            "field": "date",
-            "description": "<p>时间</p>"
-          }
-        ]
-      }
-    },
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4153,7 +4178,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4172,7 +4197,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4202,7 +4227,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4212,7 +4237,7 @@ define({ "api": [
     "name": "deleteProductValues",
     "group": "Product",
     "version": "1.0.0",
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4242,7 +4267,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "../admin/frontend/product.py",
+    "filename": "admin/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4309,7 +4334,7 @@ define({ "api": [
             "type": "int",
             "optional": true,
             "field": "target",
-            "description": "<p>目标群体,1:客户,2:理财师,3:全部</p>"
+            "description": "<p>目标群体,1:客户,2:理财师,7:全部,4:内部理财师的客户</p>"
           },
           {
             "group": "Parameter",
@@ -4328,7 +4353,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "../admin/frontend/sms.py",
+    "filename": "admin/frontend/sms.py",
     "groupTitle": "Sms"
   },
   {
@@ -4347,7 +4372,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/statistic.py",
+    "filename": "admin/frontend/statistic.py",
     "groupTitle": "Statistic"
   },
   {
@@ -4366,7 +4391,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/apidoc.py",
+    "filename": "admin/apidoc.py",
     "groupTitle": "Structure"
   },
   {
@@ -4385,7 +4410,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/apidoc.py",
+    "filename": "admin/apidoc.py",
     "groupTitle": "Structure"
   },
   {
@@ -4457,7 +4482,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/user.py",
+    "filename": "admin/frontend/user.py",
     "groupTitle": "User"
   },
   {
@@ -4480,7 +4505,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/user.py",
+    "filename": "admin/frontend/user.py",
     "groupTitle": "User"
   },
   {
@@ -4538,7 +4563,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/user.py",
+    "filename": "admin/frontend/user.py",
     "groupTitle": "User"
   },
   {
@@ -4606,7 +4631,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/user.py",
+    "filename": "admin/frontend/user.py",
     "groupTitle": "User"
   },
   {
@@ -4652,7 +4677,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/user.py",
+    "filename": "admin/frontend/user.py",
     "groupTitle": "User"
   },
   {
@@ -4671,7 +4696,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "../admin/frontend/user.py",
+    "filename": "admin/frontend/user.py",
     "groupTitle": "User"
   }
 ] });
