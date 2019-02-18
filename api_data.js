@@ -1,449 +1,147 @@
 define({ "api": [
   {
+    "type": "get",
+    "url": "/api/calendar_event",
+    "title": "日历事件",
+    "name": "CalendarEvents",
+    "group": "CalendarEvent",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 12,\n    \"type\": 2,  事件类型,1:产品过期,2:产品分配,3:产品开放,4:自定义\n    \"event_date\": \"2017-10-01\",    # 事件日期\n    \"advanced_days\": 3,     # 提前提醒天数\n    \"repeat_type\": 1,   # 重复类型,1:天，2：周，3：月，4：年\n    \"customer_id\": 33,  # 客户ID\n    \"customer_name\": \"客户姓名\",\n    \"product_name\": \"产品名称\",\n    \"content\": \"事件说明\",\n    \"target_id\": \"321321\",  # 跳转ID\n    \"msg\": \"事件内容\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "purchasing_consortia/frontend/calendar.py",
+    "groupTitle": "CalendarEvent"
+  },
+  {
     "type": "post",
-    "url": "/api/account/login",
-    "title": "用户登录",
-    "name": "Login",
-    "group": "Account",
+    "url": "/api/calendar_event",
+    "title": "创建日历事件",
+    "name": "CreateCalendarEvent",
+    "group": "CalendarEvent",
+    "version": "1.0.0",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "int",
             "optional": false,
-            "field": "login",
-            "description": "<p>账号</p>"
+            "field": "advanced_days",
+            "description": "<p>提前提醒天数</p>"
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "date",
             "optional": false,
-            "field": "password",
-            "description": "<p>密码</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/account.py",
-    "groupTitle": "Account"
-  },
-  {
-    "type": "get",
-    "url": "/api/account/login",
-    "title": "判断登录状态",
-    "name": "LoginStatus",
-    "group": "Account",
-    "version": "0.0.0",
-    "filename": "admin/frontend/account.py",
-    "groupTitle": "Account"
-  },
-  {
-    "type": "get",
-    "url": "/api/account/profile",
-    "title": "当前登录用户信息",
-    "name": "LoginUserProfile",
-    "group": "Account",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"id\": 12,\n    \"name\": \"孙谷宇\",\n    \"role\": 1           # 角色 0:普通, 1:管理员, 2:运营管理员, 3:数据管理员, 4:财务管理员\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/account.py",
-    "groupTitle": "Account"
-  },
-  {
-    "type": "post",
-    "url": "/api/account/logout",
-    "title": "注销",
-    "name": "Logout",
-    "group": "Account",
-    "description": "<p>用户注销</p>",
-    "version": "0.0.0",
-    "filename": "admin/frontend/account.py",
-    "groupTitle": "Account"
-  },
-  {
-    "type": "get",
-    "url": "/api/banners",
-    "title": "banner页",
-    "name": "banner_list",
-    "group": "Banner",
-    "parameter": {
-      "fields": {
-        "Parameter": [
+            "field": "event_date",
+            "description": "<p>日期</p>"
+          },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": true,
-            "field": "hide",
-            "description": "<p>是否隐藏1:是, 0:否</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"image\": \"http://dsadsadsa.png\",\n    \"link\": \"http://www.baidu.com\",     # 跳转地址\n    \"order_no\": 33,\n    \"hide\": true\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/banner.py",
-    "groupTitle": "Banner"
-  },
-  {
-    "type": "post",
-    "url": "/api/banners",
-    "title": "创建banner",
-    "name": "create_banner",
-    "group": "Banner",
-    "parameter": {
-      "fields": {
-        "Parameter": [
+            "optional": false,
+            "field": "repeat_type",
+            "description": "<p>重复类型,1:天，2：周，3：月，4：年</p>"
+          },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": true,
-            "field": "id",
-            "description": "<p>id</p>"
+            "optional": false,
+            "field": "customer_id",
+            "description": "<p>客户ID</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "image",
-            "description": "<p>图片地址</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "link",
-            "description": "<p>跳转地址</p>"
+            "field": "content",
+            "description": "<p>内容</p>"
           }
         ]
-      },
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "[{\n    \"id\": 1,\n    \"image\": \"http://www.baidu.com\",\n    \"link\": \"http://www.baidu.com\",     # 跳转地址\n    \"order_no\": 33,\n    \"hide\": true\n}]",
-          "type": "json"
-        }
-      ]
+      }
     },
-    "version": "0.0.0",
-    "filename": "admin/frontend/banner.py",
-    "groupTitle": "Banner"
+    "filename": "purchasing_consortia/frontend/calendar.py",
+    "groupTitle": "CalendarEvent"
   },
   {
     "type": "delete",
-    "url": "/api/banners/:id",
-    "title": "删除banner",
-    "name": "delete_banner",
-    "group": "Banner",
-    "version": "0.0.0",
-    "filename": "admin/frontend/banner.py",
-    "groupTitle": "Banner"
-  },
-  {
-    "type": "patch",
-    "url": "/api/certifications/:id",
-    "title": "认证审核",
-    "name": "Certificate",
-    "group": "Certification",
+    "url": "/api/calendar_event/:id",
+    "title": "删除日历事件",
+    "name": "DeleteCalendarEvent",
+    "group": "CalendarEvent",
+    "version": "1.0.0",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "bool",
+            "type": "int",
             "optional": false,
-            "field": "pass",
-            "description": "<p>是否通过</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "org_id",
-            "description": "<p>机构ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "company_name",
-            "description": "<p>机构名称</p>"
+            "field": "batch",
+            "description": "<p>1 # 是否批量</p>"
           }
         ]
       }
     },
-    "version": "0.0.0",
-    "filename": "admin/frontend/certification.py",
-    "groupTitle": "Certification"
+    "filename": "purchasing_consortia/frontend/calendar.py",
+    "groupTitle": "CalendarEvent"
   },
   {
-    "type": "get",
-    "url": "/api/certifications",
-    "title": "认证申请",
-    "name": "certificateList",
-    "group": "Certification",
+    "type": "put",
+    "url": "/api/calendar_event/:id",
+    "title": "修改日历事件",
+    "name": "UpdateCalendarEvent",
+    "group": "CalendarEvent",
+    "version": "1.0.0",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
             "type": "int",
-            "optional": true,
-            "field": "status",
-            "description": "<p>状态,0:待处理，1：通过， 2：拒绝</p>"
+            "optional": false,
+            "field": "batch",
+            "description": "<p>1 # 是否批量</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": true,
-            "field": "page",
-            "description": "<p>第几页</p>"
+            "optional": false,
+            "field": "advanced_days",
+            "description": "<p>提前提醒天数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": false,
+            "field": "event_date",
+            "description": "<p>日期</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": true,
-            "field": "per_page",
-            "description": "<p>每页数量</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 100377,\n    \"name\": \"小明\",\n    \"mobile\": \"150679876523\",\n    \"created_time\": \"2016-12-23T12:23:33\", # 申请时间\n    \"company_name\": \"机构名称\",\n    \"position\": \"职位理财师\",\n    \"work_year\": 1,     # 工作年限(1:1~3年, 2:3~5年, 3:5~10年, 4:10年以上)\n    \"industry\": 3,      # 行业(1:银行, 2:信托, 3:资管, 4:保险, 5:证券, 6:基金, 7:P2P, 8:三方)\n    \"business_card_pic\": \"dsadsadsakdjlsak\"     # 名片\n    \"is_modified\": true    # 是否是修改认证\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/certification.py",
-    "groupTitle": "Certification"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/advisers/:id",
-    "title": "投顾详情",
-    "name": "adviser_detail",
-    "group": "Channel",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"id\": 12,\n    \"name\": \"姓名\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/advisers",
-    "title": "投顾列表",
-    "name": "adviser_list",
-    "group": "Channel",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"total_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 总计费用\n    \"finished_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 已结算费用\n    \"wait_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 待结算费用\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n    \"total_order_amount\": {\"rmb\":8888, \"dollar\": 9888},  # 计提金额\n    \"sales\": {\"rmb\":8888, \"dollar\": 9888},   # 销售费\n    \"distribution\": {\"rmb\":8888, \"dollar\": 9888},    # 发行费\n    \"exploit\": {\"rmb\":8888, \"dollar\": 9888}, # 开发费\n    \"underwrite\": {\"rmb\":8888, \"dollar\": 9888},  # 包销费\n    \"management\": {\"rmb\":8888, \"dollar\": 9888},  # 管理费\n    \"performance\": {\"rmb\":8888, \"dollar\": 9888}  # 业绩费\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "post",
-    "url": "/api/channel/pusers",
-    "title": "绑定理财师",
-    "name": "bound_puser",
-    "group": "Channel",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"mobile\": \"1506554645\",\n    \"source\": 1,    # 来源，1：来自公司,2:来自投顾\n    \"adviser_id\": 100133,   # 投顾ID\n    \"referrer_id\": 100198,  # 推荐人ID\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "post",
-    "url": "/api/channel/introducers/bound_user",
-    "title": "绑定兼职投顾/推荐人",
-    "name": "bound_user",
-    "group": "Channel",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"type\": 1,  # 1:推荐人,2:兼职投顾\n    \"id\": 33,\n    \"introducer_id\": 23 # 介绍人ID\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "post",
-    "url": "/api/channel/introducers",
-    "title": "创建介绍人",
-    "name": "create_introducer",
-    "group": "Channel",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"name\": \"真实姓名\",\n    \"mobile\": \"1506554645\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "post",
-    "url": "/api/channel/referrers",
-    "title": "创建推荐人",
-    "name": "create_referrer",
-    "group": "Channel",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"real_name\": \"真实姓名\",\n    \"mobile\": \"1506554645\",\n    \"org_name\": \"机构名称\",\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"remark\": \"备注\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "DELETE",
-    "url": "/api/channel/introducers/:id",
-    "title": "删除介绍人",
-    "name": "delete_introducer",
-    "group": "Channel",
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/introducers",
-    "title": "介绍人列表",
-    "name": "introducer_list",
-    "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
+            "optional": false,
+            "field": "customer_id",
+            "description": "<p>客户ID</p>"
+          },
           {
             "group": "Parameter",
             "type": "string",
-            "optional": true,
-            "field": "name",
-            "description": "<p>姓名</p>"
+            "optional": false,
+            "field": "content",
+            "description": "<p>内容</p>"
           }
         ]
       }
     },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"真实姓名\",\n    \"investors\": 12,    # 投顾人数\n    \"referrers\": 1,  # 推荐人数\n    \"mobile\": \"1412312312\"\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/introducers/:id/members",
-    "title": "介绍人介绍的人员列表",
-    "name": "introducer_members",
-    "group": "Channel",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"真实姓名\",\n    \"role\": 1,  # 1：推荐人，2：兼职投顾\n    \"orders\": 33,\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/parttime_advisers",
-    "title": "兼职投顾列表",
-    "name": "parttime_adviser_list",
-    "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "no_introducer_name",
-            "description": "<p>姓名</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\"\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
+    "filename": "purchasing_consortia/frontend/calendar.py",
+    "groupTitle": "CalendarEvent"
   },
   {
     "type": "get",
@@ -451,37 +149,17 @@ define({ "api": [
     "title": "理财师详情",
     "name": "puser_detail",
     "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "referrer_id",
-            "description": "<p>推荐人ID</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"mobile\": \"1506712321\",\n    \"referrer_name\": \"推荐人\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n    \"source\": 1,    # 渠道\n}",
+          "content": "{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"mobile\": \"1506712321\",\n    \"referrer_name\": \"推荐人\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
+    "filename": "purchasing_consortia/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
@@ -490,396 +168,56 @@ define({ "api": [
     "title": "理财师列表",
     "name": "puser_list",
     "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "referrer_id",
-            "description": "<p>推荐人ID</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"source\":1,\n    \"status\": 1,    # 状态，1：有效，2：无效\n    \"mobile\": \"1506712321\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n    \"referrer\": {   # 推荐人\n        \"id\": 12,\n        \"type\": 1   # 类型\n        \"name\": \"ss\"\n    }\n}]",
+          "content": "[{\n    \"id\": 12,\n    \"name\": \"姓名\",\n    \"org\": {\n        \"id\": 1,\n        \"name\": \"机构名\",\n    },\n    \"source\":1,\n    \"mobile\": \"1506712321\",\n    \"orders\": 199,  # 交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
+    "filename": "purchasing_consortia/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
     "type": "get",
-    "url": "/api/channel/referrers/:id",
+    "url": "/api/channel/referrers/myself",
     "title": "推荐人详情",
     "name": "referrer_detail",
     "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "bool",
-            "optional": true,
-            "field": "base",
-            "description": "<p>是否只显示基本信息（即不包含统计类数据）</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"real_name\": \"真实姓名\",\n    \"org_name\": \"机构名称\",\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"mobile\": \"1545435435\",\n    \"remark\": \"备注\",\n    \"pusers\": {\n        \"total\": 99,    # 总计人数\n        \"valid\": 33,    # 有成交订单的\n    },\n    \"orders\": 199,  # 推荐交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
+          "content": "[{\n    \"pusers\": {\n        \"total\": 99,    # 总计人数\n        \"valid\": 33,    # 有成交订单的\n    },\n    \"orders\": 199,  # 推荐交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
+    "filename": "purchasing_consortia/frontend/channel.py",
     "groupTitle": "Channel"
   },
   {
     "type": "get",
-    "url": "/api/channel/referrers",
-    "title": "推荐人列表",
-    "name": "referrer_list",
-    "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "no_introducer_name",
-            "description": "<p>姓名</p>"
-          }
-        ]
-      }
-    },
+    "url": "/api/config/banner",
+    "title": "Banner页",
+    "name": "Banner",
+    "group": "Config",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"real_name\": \"真实姓名\",\n    \"introducer\": {\n        \"id\": 335,\n        \"name\": \"介绍人\"\n    },\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"status\": 1,    1:有效，2：无效\n    \"pusers\": {   # 推荐理财师数\n        \"total\": 12,\n    },\n    \"orders\": 199,  # 推荐交易数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n}]",
+          "content": "[{\n    \"image\": \"http://dsadsadsa.png\",\n    \"link\": \"http://dsadsadsa.png\"\n}]",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/referrers/:id/orders",
-    "title": "推荐人推荐订单",
-    "name": "referrer_orders",
-    "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"order_no\": \"321321321kj\",\n    \"order_amount\": 999,\n    \"product_name\": \"产品名称\",\n    \"user_name\": \"理财师姓名\",\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/stats/base",
-    "title": "数据统计",
-    "name": "stats_base",
-    "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "source",
-            "description": "<p>来源，1：来自投顾自身，2：来自推荐人</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"amounts\": {\n        \"dollar\": 0,\n        \"rmb\": 0\n    },\n    \"orders\": 0,    # 单量\n    \"pusers\": {     # 理财师\n        \"total\": 9,\n        \"valid\": 0\n    },\n    \"referrer\": {   # 推荐人\n        \"total\": 6,\n        \"valid\": 0\n    }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/stats/graph",
-    "title": "占比统计",
-    "name": "stats_graph",
-    "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"adviser\": [],\n    \"channel\": [    # 渠道\n        {\n            \"name\": \"adviser\",  # 投顾\n            \"value\": 0\n        },\n        {\n            \"name\": \"company\",  # 来自公司\n            \"value\": 0\n        },\n        {\n            \"name\": \"internal_referrer\",    # 内部\n            \"value\": 0\n        },\n        {\n            \"name\": \"external_referrer\",    # 外部\n            \"value\": 0\n        }\n    ],\n    \"puser\": [{\"name\": \"dsadsa\", \"value\": 0.13}],   # 理财师\n    \"referrer\": [{\"name\": \"dsadsa\", \"value\": 0.13}],    # 推荐人\n    \"rate\": {\n        \"date\": \"2017-09-20\",\n        \"value\": 6.5666\n    },\n\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/stats/trend",
-    "title": "趋势统计",
-    "name": "stats_trend",
-    "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "source",
-            "description": "<p>来源，1：来自投顾自身，2：来自推荐人</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "target",
-            "description": "<p>数据对象,1:人民币，2：美元,3:有效推荐人,4:推荐人总数，5：成交理财师，6：理财师总数，7：总交易</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "interval",
-            "description": "<p>间隔,day:天,week:周,month:月</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"date\": \"2017-12-11\",\n    \"value\": 12\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "post",
-    "url": "/api/channel/pusers/:user_id/unbound",
-    "title": "解绑理财师",
-    "name": "unbound_puser",
-    "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "remove",
-            "description": "<p>1:删除</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "reffer_id",
-            "description": "<p>推荐人</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "delete",
-    "url": "/api/channel/referrers/:id",
-    "title": "解绑推荐人",
-    "name": "unbound_referrer",
-    "group": "Channel",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "remove",
-            "description": "<p>1:删除</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "get",
-    "url": "/api/channel/introducers/:id",
-    "title": "介绍人详情",
-    "name": "update_introducer",
-    "group": "Channel",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"name\": \"真实姓名\",\n    \"mobile\": \"1506554645\",\n    \"investors\": 12,    # 投顾人数\n    \"referrers\": 1,  # 推荐人数\n    \"amounts\": {    # 成交金额\n        \"rmb\": 199,\n        \"dollar\": 299\n    },\n    \"orders\": 33\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "put",
-    "url": "/api/channel/introducers/:id",
-    "title": "修改介绍人",
-    "name": "update_introducer",
-    "group": "Channel",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"name\": \"真实姓名\",\n    \"mobile\": \"1506554645\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
-  },
-  {
-    "type": "put",
-    "url": "/api/channel/referrers/:id",
-    "title": "修改推荐人",
-    "name": "update_referrer",
-    "group": "Channel",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"real_name\": \"真实姓名\",\n    \"mobile\": \"1506554645\",\n    \"org_name\": \"机构名称\",\n    \"type\": 1,  # 类型，1:内部，2：外部\n    \"remark\": \"备注\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/channel.py",
-    "groupTitle": "Channel"
+    "filename": "purchasing_consortia/frontend/config.py",
+    "groupTitle": "Config"
   },
   {
     "type": "get",
@@ -978,7 +316,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "admin/apidoc.py",
+    "filename": "purchasing_consortia/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1274,14 +612,14 @@ define({ "api": [
             "group": "Success 200",
             "type": "int",
             "optional": false,
-            "field": "180001",
-            "description": "<p>募集记录已绑定费用锁定的订单</p>"
+            "field": "190001",
+            "description": "<p>付费名额不足</p>"
           }
         ]
       }
     },
     "version": "0.0.0",
-    "filename": "admin/apidoc.py",
+    "filename": "purchasing_consortia/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1339,7 +677,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "admin/apidoc.py",
+    "filename": "purchasing_consortia/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1411,7 +749,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "admin/apidoc.py",
+    "filename": "purchasing_consortia/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1448,7 +786,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "admin/apidoc.py",
+    "filename": "purchasing_consortia/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1506,7 +844,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "admin/apidoc.py",
+    "filename": "purchasing_consortia/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1557,7 +895,7 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "admin/apidoc.py",
+    "filename": "purchasing_consortia/apidoc.py",
     "groupTitle": "Constant"
   },
   {
@@ -1594,8 +932,175 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "admin/apidoc.py",
+    "filename": "purchasing_consortia/apidoc.py",
     "groupTitle": "Constant"
+  },
+  {
+    "type": "post",
+    "url": "/api/customers",
+    "title": "创建客户",
+    "name": "CreateCustomer",
+    "group": "Customer",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>姓名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "type",
+            "description": "<p>类型</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "remark",
+            "description": "<p>备注</p>"
+          }
+        ]
+      }
+    },
+    "filename": "purchasing_consortia/frontend/customers.py",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "post",
+    "url": "/api/customers",
+    "title": "关联客户",
+    "name": "CreateCustomer",
+    "group": "Customer",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>姓名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "type",
+            "description": "<p>类型</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "remark",
+            "description": "<p>备注</p>"
+          }
+        ]
+      }
+    },
+    "filename": "purchasing_consortia/frontend/customers.py",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "post",
+    "url": "/api/customers",
+    "title": "关联客户",
+    "name": "CreateCustomer",
+    "group": "Customer",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>姓名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "type",
+            "description": "<p>类型</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "remark",
+            "description": "<p>备注</p>"
+          }
+        ]
+      }
+    },
+    "filename": "purchasing_consortia/frontend/customers.py",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "post",
+    "url": "/api/customers",
+    "title": "合并客户",
+    "name": "CreateCustomer",
+    "group": "Customer",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>姓名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "type",
+            "description": "<p>类型</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "remark",
+            "description": "<p>备注</p>"
+          }
+        ]
+      }
+    },
+    "filename": "purchasing_consortia/frontend/customers.py",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "post",
+    "url": "/api/customers/types",
+    "title": "编辑客户类型",
+    "name": "CreateCustomersTypes",
+    "group": "Customer",
+    "version": "1.0.0",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "[{\n    \"id\": 1,\n    \"text\": \"客户类型\",\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "purchasing_consortia/frontend/customers.py",
+    "groupTitle": "Customer"
   },
   {
     "type": "get",
@@ -1603,6 +1108,19 @@ define({ "api": [
     "title": "客户详情",
     "name": "CustomerDetail",
     "group": "Customer",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "date_time",
+            "optional": false,
+            "field": "start_date",
+            "description": ""
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
@@ -1613,31 +1131,58 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/customer.py",
+    "filename": "purchasing_consortia/frontend/customers.py",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "get",
+    "url": "/api/customers/:customer_no/book_profit_graph",
+    "title": "客户订单账面收益图",
+    "name": "CustomerOrderBookProfits",
+    "group": "Customer",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"date\": \"2017-12-01\",\n    \"book_profit\": {\n        \"order\": 300,   # 订单\n        \"bank\": 300,    # 银行\n        \"csi300\": 229   # 沪深300\n        \"trust\": 33,    # 信托\n    }\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/customers.py",
     "groupTitle": "Customer"
   },
   {
     "type": "get",
     "url": "/api/customers",
     "title": "客户列表",
-    "name": "Customers",
+    "name": "CustomersList",
     "group": "Customer",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "int",
             "optional": true,
-            "field": "name",
-            "description": "<p>客户姓名</p>"
+            "field": "type",
+            "description": "<p>客户类型,-1未分类</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": false,
-            "field": "user_id",
-            "description": "<p>理财师ID</p>"
+            "optional": true,
+            "field": "org",
+            "defaultValue": "0",
+            "description": "<p>是否查看整个机构客户0:否，1:是</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "name",
+            "description": "<p>客户姓名</p>"
           },
           {
             "group": "Parameter",
@@ -1660,13 +1205,13 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"张东\",\n    \"no\": \"3213kj21l3k21j321j\",\n    \"real_name\": \"张东\",\n    \"id_card_no\": \"dsa9dsa98d9sa809dsa\",\n    \"mobile\": \"321809382180\"\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"name\": \"张东\",\n    \"CFP_name\": \"理财师姓名\",\n    \"type\": {\n        \"id\": 12,\n        \"text\": \"VIP客户\"\n    },\n    \"total_invest_rmb\": 33, # 累计配置人民币\n    \"total_invest_dollar\": 99,  # 累计配置美金\n    \"product_count\": 3  # 产品数量\n}]",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/customer.py",
+    "filename": "purchasing_consortia/frontend/customers.py",
     "groupTitle": "Customer"
   },
   {
@@ -1685,272 +1230,41 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/customer.py",
+    "filename": "purchasing_consortia/frontend/customers.py",
     "groupTitle": "Customer"
   },
   {
-    "type": "get",
-    "url": "/api/expense/committed_order_settlement",
-    "title": "已提交的订单结算记录",
-    "name": "CommittedOrderSettlements",
-    "group": "Expense",
+    "type": "delete",
+    "url": "/api/customers/:id",
+    "title": "删除客户",
+    "name": "DeleteCustomer",
+    "group": "Customer",
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/customers.py",
+    "groupTitle": "Customer"
+  },
+  {
+    "type": "patch",
+    "url": "/api/customers/:id",
+    "title": "编辑客户",
+    "name": "EditCustomer",
+    "group": "Customer",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "product_settlement_group_no",
-            "description": "<p>产品结算记录组编号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "status",
-            "description": "<p>状态, 1:结算中，2：已结算</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "role",
-            "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "user_id",
-            "description": "<p>用户ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "org_id",
-            "description": "<p>机构ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "product_id",
-            "description": "<p>产品ID</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "string",
-            "optional": true,
+            "optional": false,
             "field": "name",
-            "description": "<p>产品名称或姓名</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "order_no",
-            "description": "<p>订单号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "referrer_id",
-            "description": "<p>推荐人ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "adviser_id",
-            "description": "<p>投顾ID</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"80932138092183091\",\n    \"product_name\": \"产品名称\",\n    \"amount\": 99,   # 结算金额\n    \"order_amount\": 999,    # 订单费用\n    \"tax_rate\": 12,   # 税率\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 8888,    # 实际到手金额\n    \"status\": 1,    # 状态, 1:结算中，2：已结算\n    \"name\": \"姓名\",\n    \"type\": 1,  # 费用类型\n    \"currency\": 1,\n    \"exchange_rate\": 3.3,       # 汇率\n    \"role\": 3,  # 角色\n    \"customer\": {\n        \"no\": \"38210932109321\",\n        \"name\": \"客户姓名\"\n    },\n    \"settlement_rate\": 1.33 # 结算比例\n    \"invoice_type\": 1,  # 发票类型\n    \"remark\": \"备注\",\n    \"user_name\": \"理财师\"\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/committed_order_settlement/detail",
-    "title": "结算中费用明细列表",
-    "name": "CommittedOrderSettlementsDetail",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "role",
-            "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "user_id",
-            "description": "<p>用户ID</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"32139129321912\",\n    \"product_name\": \"产品名\",\n    \"order_amount\": 123,    # 订单金额\n    \"user_name\": \"理财师姓名\",\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 9888,   # 到手,\n    \"currency\": 1,\n    \"type\": 1,\n    \"exchange_rate\": 3.3,   # 汇率\n    \"invoice_type\": 1,  # 发票类型\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/committed_order_settlement/grouped_by_user",
-    "title": "根据用户分组的结算中费用列表",
-    "name": "CommittedOrderSettlementsGroupByUser",
-    "group": "Expense",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"姓名\",\n    \"role\": 3,\n    \"user_id\": 100094,\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n    \"actual_amount\":8888,   # 到手\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/product_settlement/confirmed",
-    "title": "费用确认列表",
-    "name": "ConfirmedProductSettlements",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "product_name",
-            "description": "<p>产品名称</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"product_name\": \"产品名称\",\n    \"type\": 1,  # 结算费用类型\n    \"start_date\": \"2015-12-33T16:20:20\",    # 成立日\n    \"duration\": 23,\n    \"percent\": 50,  # 比例\n    \"date\": \"2016-12-11\",   # 计算日期\n    \"prior_date\": \"2016-12-11\", # 上一次计算日期\n    \"confirmed_status\": 0,  # 0:待确认,1:待其他人确认,2:已确认\n    \"group_no\": \"32132132132131\",   # 组编号\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "post",
-    "url": "/api/expense/committed_order_settlement",
-    "title": "提交订单结算",
-    "name": "CreateCommittedOrderSettlements",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "product_settlement_group_no",
-            "description": "<p>产品结算记录组编号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "order_no",
-            "description": "<p>订单号</p>"
+            "description": "<p>姓名</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
             "optional": false,
             "field": "type",
-            "description": "<p>费用类型</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "role",
-            "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "user_id",
-            "description": "<p>用户ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": false,
-            "field": "total",
-            "description": "<p>总金额</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": false,
-            "field": "amount",
-            "description": "<p>结算金额</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "invoice_type",
-            "description": "<p>发票类型,1:专票,2:普票,3:走账</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "tax_rate",
-            "description": "<p>税率</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "exchange_rate",
-            "description": "<p>汇率</p>"
+            "description": "<p>类型</p>"
           },
           {
             "group": "Parameter",
@@ -1963,833 +1277,44 @@ define({ "api": [
       }
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
+    "filename": "purchasing_consortia/frontend/customers.py",
+    "groupTitle": "Customer"
   },
   {
     "type": "post",
-    "url": "/api/expense/product_settlement",
-    "title": "创建产品结算记录",
-    "name": "CreateProductSettlement",
-    "group": "Expense",
-    "version": "1.0.0",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"product_id\": 13,\n    \"type\": [16],  # 结算费用类型\n    \"amount\": 122,  # 金额\n    \"remark\": \"备注\",\n    \"date\": \"2015-12-01\",\n    \"percent\": 33.33,  # 比例\n    \"start_date\": \"2017-12-11\"  # 成立日\n    \"duration\": 3,  # 期限\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "delete",
-    "url": "/api/expense/committed_order_settlement/:id",
-    "title": "删除提交订单结算",
-    "name": "DeleteCommittedOrderSettlements",
-    "group": "Expense",
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "delete",
-    "url": "/api/expense/product_settlement/group/:group_no",
-    "title": "删除产品结算记录",
-    "name": "DeleteProductSettlement",
-    "group": "Expense",
-    "version": "1.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense",
-    "title": "费用列表",
-    "name": "ExpenseList",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "role",
-            "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "user_id",
-            "description": "<p>用户ID</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"user_name\": \"理财师名\"\n    \"product_name\": \"产品名\"\n    \"order_no\": \"809d809sa809dsa\",  # 订单号\n    \"currency\": 1,  # 币种\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/statistic",
-    "title": "费用统计详情(用户/订单/角色等维度)",
-    "name": "ExpenseStatistic",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "order_no",
-            "description": "<p>订单号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "user_id",
-            "description": "<p>用户ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "roles",
-            "description": "<p>用户角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "pid",
-            "description": "<p>产品ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "product_settlement_group_no",
-            "description": "<p>产品结算记录组编号</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "单币种:",
-          "content": "{\n    \"product_name\": \"产品名称\",\n    \"currency\": 1,\n    \"profit_type\": 1,\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n    \"total_order_amount\": 999,  # 计提金额\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n}",
-          "type": "json"
-        },
-        {
-          "title": "多币种:",
-          "content": "{\n    \"total_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 总计费用\n    \"finished_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 已结算费用\n    \"wait_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 待结算费用\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/product_settlement/group/:group_no",
-    "title": "产品结算记录明细",
-    "name": "GetProductSettlementDetail",
-    "group": "Expense",
-    "version": "1.0.0",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "submitter",
-            "description": "<p>是否是提交人 1:是, 0:不是</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"id\": 1,\n    \"product_name\": \"产品名称\",\n    \"profit_type\": 1,\n    \"currency\": 2,\n    \"type\": 1,  # 结算费用类型\n    \"duration\": 3,\n    \"date\": \"2015-12-01\",\n    \"prior_date\": \"2015-10-01\", # 上一次计算日期\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"percent\": 33.33,\n    \"start_date\": \"2017-12-11\",\n    \"amount\": 3,\n    \"confirmed_status\": 0,  # 0:待提交确认,1:确认中,2:已确认\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/grouped_order_settlement",
-    "title": "订单结算计算记录组（根据角色分类）",
-    "name": "GroupedOrderSettlements",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "product_settlement_group_no",
-            "description": "<p>产品结算记录组编号</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"小明\",\n    \"user_id\": 100898,\n    \"role\": 3,\n    \"order_amount\": 99,   # 订单成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/order/:order_no",
-    "title": "订单费用列表",
-    "name": "OrderExpense",
-    "group": "Expense",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"小明\",\n    \"user_id\": 333,\n    \"role\": 3,\n    \"type\": 3,      # 费用类型\n    \"rate\": 1.3,    # 比例\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n    \"total_order_amount\": 999,  # 计提金额\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/order/:order_no/grouped_by_user",
-    "title": "订单费用列表(根据用户角色分组)",
-    "name": "OrderExpenseGroupedByUser",
-    "group": "Expense",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"name\": \"小明\",\n    \"user_id\": 333,\n    \"role\": 3,\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n    \"total_order_amount\": 999,  # 计提金额\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/order",
-    "title": "订单交易列表（费用相关）",
-    "name": "OrderFeeList",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "product_id",
-            "description": "<p>产品ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "role",
-            "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "user_id",
-            "description": "<p>用户ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "org_id",
-            "description": "<p>机构ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "name",
-            "description": "<p>产品名或者客户名</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "exist",
-            "description": "<p>1：存续，0：结束</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"order_no\": \"321321321kj\",\n    \"order_amount\": 999,\n    \"product_name\": \"产品名称\",\n    \"customer_name\": \"客户姓名\",\n    \"user_name\": \"理财师姓名\",\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/rate/:order_no",
-    "title": "订单费用比例",
-    "name": "OrderFeeRate",
-    "group": "Expense",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"role\": 1,\n    \"sales\": 3.3,\n    ......\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/order_settlement",
-    "title": "订单结算计算记录明细",
-    "name": "OrderSettlements",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "product_settlement_group_no",
-            "description": "<p>产品结算记录组编号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "role",
-            "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "user_id",
-            "description": "<p>用户ID</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"739821398217\",\n    \"user_name\": \"理财师姓名\",\n    \"customer_name\": \"客户姓名\",\n    \"order_amount\": 99,   # 订单成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n    \"calc_days\": 3, # 天数\n    \"rate\": {   # 比例\n        \"sales\": 999,   # 销售费\n        \"distribution\": 999,    # 发行费\n        \"exploit\": 999, # 开发费\n        \"underwrite\": 999,  # 包销费\n        \"management\": 999,  # 管理费\n        \"performance\": 999  # 业绩费\n    }\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/expense/product/<int:pid>/grouped_by_role",
-    "title": "产品费用列表(根据角色分组)",
-    "name": "ProductExpenseGroupedByUser",
-    "group": "Expense",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"role\": 3,\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费,\n    \"actual_amount\": 8888,    # 实际到手金额\n    \"total_order_amount\": 999,  # 计提金额\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/product_statistic",
-    "title": "产品费用统计(列表/单条)",
-    "name": "ProductExpenseStatistic",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "product_id",
-            "description": "<p>产品ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "role",
-            "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "user_id",
-            "description": "<p>用户ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "org_id",
-            "description": "<p>机构ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "name",
-            "description": "<p>产品名称</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"name\": \"产品名称\",\n    \"maximum_size\": 1,  # 总额度\n    \"current_precontract_size\": 1,  # 已募集\n    \"surplus_size\": 99, # 剩余\n    \"currency\": 1,\n    \"profit_type\": 1,\n    \"order_amount\": 8888,   # 成交金额\n    \"total_expense\": 8888,   # 总计费用\n    \"finished_expense\": 8888,   # 已结算费用\n    \"wait_expense\": 8888,    # 待结算费用\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 3,   # 税费\n    \"total_order_amount\": 999,  # 计提金额\n    \"sales\": 999,   # 销售费\n    \"distribution\": 999,    # 发行费\n    \"exploit\": 999, # 开发费\n    \"underwrite\": 999,  # 包销费\n    \"management\": 999,  # 管理费\n    \"performance\": 999  # 业绩费\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/product_settlement",
-    "title": "产品结算记录列表",
-    "name": "ProductSettlements",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "product_id",
-            "description": "<p>产品ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "date",
-            "optional": true,
-            "field": "start_date",
-            "description": "<p>成立日</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"type\": 1,  # 结算费用类型\n    \"start_date\": \"2015-12-33T16:20:20\",    # 成立日\n    \"date\": \"2015-12-01\",\n    \"duration\": 3,\n    \"amount\": 9999,\n    \"created_time\": \"2015-12-33T16:20:20\",\n    \"percent\": 33.33,\n    \"confirmed_status\": 0,  # 0:待提交确认,1:确认中,2:已确认\n    \"group_no\": \"321321321321\"  # 组编号,\n    \"prior_date\": \"2015-10-01\", # 上一次计算日期\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "post",
-    "url": "/api/expense/committed_order_settlement/reject",
-    "title": "拒绝费用结算",
-    "name": "RejectSettlement",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "id",
-            "description": "<p>结算记录ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "role",
-            "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "remark",
-            "description": "<p>备注</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/roles",
-    "title": "角色费用统计列表",
-    "name": "RoleExpenseList",
-    "group": "Expense",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"role\": 3,  # 角色\n    \"order_amount\": {\"rmb\":8888, \"dollar\": 9888},   # 订单金额\n    \"total_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 总计费用\n    \"finished_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 已结算费用\n    \"wait_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 待结算费用\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n    \"total_order_amount\": {\"rmb\":8888, \"dollar\": 9888},  # 计提金额\n    \"sales\": {\"rmb\":8888, \"dollar\": 9888},   # 销售费\n    \"distribution\": {\"rmb\":8888, \"dollar\": 9888},    # 发行费\n    \"exploit\": {\"rmb\":8888, \"dollar\": 9888}, # 开发费\n    \"underwrite\": {\"rmb\":8888, \"dollar\": 9888},  # 包销费\n    \"management\": {\"rmb\":8888, \"dollar\": 9888},  # 管理费\n    \"performance\": {\"rmb\":8888, \"dollar\": 9888}  # 业绩费\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/total",
-    "title": "费用总计",
-    "name": "TotalExpense",
-    "group": "Expense",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"total\": {\n        \"total_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 总计费用\n        \"finished_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 已结算费用\n        \"wait_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 待结算费用\n        \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n        \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n        \"total_order_amount\": {\"rmb\":8888, \"dollar\": 9888},  # 计提金额\n        \"sales\": {\"rmb\":8888, \"dollar\": 9888},   # 销售费\n        \"distribution\": {\"rmb\":8888, \"dollar\": 9888},    # 发行费\n        \"exploit\": {\"rmb\":8888, \"dollar\": 9888}, # 开发费\n        \"underwrite\": {\"rmb\":8888, \"dollar\": 9888},  # 包销费\n        \"management\": {\"rmb\":8888, \"dollar\": 9888},  # 管理费\n        \"performance\": {\"rmb\":8888, \"dollar\": 9888}  # 业绩费\n    },\n    \"company\": 结构同上\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "put",
-    "url": "/api/expense/committed_order_settlement/:id",
-    "title": "修改提交订单结算",
-    "name": "UpdateCommittedOrderSettlements",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": false,
-            "field": "amount",
-            "description": "<p>结算金额</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "invoice_type",
-            "description": "<p>发票类型,1:专票,2:普票,3:走账</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "tax_rate",
-            "description": "<p>税率</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": true,
-            "field": "exchange_rate",
-            "description": "<p>汇率</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "remark",
-            "description": "<p>备注</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "post",
-    "url": "/api/expense/update_order_expense_params",
-    "title": "修改订单费用",
-    "name": "UpdateOrderExpenseParams",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "order_no",
-            "description": "<p>订单号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "product_settlement_group_no",
-            "description": "<p>产品结算记录组号</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "role",
-            "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "user_id",
-            "description": "<p>用户ID</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "put",
-    "url": "/api/expense/product_settlement/group/:group_no",
-    "title": "修改产品结算记录",
-    "name": "UpdateProductSettlement",
-    "group": "Expense",
-    "version": "1.0.0",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "参数同创建",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "get",
-    "url": "/api/expense/users",
-    "title": "理财师费用列表",
-    "name": "UserExpenseList",
-    "group": "Expense",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"user_id\": 100034,\n    \"name\": \"姓名\",\n    \"order_amount\": {\"rmb\":8888, \"dollar\": 9888},   # 订单金额\n    \"total_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 总计费用\n    \"finished_expense\": {\"rmb\":8888, \"dollar\": 9888},   # 已结算费用\n    \"wait_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 待结算费用\n    \"processing_expense\": {\"rmb\":8888, \"dollar\": 9888},    # 结算中费用\n    \"tax\": {\"rmb\":8888, \"dollar\": 9888},   # 税费\n    \"total_order_amount\": {\"rmb\":8888, \"dollar\": 9888},  # 计提金额\n    \"sales\": {\"rmb\":8888, \"dollar\": 9888},   # 销售费\n    \"distribution\": {\"rmb\":8888, \"dollar\": 9888},    # 发行费\n    \"exploit\": {\"rmb\":8888, \"dollar\": 9888}, # 开发费\n    \"underwrite\": {\"rmb\":8888, \"dollar\": 9888},  # 包销费\n    \"management\": {\"rmb\":8888, \"dollar\": 9888},  # 管理费\n    \"performance\": {\"rmb\":8888, \"dollar\": 9888}  # 业绩费\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "post",
-    "url": "/api/expense/committed_order_settlement/verify",
-    "title": "确认费用结算",
-    "name": "VerifySettlement",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "id",
-            "description": "<p>结算记录ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "role",
-            "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "user_id",
-            "description": "<p>用户ID</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "patch",
-    "url": "/api/expense/product_settlement/:group_no/confirmed",
-    "title": "修改确认状态",
-    "name": "updateConfirmedStatus",
-    "group": "Expense",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "status",
-            "description": "<p>确认状态,0:待确认,2:确认，3：有无否决</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "remark",
-            "description": "<p>备注</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/expense.py",
-    "groupTitle": "Expense"
-  },
-  {
-    "type": "patch",
-    "url": "/api/feedback/:id",
-    "title": "反馈处理",
-    "name": "feedback_handle",
-    "group": "Feedback",
-    "version": "0.0.0",
-    "filename": "admin/frontend/feedback.py",
-    "groupTitle": "Feedback"
-  },
-  {
-    "type": "get",
     "url": "/api/feedback",
-    "title": "反馈列表",
-    "name": "feedback_list",
+    "title": "用户反馈",
+    "name": "CreateFeedback",
     "group": "Feedback",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "status",
-            "optional": true,
-            "field": "name",
-            "description": "<p>状态,0:待处理,1:已处理</p>"
+            "type": "String",
+            "optional": false,
+            "field": "content",
+            "description": "<p>反馈内容</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "resource_type",
+            "description": "<p>关联类型, 0:无, 29:联合采购订单</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
             "optional": true,
-            "field": "page",
-            "description": "<p>第几页</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "per_page",
-            "description": "<p>每页数量</p>"
+            "field": "resource_id",
+            "description": "<p>关联订单单号</p>"
           }
         ]
       }
     },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 12,\n    \"name\": \"小明\",\n    \"mobile\": \"15062131212\",\n    \"resource_type\": 29,    # 关联类型, 0:无, 29:联合采购订单\n    \"resource_id\": \"898d0sa8dsa809dsa\",\n    \"content\": \"问题描述\",\n    \"status\": 0,\n    \"created_time\": \"2016-12-11T16:00:00\"\n}]",
-          "type": "json"
-        }
-      ]
-    },
     "version": "0.0.0",
-    "filename": "admin/frontend/feedback.py",
+    "filename": "purchasing_consortia/frontend/feedback.py",
     "groupTitle": "Feedback"
   },
   {
@@ -2799,7 +1324,17 @@ define({ "api": [
     "name": "AccessFile",
     "group": "File",
     "version": "1.0.0",
-    "filename": "admin/frontend/file.py",
+    "filename": "purchasing_consortia/frontend/file.py",
+    "groupTitle": "File"
+  },
+  {
+    "type": "get",
+    "url": "/api/file/pub/:md5",
+    "title": "访问文件(md5)",
+    "name": "AccessFileByMd5",
+    "group": "File",
+    "version": "1.0.0",
+    "filename": "purchasing_consortia/frontend/file.py",
     "groupTitle": "File"
   },
   {
@@ -2818,7 +1353,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "admin/frontend/file.py",
+    "filename": "purchasing_consortia/frontend/file.py",
     "groupTitle": "File"
   },
   {
@@ -2880,34 +1415,16 @@ define({ "api": [
         }
       ]
     },
-    "filename": "admin/frontend/file.py",
+    "filename": "purchasing_consortia/frontend/file.py",
     "groupTitle": "File"
   },
   {
-    "type": "get",
-    "url": "/api/logs/channel",
-    "title": "渠道日志",
-    "name": "ChannelLogList",
+    "type": "post",
+    "url": "/api/log",
+    "title": "发送日志",
+    "name": "sendLog",
     "group": "Log",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"created_time\": \"2015-12-11T13:00:00\",\n    \"name\": \"xiaom1\"，\n    \"operate_type\": 1,  # 操作类型,2:增加，5:删除，15：更新，16：绑定，17：解绑\n    \"operate_target\": 2,    # 操作对象, 30:推荐人,31:理财师\n    \"operate_content\": \"内容\"\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/log.py",
-    "groupTitle": "Log"
-  },
-  {
-    "type": "get",
-    "url": "/api/logs/details",
-    "title": "日志详情列表",
-    "name": "LogDetails",
-    "group": "Log",
+    "version": "1.0.0",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -2915,47 +1432,53 @@ define({ "api": [
             "group": "Parameter",
             "type": "int",
             "optional": false,
-            "field": "type",
-            "description": "<p>类型: 1-新增用户,2-登陆,3-产品操作，4-浏览</p>"
+            "field": "action",
+            "description": "<p>行为,101:页面访问</p>"
           },
           {
             "group": "Parameter",
-            "type": "date",
+            "type": "string",
             "optional": false,
-            "field": "date",
-            "description": "<p>日期</p>"
+            "field": "content",
+            "description": "<p>内容</p>"
           }
         ]
       }
     },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"ip\": \"201.33.33.198\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"姓名\",\n        \"mobile\": \"1323421321\",\n        \"certificate\": true\n    },\n    \"created_time\": \"2017-12-11T16:00:00\",\n    \"action\": 101,  # 日志类型\n    \"content\": \"日志内容\",\n    \"channel\": 1,   # 渠道,1网页,2公众号,3群聊,4:私聊，5朋友圈,6后台,7移动端\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/log.py",
+    "filename": "purchasing_consortia/frontend/log.py",
     "groupTitle": "Log"
   },
   {
     "type": "get",
-    "url": "/api/logs",
-    "title": "日志列表",
-    "name": "LogList",
-    "group": "Log",
+    "url": "/api/notifications",
+    "title": "消息列表",
+    "name": "NotificationList",
+    "group": "Notification",
+    "version": "1.0.0",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "date",
+            "type": "int",
             "optional": true,
-            "field": "date",
-            "description": "<p>日期</p>"
+            "field": "unread",
+            "defaultValue": "1",
+            "description": "<p>是否未读</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p>"
           }
         ]
       }
@@ -2964,32 +1487,55 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"date\": \"2017-12-11\",\n    \"new_user\": 0,  #新用户\n    \"logging_user\": 0,  # 登陆\n    \"product_operation\": 0, # 产品操作\n    \"access\": 0,    # ；浏览\n    \"precontract_order_amount\": {   # 预约\n        \"rmb\": 0,\n        \"dollar\": 0,\n    },\n    \"order_amount\": {   # 成交\n        \"rmb\": 0,\n        \"dollar\": 0\n    }\n}]",
+          "content": "[{\n    \"date\": \"2017-4-2\",\n    \"data\": [{\n        \"id\": 1,\n        \"read\": false,\n        \"type\": 1,          # 通知类型,1:普通(不跳转), 2:订单, 3:产品, 4:认证未通过, 5:邀请, 6:分成发放\n        \"resource_id\": \"100932\",\n        \"msg_list\": [{\n            \"type\": 3,          # 信息类型, 1:文本, 2:产品\n            \"text\": \"年后\",\n            \"resource_id\": \"22333\"\n        }]\n    }]\n}]",
           "type": "json"
         }
       ]
     },
-    "version": "0.0.0",
-    "filename": "admin/frontend/log.py",
-    "groupTitle": "Log"
+    "filename": "purchasing_consortia/frontend/notice.py",
+    "groupTitle": "Notification"
   },
   {
     "type": "post",
-    "url": "/api/orders",
-    "title": "创建订单",
+    "url": "/api/notifications/clear",
+    "title": "读取全部消息",
+    "name": "NotificationReadAll",
+    "group": "Notification",
+    "version": "1.0.0",
+    "filename": "purchasing_consortia/frontend/notice.py",
+    "groupTitle": "Notification"
+  },
+  {
+    "type": "patch",
+    "url": "/api/notifications/:id/read",
+    "title": "消息标记已读",
+    "name": "ReadNotification",
+    "group": "Notification",
+    "version": "1.0.0",
+    "filename": "purchasing_consortia/frontend/notice.py",
+    "groupTitle": "Notification"
+  },
+  {
+    "type": "post",
+    "url": "/api/orders/:product_id",
+    "title": "创建预约订单",
     "name": "CreateOrder",
     "group": "Order",
+    "version": "1.0.0",
     "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"user_id\": 100460,\n    \"product_id\": 334,\n    \"customer_name\": \"客户姓名\",\n    \"customer_real_name\": \"客户真是姓名\",\n    \"customer_no\": \"客户编号\",\n    \"customer_mobile\": \"1503213123\",    # 客户电话\n    \"customer_id_card_no\": \"身份证号\"\n    \"amount\": 300,  # 认购金额\n    \"pay_time\": \"2017-05-28\",    # 打款日期\n    \"attachment_id\": 12     # 相关文件ID\n    \"buy_time\": \"2017-05-28T16:00:00\",  # 计息日\n    \"confirm_time\": \"2017-05-28T16:00:00\",  # 确认日\n    \"remark\": \"备注\",\n    \"prospective_earning\": 1.3, # 预期年化收益\n    \"buy_duration\": 3,\n    \"expire_time\": \"2017-05-28T16:00:00\"    # 到期时间\n    \"buy_value\": 1.33,  # 购买时净值\n    \"buy_share\": 13,    # 份额(万份)\n}",
-          "type": "json"
-        }
-      ]
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "precontract_amount",
+            "description": "<p>预约额度/万</p>"
+          }
+        ]
+      }
     },
-    "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3019,7 +1565,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3049,7 +1595,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3081,14 +1627,7 @@ define({ "api": [
             "type": "datetime",
             "optional": false,
             "field": "redemption_time",
-            "description": "<p>赎回确认日</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "datetime",
-            "optional": false,
-            "field": "redemption_open_time",
-            "description": "<p>赎回开放日</p>"
+            "description": "<p>赎回生效日期</p>"
           },
           {
             "group": "Parameter",
@@ -3107,7 +1646,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3151,7 +1690,100 @@ define({ "api": [
         ]
       }
     },
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "post",
+    "url": "/api/orders/org",
+    "title": "创建机构产品订单",
+    "name": "CreateOrgOrders",
+    "group": "Order",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "product_id",
+            "description": "<p>产品ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "customer_no",
+            "description": "<p>客户编号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "customer_name",
+            "description": "<p>客户姓名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datetime",
+            "optional": false,
+            "field": "buy_time",
+            "description": "<p>计息确认日</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": true,
+            "field": "prospective_earning",
+            "description": "<p>预期年化收益</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datetime",
+            "optional": true,
+            "field": "expire_time",
+            "description": "<p>到期时间</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "buy_duration",
+            "description": "<p>购买期限</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>金额（万）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": true,
+            "field": "buy_value",
+            "description": "<p>购买时净值</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": true,
+            "field": "buy_share",
+            "description": "<p>份额(万份)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "remark",
+            "description": "<p>备注</p>"
+          }
+        ]
+      }
+    },
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3160,8 +1792,8 @@ define({ "api": [
     "title": "删除订单",
     "name": "DeleteOrder",
     "group": "Order",
-    "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
+    "version": "1.0.0",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3171,7 +1803,7 @@ define({ "api": [
     "name": "DeleteOrderBonus",
     "group": "Order",
     "version": "1.0.0",
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3181,7 +1813,7 @@ define({ "api": [
     "name": "DeleteOrderDistribution",
     "group": "Order",
     "version": "1.0.0",
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3200,7 +1832,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3210,26 +1842,65 @@ define({ "api": [
     "name": "DeleteOrderShareChange",
     "group": "Order",
     "version": "1.0.0",
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
-    "type": "patch",
-    "url": "/api/orders/:order_no/finish",
-    "title": "完成订单",
-    "name": "FinishOrder",
+    "type": "get",
+    "url": "/api/orders/:product_id/maice",
+    "title": "麦策预约订单",
+    "name": "MaiceOrder",
     "group": "Order",
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/order.py",
+    "groupTitle": "Order",
     "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p>"
+          }
+        ]
+      }
+    },
+    "success": {
       "examples": [
         {
-          "title": "Request-Example:",
-          "content": "{\n    \"customer_name\": \"客户姓名\",\n    \"customer_mobile\": \"1504342323\",\n    \"amount\": 300,  # 认购金额\n    \"pay_time\": \"2017-05-28\",    # 打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachment_id\": 12     # 相关文件ID\n    \"buy_time\": \"2017-05-28T16:00:00\",  # 计息日\n    \"confirm_time\": \"2017-05-28T16:00:00\",  # 确认日\n    \"remark\": \"备注\",\n    \"prospective_earning\": 1.3, # 预期年化收益\n    \"buy_duration\": 3,\n    \"expire_time\": \"2017-05-28T16:00:00\"    # 到期时间\n    \"buy_value\": 1.33,  # 购买时净值\n    \"buy_share\": 13,    # 份额(万份)\n}",
+          "title": "Success-Response:",
+          "content": "{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\",\n        \"remit_remark\": \"打款备注\",\n        \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    },\n    \"survival\": true,   # 是否存续中\n    \"self\": true,       # 是否是当前登录者创建的\n    \"customer_name\": \"客户名称\",\n    \"customer_no\": \"客户编号\",\n    \"created_time\": \"2017-03-01T15:33:22\",  # 订单创建时间\n    \"expire_time\": \"2017-03-01T15:33:22\",  # 订单到期日\n    \"precontract_amount\": 300,          # 金额\n    \"currency\": 1,                      # 1:人民币,2:美元\n    \"type\": 1,                          # 订单当前大进度类型\n    \"sub_type\": 1,                      # 订单当前小进度类型\n    \"buy_share\": 100,   # 认购份额\n    \"persistent_share\": 100, # 存续份额\n    \"buy_time\": \"2017-12-16T16:00:00\"   # 认购日/计息确认日\n    \"buy_value\": 33,    # 认购时净值（浮动）\n    \"last_redemption_time\": \"2017-12-16T16:00:00\" # 浮动类最后一次的赎回日\n    \"last_redemption_value\": 3.14,  # 浮动类最后一次赎回的净值\n    \"buy_duration\": 12, # 购买期限\n    \"prospective_earning\": 3.14,    # 预期年化收益\n    \"last_value_update_time\": \"2017-12-16T16:00:00\" # 最新净值日\n    \"last_value\": 3.14,  # 最新净值\n    \"is_confirmed\": true,   # 是否已确认\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动, 2: 开放\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/api/orders/stats/myself",
+    "title": "我的订单统计",
+    "name": "MyOrderStats",
+    "group": "Order",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response: (如果返回None表示没有)",
+          "content": "{\n    \"orders\":   # 单量\n        {\n            \"total\": 12,\n            \"existence\": 11\n        }\n    \"customers\":    # 客户数量\n        {\n            \"total\": 12,\n            \"existence\": 11\n        }\n    \"products\":  # 产品数量\n        {\n            \"total\": 12,\n            \"existence\": 11\n        }\n    \"amounts\": {    万元\n        \"total\": {\n            \"rmb\": 999,\n            \"dollar\": 999,\n        },\n        \"existence\": {\n            \"rmb\": 999,\n            \"dollar\": 999,\n        }\n    }\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3248,7 +1919,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order",
     "parameter": {
       "fields": {
@@ -3273,7 +1944,159 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/orders/:order_no",
+    "url": "/api/orders/list/:order_no/book_profit_graph",
+    "title": "订单账面收益图",
+    "name": "OrderBookProfits",
+    "group": "Order",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"date\": \"2017-12-01\",\n    \"book_profit\": {\n        \"order\": 300,   # 订单\n        \"bank\": 300,    # 银行\n        \"csi300\": 229   # 沪深300\n        \"trust\": 33,    # 信托\n    }\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "get",
+    "url": "/api/orders/book_profit_graph_million",
+    "title": "订单账面收益图（百万）",
+    "name": "OrderBookProfitsMillion",
+    "group": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "user_id",
+            "description": "<p>用户ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "org_id",
+            "description": "<p>机构ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"date\": \"2017-12-01\",\n    \"book_profit\": {\n        \"order\": 300,   # 订单/元\n        \"bank\": 300,    # 银行/元\n        \"csi300\": 229   # 沪深300/元\n        \"trust\":333,    # 信托/元\n    }\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "get",
+    "url": "/api/orders/cash_flow",
+    "title": "订单现金流",
+    "name": "OrderCashFlow",
+    "group": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "customer_no",
+            "description": "<p>客户编号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "org",
+            "defaultValue": "0",
+            "description": "<p>是否查看整个机构,1:是,0:否</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response: (如果返回None表示没有)",
+          "content": "[{\n    \"date\": \"2017-06-01\",\n    \"distribution\": 199,    # 分配金额 / 元\n    \"redemption\": 199,  # 赎回 / 元\n    \"open\": 199,    # 定期开放 / 元\n    \"total\": 999,\n    \"detail\": [{\n        \"date\": \"2017-06-01\",\n        \"distribution\": 199,    # 分配金额 / 元\n        \"redemption\": 199,  # 赎回 / 元\n        \"open\": 199,    # 定期开放 / 元\n        \"total\": 999,\n    }]\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "get",
+    "url": "/api/orders/cash_flow/list",
+    "title": "订单现金流列表",
+    "name": "OrderCashFlowList",
+    "group": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "customer_no",
+            "description": "<p>客户编号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "org",
+            "defaultValue": "0",
+            "description": "<p>是否查看整个机构,1:是,0:否</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "date",
+            "optional": true,
+            "field": "range",
+            "description": "<p>时间段</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "source",
+            "description": "<p>来源，0:全部,1:分配,2:赎回,3:开放</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response: (如果返回None表示没有)",
+          "content": "[{\n    \"date\": \"2017-06-01\",\n    \"money\": 300, # 金额\n    \"source\": 1,      # 来源,1:分配,2:赎回,3:开放\n    \"currency\": 1,\n    \"order_no\": \"32132132121332132\",\n    \"is_from_maice\": true,\n    \"product\": {\n        \"id\": 1,\n        \"name\": \"产品名\"\n    },\n    \"customer\": {\n        \"name\": \"客户名\",\n        \"no\": \"321321j3lj21kjl\"\n    }\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "get",
+    "url": "/api/orders/list/:order_no",
     "title": "订单详情",
     "name": "OrderDetails",
     "group": "Order",
@@ -3281,13 +2104,13 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"product_id\": 3,\n    \"product_name\": \"产品名称\",\n    \"customer_name\": \"客户名称\",\n    \"customer_id_card_no\": \"客户证件号\",\n    \"customer_mobile\": \"客户手机号\",\n    \"pay_time\": \"2017-12-21\",   # 打款日期\n    \"amount\": 12,   # 认购金额\n    \"persistent_share\": 100,    # 存续份额\n    \"buy_share\": 100,       # 认购份额\n    \"prospective_earning\": 0.11,    # 预期年化收益\n    \"buy_duration\": 12, # 期限\n    \"start_date\": \"2017-11-11T17:00:00\",    # 成立日\n    \"buy_time\": \"2017-11-11T17:00:00\",    # 认购日\n    \"confirm_time\": \"2017-11-11T17:00:00\",    # 确认日\n    \"last_redemption_time\": \"2017-11-11T17:00:00\",    # 最后赎回日\n    \"expire_time\": \"2017-11-11T17:00:00\",    # 到期日\n    \"user_name\": \"理财师\",\n    \"remark\": \"备注\",\n    \"book_profit\": \"133\",   # 账面收益\n    \"currency\": 1,\n    \"distribution\": 999,    # 分配金额\n    \"book_profit_percent\": 0.12,    # 账面收益率\n    \"buy_value\": 1, # 认购日净值\n    \"last_redemption_value\": 1.33,  # 最后赎回净值\n    \"last_value_update_time\": \"2017-11-11T17:00:00\",    # 最新净值日\n    \"last_value\": 1.33,    # 最新净值\n    \"persistent_amount\": 933,    # 存续金额 / 万\n    \"bonus\": 933,    # 分红金额\n    \"survival\": true,   # 是否存续中\n    \"profit_type\": 1,\n    \"attachment\": {\n        \"id\": 1,\n        \"name\": \"xxx',\n        \"url\": 地址\n    }\n}",
+          "content": "{\n    \"amount\": 12,   # 认购金额\n    \"persistent_share\": 100,    # 存续份额\n    \"buy_share\": 100,       # 认购份额\n    \"prospective_earning\": 0.11,    # 预期年化收益\n    \"buy_duration\": 12, # 期限\n    \"start_date\": \"2017-11-11T17:00:00\",    # 成立日\n    \"buy_time\": \"2017-11-11T17:00:00\",    # 认购日\n    \"last_redemption_time\": \"2017-11-11T17:00:00\",    # 最后赎回日\n    \"expire_time\": \"2017-11-11T17:00:00\",    # 到期日\n    \"user_name\": \"理财师\",\n    \"user_id\": 110877,\n    \"remark\": \"备注\",\n    \"book_profit\": \"133\",   # 账面收益\n    \"currency\": 1,\n    \"distribution\": 999,    # 分配金额\n    \"book_profit_percent\": 0.12,    # 账面收益率\n    \"buy_value\": 1, # 认购日净值\n    \"last_redemption_value\": 1.33,  # 最后赎回净值\n    \"last_value_update_time\": \"2017-11-11T17:00:00\",    # 最新净值日\n    \"last_value\": 1.33,    # 最新净值\n    \"persistent_amount\": 933,    # 存续金额 / 万\n    \"bonus\": 933,    # 分红金额\n    \"survival\": true,   # 是否存续中\n    \"profit_type\": 1,\n    \"is_from_maice\": true,\n    \"customer_name\": \"小李\",\n    \"customer_no\": \"8309218390218\",\n    \"product_name\": \"产品名\",\n    \"product_id\": 99\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3306,7 +2129,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order",
     "parameter": {
       "fields": {
@@ -3331,6 +2154,106 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/api/orders/:order_no",
+    "title": "订单信息",
+    "name": "OrderInfo",
+    "group": "Order",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"order_no\": \"201708123301\",\n    \"amount\": 10000,\n    \"currency\": 1,\n    \"persistent_share\": 1000,\n    \"profit_type\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "purchasing_consortia/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "get",
+    "url": "/api/orders/list",
+    "title": "订单列表",
+    "name": "OrderListV2",
+    "group": "Order",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "user_id",
+            "description": "<p>用户ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "product_id",
+            "description": "<p>产品ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "customer_no",
+            "description": "<p>客户编号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "existence",
+            "description": "<p>存续类型 0:已结束1:存续中</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "channel_user_id",
+            "description": "<p>推荐人查看的理财师ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "datetime",
+            "optional": true,
+            "field": "start_date",
+            "description": "<p>起始日期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p>"
+          }
+        ]
+      }
+    },
+    "filename": "purchasing_consortia/frontend/order.py",
+    "groupTitle": "Order",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\",\n        \"remit_remark\": \"打款备注\",\n        \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    },\n    \"survival\": true,   # 是否存续中\n    \"self\": true,       # 是否是当前登录者创建的\n    \"customer_name\": \"客户名称\",\n    \"customer_no\": \"客户编号\",\n    \"created_time\": \"2017-03-01T15:33:22\",  # 订单创建时间\n    \"expire_time\": \"2017-03-01T15:33:22\",  # 订单到期日\n    \"precontract_amount\": 300,          # 金额\n    \"currency\": 1,                      # 1:人民币,2:美元\n    \"type\": 1,                          # 订单当前大进度类型\n    \"sub_type\": 1,                      # 订单当前小进度类型\n    \"buy_share\": 100,   # 认购份额\n    \"persistent_share\": 100, # 存续份额\n    \"buy_time\": \"2017-12-16T16:00:00\"   # 认购日/计息确认日\n    \"buy_value\": 33,    # 认购时净值（浮动）\n    \"last_redemption_time\": \"2017-12-16T16:00:00\" # 浮动类最后一次的赎回日\n    \"last_redemption_value\": 3.14,  # 浮动类最后一次赎回的净值\n    \"buy_duration\": 12, # 购买期限\n    \"prospective_earning\": 3.14,    # 预期年化收益\n    \"last_value_update_time\": \"2017-12-16T16:00:00\" # 最新净值日\n    \"last_value\": 3.14,  # 最新净值\n    \"is_confirmed\": true,   # 是否已确认\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动, 2: 开放\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
     "url": "/api/orders/:order_no/redeem",
     "title": "订单赎回记录",
     "name": "OrderRedeem",
@@ -3339,13 +2262,13 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"amount\": 13,   # 金额/元\n    \"redeem_value\": 1.4,    # 赎回时净值（浮动）\n    \"fee\": 13.31,   # 手续费\n    \"redemption_time\": \"2017-01-01T17:00:00\",   # 赎回确认日\n    \"redemption_open_time\": \"2017-01-01T17:00:00\",   # 赎回开放日\n    \"remark\": \"备注\",\n    \"status\": 1,    # 状态1:等待，2：成功, 3:失败\n    \"market_value_change\": 1.33,    #市值变化\n    \"actual_profit\": 999,   # 实际收益\n    \"absolute_profit\": 999, # 绝对收益\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"amount\": 13,   # 金额/元\n    \"redeem_value\": 1.4,    # 赎回时净值（浮动）\n    \"fee\": 13.31,   # 手续费\n    \"redemption_time\": \"2017-01-01T17:00:00\",   # 赎回生效日\n    \"remark\": \"备注\",\n    \"status\": 1,    # 状态1:等待，2：成功, 3:失败\n    \"market_value_change\": 1.33,    #市值变化\n    \"actual_profit\": 999,   # 实际收益\n    \"absolute_profit\": 999, # 绝对收益\n}]",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order",
     "parameter": {
       "fields": {
@@ -3367,6 +2290,25 @@ define({ "api": [
         ]
       }
     }
+  },
+  {
+    "type": "get",
+    "url": "/api/orders/{订单号}/raises",
+    "title": "获取订单的风险记录",
+    "name": "OrderRisks",
+    "group": "Order",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"date\": \"2017-12-16T16:00:00\",  // 风险日期\n    \"type\": 1,      // 1:遭遇风险，2：解除风险\n    \"profit_effect\": true,        // 是否影响收益\n    \"principal_remain\": 80,       // 本金剩余%\n    \"remark\": \"备注\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "purchasing_consortia/frontend/order.py",
+    "groupTitle": "Order"
   },
   {
     "type": "get",
@@ -3384,7 +2326,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order",
     "parameter": {
       "fields": {
@@ -3409,62 +2351,16 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/api/orders",
+    "url": "/api/orders/org",
     "title": "订单列表",
-    "name": "Orders",
+    "name": "OrgOrders",
     "group": "Order",
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/order.py",
+    "groupTitle": "Order",
     "parameter": {
       "fields": {
         "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "status",
-            "description": "<p>状态1:预约中,2:已完成,3:已关闭</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "name",
-            "description": "<p>产品名或理财师名</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "channel_user_id",
-            "description": "<p>渠道查询时的理财师ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "channel_adviser_id",
-            "description": "<p>渠道查询时的投顾ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "channel_referrer_id",
-            "description": "<p>渠道查询时的推荐人ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "user_id",
-            "description": "<p>理财师ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "product_id",
-            "description": "<p>产品ID</p>"
-          },
           {
             "group": "Parameter",
             "type": "int",
@@ -3486,14 +2382,11 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\"\n    },\n    \"currency\": 1,\n    \"profit_type\": 1,\n    \"customer_name\": \"客户名称\",\n    \"is_confirmed\": true,                     # 是否已完成\n    \"precontract_amount\": 300,          # 金额\n    \"pay_time\": \"2017-03-01\",  # 打款时间\n    \"buy_time\": \"2017-03-01\",   # 计息确认日\n    \"closed\": true,     # 是否已关闭\n    \"persistent_share\": 100,    # 存续份额\n    \"created_time\": \"2017-03-01T17:33:21\",\n    \"last_distribution_time\": \"2017-03-01T17:33:21\"\n}]",
+          "content": "{\n    \"order_no\": \"201708123301\",\n    \"user\": {\n        \"id\": 100094,\n        \"name\": \"理财师A\"\n    },\n    \"product\": {\n        \"id\": 1000001,\n        \"name\": \"产品名称\",\n        \"remit_remark\": \"打款备注\",\n        \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    },\n    \"survival\": true,   # 是否存续中\n    \"self\": true,       # 是否是当前登录者创建的\n    \"customer_name\": \"客户名称\",\n    \"customer_no\": \"客户编号\",\n    \"created_time\": \"2017-03-01T15:33:22\",  # 订单创建时间\n    \"expire_time\": \"2017-03-01T15:33:22\",  # 订单到期日\n    \"precontract_amount\": 300,          # 金额\n    \"currency\": 1,                      # 1:人民币,2:美元\n    \"type\": 1,                          # 订单当前大进度类型\n    \"sub_type\": 1,                      # 订单当前小进度类型\n    \"buy_share\": 100,   # 认购份额\n    \"persistent_share\": 100, # 存续份额\n    \"buy_time\": \"2017-12-16T16:00:00\"   # 认购日/计息确认日\n    \"buy_value\": 33,    # 认购时净值（浮动）\n    \"last_redemption_time\": \"2017-12-16T16:00:00\" # 浮动类最后一次的赎回日\n    \"last_redemption_value\": 3.14,  # 浮动类最后一次赎回的净值\n    \"buy_duration\": 12, # 购买期限\n    \"prospective_earning\": 3.14,    # 预期年化收益\n    \"last_value_update_time\": \"2017-12-16T16:00:00\" # 最新净值日\n    \"last_value\": 3.14,  # 最新净值\n    \"is_confirmed\": true,   # 是否已确认\n    \"profit_type\": 1,   # 收益类型 0：固定， 1：浮动, 2: 开放\n}",
           "type": "json"
         }
       ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
-    "groupTitle": "Order"
+    }
   },
   {
     "type": "get",
@@ -3511,55 +2404,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
-    "groupTitle": "Order"
-  },
-  {
-    "type": "get",
-    "url": "/api/users/reserve_list",
-    "title": "用户预约列表",
-    "name": "ReserveList",
-    "group": "Order",
-    "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
-    "groupTitle": "Order"
-  },
-  {
-    "type": "post",
-    "url": "/api/orders/subscribe",
-    "title": "预约订单",
-    "name": "SubscribeOrder",
-    "group": "Order",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"user_id\": 100460,\n    \"product_id\": 334,\n    \"customer_name\": \"客户姓名\",\n    \"customer_no\": \"客户编号\"\n    \"precontract_amount\": 300,  # 额度\n    \"pay_time\": \"2015-12-23\"    # 打款日期\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
-    "groupTitle": "Order"
-  },
-  {
-    "type": "patch",
-    "url": "/api/orders/:order_no",
-    "title": "修改订单",
-    "name": "UpdateOrder",
-    "group": "Order",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"customer_name\": \"客户姓名\",\n    \"customer_mobile\": \"1504342323\",\n    \"amount\": 300,  # 认购金额\n    \"pay_time\": \"2017-05-28\",    # 打款日期\n    \"customer_id_card_no\": \"身份证号\",\n    \"attachment_id\": 12     # 相关文件ID\n    \"buy_time\": \"2017-05-28T16:00:00\",  # 计息日\n    \"confirm_time\": \"2017-05-28T16:00:00\",  # 确认日\n    \"remark\": \"备注\",\n    \"prospective_earning\": 1.3, # 预期年化收益\n    \"buy_duration\": 3,\n    \"expire_time\": \"2017-05-28T16:00:00\"    # 到期时间\n    \"buy_value\": 1.33,  # 购买时净值\n    \"buy_share\": 13,    # 份额(万份)\n    \"closed\": true,     # 是否关闭\n    \"attachment_id\": 3, # 相关文件ID\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3589,7 +2434,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3619,7 +2464,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3655,13 +2500,6 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "datetime",
-            "optional": false,
-            "field": "redemption_open_time",
-            "description": "<p>赎回开放日</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "float",
             "optional": true,
             "field": "redeem_value",
@@ -3686,7 +2524,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
@@ -3730,34 +2568,134 @@ define({ "api": [
         ]
       }
     },
-    "filename": "admin/frontend/order.py",
+    "filename": "purchasing_consortia/frontend/order.py",
     "groupTitle": "Order"
   },
   {
-    "type": "delete",
-    "url": "/api/org/:org_id",
-    "title": "机构删除",
-    "name": "OrgDelete",
+    "type": "get",
+    "url": "/api/org/profile",
+    "title": "机构信息",
+    "name": "OrgProfile",
     "group": "Org",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"company_name\": \"机构名称\",\n    \"industry\": 12, # 行业\n    \"logo\": \"http://dsadsadasdsa.jpg\",\n    \"employees\": 100,\n    \"products\": {\n        \"total\": 300,\n        \"existence\": 99,\n    },\n    \"customers\": {\n        \"total\": 300,\n        \"existence\": 99,\n    }\n    \"amounts\": {\n        \"total\": {  # 总配置\n            \"rmb\": 0,\n            \"dollar\": 0\n        },\n        \"existence\": {  #  存续\n            \"rmb\": 0,\n            \"dollar\": 0\n        }\n    },\n    \"orders\": {         # 单量\n        \"total\": 300,\n        \"existence\": 99,\n    },\n    \"is_available\": true,   # 是否有权使用系统\n    \"available_status\": 1001,   # 有效状态, 0:无效,1000~2000:试用期,2000~3000:付费期\n    \"expire_time\": \"2017-03-20T12:00:00\"    # 到期时间\n    \"is_expire\": true,\n    \"expire_days\": 133,     # 过期天数\n    \"paid_type\": 1, # 付费类型, 1:人数，2:机构\n    \"total_paid_num\": 13,   # 付费名额总量\n    \"remained_paid_num\": 2  # 剩余付费名额\n    \"owner\": {\n        \"user_id\": 100944,\n        \"name\": \"小米\"\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
-    "filename": "admin/frontend/org.py",
+    "filename": "purchasing_consortia/frontend/org.py",
     "groupTitle": "Org"
   },
   {
-    "type": "get",
-    "url": "/api/org",
-    "title": "机构列表",
-    "name": "OrgList",
+    "type": "post",
+    "url": "/api/org/profile",
+    "title": "修改机构信息",
+    "name": "UpdateOrgProfile",
     "group": "Org",
     "parameter": {
       "fields": {
         "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "logo",
+            "description": "<p>图标</p>"
+          },
           {
             "group": "Parameter",
             "type": "string",
             "optional": false,
             "field": "company_name",
             "description": "<p>机构名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "available_status",
+            "description": "<p>有效状态, 1:试用</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/org.py",
+    "groupTitle": "Org"
+  },
+  {
+    "type": "get",
+    "url": "/api/pay/check_order/:sn",
+    "title": "检查支付订单状态",
+    "name": "CheckPaidOrder",
+    "group": "Pay",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "0: 等待支付\n1: 支付成功\n2：支付失败",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/pay.py",
+    "groupTitle": "Pay"
+  },
+  {
+    "type": "post",
+    "url": "/api/pay/paid_service",
+    "title": "服务付费",
+    "name": "CreatePayOrder",
+    "group": "Pay",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "type",
+            "description": "<p>类型,1:按人数;2:按机构;3:扩容;4:按人数续费;5:按机构续费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>金额</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "num",
+            "description": "<p>人数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "duration",
+            "description": "<p>期限/月</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "list",
+            "optional": true,
+            "field": "user_ids",
+            "description": "<p>开通的账户user_id列表</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "channel",
+            "description": "<p>渠道:alipay_qr / wx_pub_qr</p>"
           }
         ]
       }
@@ -3766,190 +2704,32 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n    \"order_amount\": {\"dollar\": 0, \"rmb\": 0}\n}]",
+          "content": "{\n    \"qrcode\": \"http://sssss.png\",\n    \"sn\": \"321321312\"\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/org.py",
-    "groupTitle": "Org"
-  },
-  {
-    "type": "get",
-    "url": "/api/org/:org_id",
-    "title": "机构详情",
-    "name": "OrgList",
-    "group": "Org",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n    \"industry\": 1,  # 行业\n    \"order_amount\": {\n        \"total\": {\"rmb\":0, \"dollar\": 0},\n        \"existence\": {\"rmb\":0, \"dollar\": 0},\n    },\n    \"product_amount\": {\"total\":3, \"existence\": 1}\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/org.py",
-    "groupTitle": "Org"
-  },
-  {
-    "type": "get",
-    "url": "/api/org/roles",
-    "title": "机构角色列表",
-    "name": "OrgList",
-    "group": "Org",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"company_name\": \"dsadasd\"  #机构名\n    \"created_time\": \"2015-12-12\"  #机构创建时间\n    \"owner_name\": \"maice\"  #机构创始人\n    \"member_count\": 8  #机构成员数\n}]\n:return:",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/org.py",
-    "groupTitle": "Org"
-  },
-  {
-    "type": "get",
-    "url": "/api/org/:org_id/members",
-    "title": "机构成员",
-    "name": "OrgMembers",
-    "group": "Org",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"user\": {\n        \"id\": 3,\n        \"name\": \"小米\"\n    },\n    \"order_amount\": {\n        \"rmb\":0,\n        \"dollar\": 0\n    },\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/org.py",
-    "groupTitle": "Org"
+    "filename": "purchasing_consortia/frontend/pay.py",
+    "groupTitle": "Pay"
   },
   {
     "type": "post",
-    "url": "/api/products",
-    "title": "创建产品",
+    "url": "/api/products/org",
+    "title": "创建机构产品",
     "name": "CreateProduct",
     "group": "Product",
     "parameter": {
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"name\": \"产品A\"，\n    \"dim_name\": \"麦策产品A\",    # 未登录用户看到的产品名\n    \"status\": 1,    # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成, 4:募集结束\n    \"profit_type\": 1,   # 产品类型 0：固定， 1：浮动\n    \"type\": 1,\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款时间 日期或时间格式字符串都行\n    \"strategy\": {\n        \"value\": \"101010\",\n        \"text\": \"\"\n    },\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"first_open_date\": \"2017-12-16\":     # 首次开放日\n    \"current_open_date\": \"2017-12-16\":     # 本期开放日\n    \"dividend_type\": 1, # 分红方式\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"max_fee_sale\": \"最高销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"contract_file_id\": 33,    # 合同文件\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"tags\": [{\"name\": \"标签名\", \"description\": \"描述\"}],\n    \"relevant_files\": [{\"id\": 23, \"type\": 1}], # 相关文件\n    \"remark\": \"备注\",\n    \"hide\": true,\n    \"top\": true,\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"sales_expense\": 0.33,      # 销售费用比例\n    }],\n    \"distribution_period\": 3,   # 分配周期\n    \"first_distribution_date\": \"2017-12-11\",    # 首次分配日\n    \"estimated_dividends_time_description\": \"预计打款时间描述\",\n    \"increment_size\": 3,        # 递增金额\n    \"period\": 3,                # 开放周期\n    \"period_unit\": 1,           # 开放周期单位,1:月，2：周\n    \"distributions\": [{         # 手动分配记录\n        \"date\": \"2017-12-11\",   # 分配日\n        \"redeem_percent\": 3.11  # 本金分配比例\n    }],\n    \"expenses_type\": 1,         # 产品费用类型\n    \"tax_rate\": 12,             # 税率\n    \"expenses\": [{              # 费用\n        \"condition_floor\": 12,  # 金额下限/万\n        \"condition_ceiling\": 33,# 金额上限/万\n        \"total\": 3,             # 总费用\n        \"tag\": 1,               # 类型\n        \"data\": [{\n            \"role\": 1,\n            \"type\": 1,\n            \"value\": 3.3\n        }]\n    }]\n}",
+          "content": "{\n    \"name\": \"产品A\"，\n    \"profit_type\": 1,   # 产品类型 0：固定， 1：浮动\n    \"type\": 1,      # 产品类型\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"last_pay_time\": \"2017-12-3\",   # 最迟打款时间 日期或时间格式字符串都行\n    \"strategy\": {       # 投资策略\n        \"value\": \"101010\",\n        \"text\": \"\"\n    },\n    \"sell_status\": 1,       # 1:停售, 2:在售\n    \"fund_manager\": \"管理人\",\n    \"count_day_num\": 365,   # 计息规则\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"first_open_date\": \"2017-12-16\":     # 首次开放日\n    \"dividend_type\": 1, # 分红方式\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"max_fee_sale\": \"最高销售费用\",\n    \"repayment_source\": \"还款来源\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"relevant_files\": [{\"id\": 22}, {\"id\": 122}], # 相关文件\n    \"remark\": \"备注\",\n    \"hide\": true,\n    \"top\": true,\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\"\n    }],\n    \"distribution\": [     # 收益分配时间\n        \"2017-12-16T16:00:00\"\n    ],\n    \"estimated_dividends_time_description\": \"预计打款时间描述\",\n    \"increment_size\": 3,        # 递增金额\n    \"period\": 3,                # 开放周期/月\n    \"advanced_pay_time\": 4,     # 提前打款时间/天\n    \"open_date_info\": \"开放日说明\",\n    \"copy_product_id\": 3,    # 用于复制的产品ID\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
-    "type": "post",
-    "url": "/api/products/:pid/news",
-    "title": "创建产品动态/创建活动",
-    "name": "CreateProductNews",
-    "group": "Product",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "content",
-            "description": "<p>动态内容</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
-    "type": "post",
-    "url": "/api/products/:pid/raises",
-    "title": "创建产品募集记录",
-    "name": "CreateProductRaise",
-    "group": "Product",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"open_date\": \"2017-12-11\", # 产品开放日\n    \"last_pay_time\": \"2017-12-11\",  # 最迟打款时间\n    \"start_date\": \"2017-12-11\", # 产品成立日\n    \"profit_interval\": [{       # 收益区间\n        \"first_distribution_date\": \"2017-12-11\",    # 首次分配日\n        \"distribution_period\": 3,   # 分配周期\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33,      # 销售费用比例\n        \"percent\": 3.3,     # 计算比例\n        \"calc_date\": \"2017-12-11\"   # 计算日期\n        \"expire_days\": 3    # 到期间隔天数\n        \"calc_days\": 3      # 计算间隔天数\n    }]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
-    "type": "post",
-    "url": "/api/products/{产品ID}/raises/{募集记录ID}/risks",
-    "title": "创建产品风险记录",
-    "name": "CreateProductRisks",
-    "group": "Product",
-    "version": "1.0.0",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Datetime",
-            "optional": false,
-            "field": "date",
-            "description": "<p>风险日期,必须晚于募集记录的成立日/起息日</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "allowedValues": [
-              "1",
-              "2"
-            ],
-            "optional": false,
-            "field": "type",
-            "description": "<p>风险类型,1:遭遇风险，2：解除风险</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Boolean",
-            "optional": true,
-            "field": "profit_effect",
-            "defaultValue": "false",
-            "description": "<p>是否影响收益,仅当type=1时需要</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "size": "0-100",
-            "optional": true,
-            "field": "principal_remain",
-            "defaultValue": "100",
-            "description": "<p>本金剩余百分比,仅当type=1时需要</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "size": "..100",
-            "optional": true,
-            "field": "remark",
-            "description": "<p>备注</p>"
-          }
-        ]
-      }
-    },
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -3979,91 +2759,262 @@ define({ "api": [
         ]
       }
     },
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
     "type": "delete",
-    "url": "/api/products/news/:id",
-    "title": "删除产品动态",
-    "name": "DeleteProductNews",
-    "group": "Product",
-    "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
-    "type": "delete",
-    "url": "/api/products/:pid/raises/:id",
-    "title": "删除募集记录",
-    "name": "DeleteProductRaise",
-    "group": "Product",
-    "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
-    "type": "delete",
-    "url": "/api/products/{产品ID}/raises/{募集记录ID}/risks/{风险记录ID}",
-    "title": "删除产品风险记录",
-    "name": "DeleteProductRisks",
+    "url": "/api/products/:id",
+    "title": "删除产品",
+    "name": "DeleteProduct",
     "group": "Product",
     "version": "1.0.0",
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "post",
+    "url": "/api/products/:pid/follow",
+    "title": "关注产品",
+    "name": "FollowProduct",
+    "group": "Product",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "1（已有）,\n2（第一次）",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
     "type": "get",
-    "url": "/api/products/:pid/raises/:id",
-    "title": "获取募集记录明细",
-    "name": "GetProductRaiseDetail",
+    "url": "/api/products/[myself|org]/stats",
+    "title": "我的/机构产品统计",
+    "name": "MyProductStat",
     "group": "Product",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 33,\n    \"start_date\": \"2017-12-11\",\n    \"profit_intervals\": [{  # 收益区间\n        \"id\": 3,\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"sales_expense\": 0.33      # 外部渠道费\n        \"internal_sales_expense\": 0.33      # 内部渠道费\n        \"first_distribution_date\": \"2018-01-01\",    # 首次分配日\n        \"distribution_period\": 3,       # 分配周期\n        \"expire_days\": 3    # 到期间隔天数\n        \"calc_days\": 3      # 计算间隔天数\n    }]\n}",
+          "content": "{\n    \"order_amount\": {   # 成交金额\n        \"total\": {  # 总\n            \"maice\": {\n                \"rmb\": 0,\n                \"dollar\": 0\n            },\n            \"org\": {\n                \"rmb\": 0,\n                \"dollar\": 0\n            }\n        },\n        \"existence\": {  #  存续\n            \"maice\": {\n                \"rmb\": 0,\n                \"dollar\": 0\n            },\n            \"org\": {\n                \"rmb\": 0,\n                \"dollar\": 0\n            }\n        }\n    },\n    \"product_count\": {\n        \"total\": { # 总产品数\n            \"maice\": 3, # 麦策\n            \"org\": 2    # 机构\n        },\n        \"existence\": { # 存续产品数\n            \"maice\": 3,\n            \"org\": 99\n        }\n    },\n    \"existence_percent_by_profit_type\": [   # 浮动/固定存续\n        {\"name\": \"fixed\": \"value\": 0.12},\n        {\"name\": \"float\": \"value\": 0.12},\n    }],\n    \"existence_percent_by_currency\": {  # 人民币/美元存续\n        {\"name\": \"rmb\": \"value\": 0.12},\n        {\"name\": \"dollar\": \"value\": 0.12},\n    },\n    \"existence_percent_by_strategy\": {  # 存续产品策略\n        {\"name\": \"主管多空\": \"value\": 0.12},\n        {\"name\": \"基建\": \"value\": 0.12},\n    },\n    \"rate\": {   # 汇率\n        \"value\": 1.3,\n        \"date\": \"2017-06-01\"\n    }\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
     "type": "get",
-    "url": "/api/products/:pid/raises",
-    "title": "获取募集记录列表",
-    "name": "GetProductRaiseList",
+    "url": "/api/products/myself",
+    "title": "我的产品列表",
+    "name": "MyProducts",
     "group": "Product",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "profit_type",
+            "description": "<p>收益类型,0：固定，1：浮动</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "existence",
+            "description": "<p>存续类型 0:已结束1:存续中</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "action",
+            "description": "<p>1:已采购，2:已关注</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "name",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 33,\n    \"start_date\": \"2017-12-11\",\n    \"open_date\": \"2017-12-11\",\n    \"last_pay_time\": \"2017-12-11\",\n}]",
+          "content": "{\n    \"id\": 113,\n    \"name\": \"产品名称\",\n    \"org_id\": 1,        # 如果来自麦策，就是null\n    \"profit_type\": 1,   # 收益类型\n    \"type\": 1,      # 产品类型\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"existence\": 1,\n    \"action\": 1,\n    \"total_amount\": 1000,     # 成交金额\n}",
           "type": "json"
         }
       ]
     },
-    "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
     "type": "get",
-    "url": "/api/products/:pid",
-    "title": "联合采购产品详情",
-    "name": "ProductDetail",
+    "url": "/api/products/org/:id",
+    "title": "机构产品详情",
+    "name": "OrgProductDetail",
     "group": "Product",
-    "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
+    "version": "1.0.0",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"id\": 1,\n    \"name\": \"产品名称\"\n    \"profit_type\": 1,       # 收益类型 0：固定， 1：浮动,\n    \"type\": 1,              # 产品类型, 1:普通, 2:定期开放\n    \"status\": 1,            # 产品状态 0: 待上架 ，1:筹备中,2:众筹中,3:已完成,-1:项目失败\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"current_precontract_size\": 12, # 当前预约额度/万\n    \"last_pay_time\": \"2017-12-16T16:00:00\",   # 最迟打款时间\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"strategy\": {\n        \"value\": \"101001\",\n        \"text\": \"市场中性\"\n    },\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"2017-12-16T16:00:00\",\t\t# 产品开放日\n    \"open_date_description\": \"产品开放日描述\",\n    \"first_open_date\": \"2017-12-16\":     # 首次开放日\n    \"current_open_date\": \"2017-12-16\":     # 本期开放日\n    \"dividend_type\": 1, # 分红方式: 1份额2金额\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"max_fee_sale\": \"最高销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"estimated_dividends_time_description\": \"预计打款时间描述\",\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"tags\": [{\"name\": \"标签名\", \"description\": \"描述\"}],    # 标签\n    \"relevant_files\": [{\n        \"id\": 1777,\n        \"name\": \"相关文件1\",\n        \"url\": \"/api/file/3\",\n        \"type\": 1,      # 文件类型, 1推荐,2合同,3:信息披露\n    }]\n    \"remark\": \"备注\",\n    \"max_prospective_earning\": 0.334,   # 最高预期年化收益\n    \"surplus_time\": 2344444,    # 剩余时间/sec\n    \"surplus_size\": 23,         # 剩余额度/万\n    \"followed\": false,          # 是否关注\n    \"repayment_source\": \"还款来源\",\n    \"hide\": true,       # 是否隐藏\n    \"increment_size\": 3,        # 递增金额\n    \"duration\": \"3 - 18 个月\",    # 期限\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"settlement_days\": 33,      # 结算天数\n        \"sales_expense\": 0.33,      # 销售费用比例\n    }],\n    \"expenses\": [{       # 费用区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"total\": 0.02 # 总费用\n        \"exploit\": 23,              # 开发\n        \"distribution\": 33,   # 发行\n        \"underwrite\": 9,    # 包销\n        \"sales\": 33,      # 销售费\n        \"management\": 0.33,      # 管理费\n        \"management_sales\": 0.33,      # 管理销售费用\n        \"management_exploit\": 0.33,      # 管理开发费用\n        \"management_underwrite\": 0.33,      # 管理包销费用\n        \"management_distribution\": 0.33,      # 管理发行费用\n        \"performance\": 0.33,      # 业绩费\n        \"performance_sales\": 0.33,      # 业绩销售费用\n        \"performance_exploit\": 0.33,      # 业绩开发费用\n        \"performance_underwrite\": 0.33,      # 业绩包销费用\n        \"performance_distribution\": 0.33,      # 业绩发行费用\n    }],\n    \"sell_status\": 1,       # 1:停售, 2:在售\n    \"count_day_num\": 365,   # 计息规则\n    \"distribution_period\": 3,   # 分配周期\n    \"open_date_info\": \"开放日说明\"\n    \"period\": 3,                # 开放周期\n    \"period_unit\": 1,           # 开放周期单位,1:月，2：周\n    \"distributions\": [{         # 手动分配记录\n        \"id\": 1\n        \"date\": \"2017-12-11\",   # 分配日\n        \"redeem_percent\": 3.11  # 本金分配比例\n        \"created_time\": \"2017-03-22T17:08:20\"\n    }],\n    \"expenses_type\": 3, # 费用类型\n    \"tax_rate\": 3.33    # 费率\n}",
+          "content": "{\n    \"id\": 1,\n    \"name\": \"产品名称\"\n    \"profit_type\": 1,       # 收益类型 0：固定， 1：浮动,\n    \"type\": 1,              # 产品类型, 1:普通, 2:定期开放\n    \"status\": 1,            # 产品状态 0: 待上架 ，1:筹备中,2:众筹中,3:已完成,-1:项目失败\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"current_precontract_size\": 12, # 当前预约额度/万\n    \"last_pay_time\": \"2017-12-16T16:00:00\",   # 最迟打款时间\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"strategy\": {\n        \"value\": \"101001\",\n        \"text\": \"市场中性\"\n    },\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"2017-12-16T16:00:00\",\t\t# 产品开放日\n    \"open_date_description\": \"产品开放日描述\",\n    \"first_open_date\": \"2017-12-16\":     # 首次开放日\n    \"current_open_date\": \"2017-12-16\":     # 本期开放日\n    \"dividend_type\": 1, # 分红方式: 1份额2金额\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"max_fee_sale\": \"最高销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"estimated_dividends_time_description\": \"预计打款时间描述\",\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"tags\": \"tag1,tag2\",    # 标签\n    \"relevant_files\": [{\n        \"id\": 1777,\n        \"name\": \"相关文件1\",\n        \"url\": \"/api/file/3\",\n        \"type\": 1,      # 文件类型, 1推荐,2合同,3:信息披露\n    }]\n    \"remark\": \"备注\",\n    \"max_prospective_earning\": 0.334,   # 最高预期年化收益\n    \"surplus_time\": 2344444,    # 剩余时间/sec\n    \"surplus_size\": 23,         # 剩余额度/万\n    \"followed\": false,          # 是否关注\n    \"repayment_source\": \"还款来源\",\n    \"hide\": true,       # 是否隐藏\n    \"increment_size\": 3,        # 递增金额\n    \"duration\": \"3 - 18 个月\",    # 期限\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"settlement_days\": 33,      # 结算天数\n        \"sales_expense\": 0.33,      # 销售费用比例\n    }],\n    \"expenses\": [{       # 费用区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"total\": 0.02 # 总费用\n        \"exploit\": 23,              # 开发\n        \"distribution\": 33,   # 发行\n        \"underwrite\": 9,    # 包销\n        \"sales\": 33,      # 销售费\n        \"management\": 0.33,      # 管理费\n        \"management_sales\": 0.33,      # 管理销售费用\n        \"management_exploit\": 0.33,      # 管理开发费用\n        \"management_underwrite\": 0.33,      # 管理包销费用\n        \"management_distribution\": 0.33,      # 管理发行费用\n        \"performance\": 0.33,      # 业绩费\n        \"performance_sales\": 0.33,      # 业绩销售费用\n        \"performance_exploit\": 0.33,      # 业绩开发费用\n        \"performance_underwrite\": 0.33,      # 业绩包销费用\n        \"performance_distribution\": 0.33,      # 业绩发行费用\n    }],\n    \"sell_status\": 1,       # 1:停售, 2:在售\n    \"count_day_num\": 365,   # 计息规则\n    \"distribution_period\": 3,   # 分配周期\n    \"open_date_info\": \"开放日说明\"\n    \"period\": 3,                # 开放周期\n    \"period_unit\": 1,           # 开放周期单位,1:月，2：周\n    \"distributions\": [{         # 手动分配记录\n        \"id\": 1\n        \"date\": \"2017-12-11\",   # 分配日\n        \"redeem_percent\": 3.11  # 本金分配比例\n        \"created_time\": \"2017-03-22T17:08:20\"\n    }],\n    \"expenses_type\": 3, # 费用类型\n    \"tax_rate\": 3.33    # 费率\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/api/products/org/:id/stats",
+    "title": "机构产品数据统计(机构维度)",
+    "name": "OrgProductStats",
+    "group": "Product",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"currency\": 1,   # 货币类型\n    \"orders\": 21,      # 单量\n    \"profit_type\": 1,\n    \"customers\": 2 # 客户\n    \"total_amount\": 23,             # 累计金额\n    \"existence_amount\": 11,   # 存续金额\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "get",
+    "url": "/api/products/org",
+    "title": "机构的产品列表",
+    "name": "OrgProducts",
+    "group": "Product",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "profit_type",
+            "description": "<p>收益类型,0：固定，1：浮动</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "sell_status",
+            "description": "<p>1:停售, 2:在售</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "currency",
+            "description": "<p>币种</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "name",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"id\": 113,\n    \"name\": \"产品名称\",\n    \"org_id\": 1,        # 如果来自麦策，就是null\n    \"profit_type\": 1,   # 收益类型\n    \"type\": 1,      # 产品类型\n    \"sell_status\": 1,\n    \"currency\": 1,\n    \"fund_manager\": \"管理人\",\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"invest_info\": \"投资方向\",\n    \"last_pay_time\": \"2015-12-12T11:11:11\"  # 最迟打款时间\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "purchasing_consortia/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "get",
+    "url": "/api/products/:pid/brief",
+    "title": "产品简要信息",
+    "name": "ProductBriefInfo",
+    "group": "Product",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"id\": 113,\n    \"name\": \"产品名称\",\n    \"org_id\": 1,        # 如果来自麦策，就是null,\n    \"type\": 1,\n    \"profit_type\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "purchasing_consortia/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "get",
+    "url": "/api/products/:id",
+    "title": "产品详情",
+    "name": "ProductDetail",
+    "group": "Product",
+    "version": "1.0.0",
+    "filename": "purchasing_consortia/frontend/product.py",
+    "groupTitle": "Product",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"id\": 1,\n    \"name\": \"产品名称\"\n    \"profit_type\": 1,       # 收益类型 0：固定， 1：浮动,\n    \"type\": 1,              # 产品类型, 1:普通, 2:定期开放\n    \"status\": 1,            # 产品状态 0: 待上架 ，1:筹备中,2:众筹中,3:已完成,-1:项目失败\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"current_precontract_size\": 12, # 当前预约额度/万\n    \"last_pay_time\": \"2017-12-16T16:00:00\",   # 最迟打款时间\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"strategy\": {\n        \"value\": \"101001\",\n        \"text\": \"市场中性\"\n    },\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"2017-12-16T16:00:00\",\t\t# 产品开放日\n    \"open_date_description\": \"产品开放日描述\",\n    \"first_open_date\": \"2017-12-16\":     # 首次开放日\n    \"current_open_date\": \"2017-12-16\":     # 本期开放日\n    \"dividend_type\": 1, # 分红方式: 1份额2金额\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"max_fee_sale\": \"最高销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"estimated_dividends_time_description\": \"预计打款时间描述\",\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"tags\": \"tag1,tag2\",    # 标签\n    \"relevant_files\": [{\n        \"id\": 1777,\n        \"name\": \"相关文件1\",\n        \"url\": \"/api/file/3\",\n        \"type\": 1,      # 文件类型, 1推荐,2合同,3:信息披露\n    }]\n    \"remark\": \"备注\",\n    \"max_prospective_earning\": 0.334,   # 最高预期年化收益\n    \"surplus_time\": 2344444,    # 剩余时间/sec\n    \"surplus_size\": 23,         # 剩余额度/万\n    \"followed\": false,          # 是否关注\n    \"repayment_source\": \"还款来源\",\n    \"hide\": true,       # 是否隐藏\n    \"increment_size\": 3,        # 递增金额\n    \"duration\": \"3 - 18 个月\",    # 期限\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"settlement_days\": 33,      # 结算天数\n        \"sales_expense\": 0.33,      # 销售费用比例\n    }],\n    \"expenses\": [{       # 费用区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"total\": 0.02 # 总费用\n        \"exploit\": 23,              # 开发\n        \"distribution\": 33,   # 发行\n        \"underwrite\": 9,    # 包销\n        \"sales\": 33,      # 销售费\n        \"management\": 0.33,      # 管理费\n        \"management_sales\": 0.33,      # 管理销售费用\n        \"management_exploit\": 0.33,      # 管理开发费用\n        \"management_underwrite\": 0.33,      # 管理包销费用\n        \"management_distribution\": 0.33,      # 管理发行费用\n        \"performance\": 0.33,      # 业绩费\n        \"performance_sales\": 0.33,      # 业绩销售费用\n        \"performance_exploit\": 0.33,      # 业绩开发费用\n        \"performance_underwrite\": 0.33,      # 业绩包销费用\n        \"performance_distribution\": 0.33,      # 业绩发行费用\n    }],\n    \"sell_status\": 1,       # 1:停售, 2:在售\n    \"count_day_num\": 365,   # 计息规则\n    \"distribution_period\": 3,   # 分配周期\n    \"open_date_info\": \"开放日说明\"\n    \"period\": 3,                # 开放周期\n    \"period_unit\": 1,           # 开放周期单位,1:月，2：周\n    \"distributions\": [{         # 手动分配记录\n        \"id\": 1\n        \"date\": \"2017-12-11\",   # 分配日\n        \"redeem_percent\": 3.11  # 本金分配比例\n        \"created_time\": \"2017-03-22T17:08:20\"\n    }],\n    \"expenses_type\": 3, # 费用类型\n    \"tax_rate\": 3.33    # 费率\n}",
           "type": "json"
         }
       ]
@@ -4079,13 +3030,13 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 122,\n    \"content\": \"动态内容\"\n    \"created_time\": \"2017-12-16T16:00:00\",\n}]",
+          "content": "[{\n    \"content\": \"gCBO8i4aj3fk\",      # 进度内容\n    \"created_time\": \"2017-03-22T17:08:20\",\n    \"id\": 2,\n}]",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4124,26 +3075,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
-    "type": "get",
-    "url": "/api/products/{产品ID}/raises/{募集记录ID}/risks",
-    "title": "获取产品风险记录",
-    "name": "ProductRisks",
-    "group": "Product",
-    "version": "1.0.0",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "[{\n    \"id\": 113,\n    \"date\": \"2017-12-16T16:00:00\",  // 风险日期\n    \"type\": 1,      // 1:遭遇风险，2：解除风险\n    \"profit_effect\": true,        // 是否影响收益\n    \"principal_remain\": 80,       // 本金剩余%\n    \"remark\": \"备注\"\n}]",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4174,7 +3106,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4193,7 +3125,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product",
     "parameter": {
       "fields": {
@@ -4232,7 +3164,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4241,23 +3173,16 @@ define({ "api": [
     "title": "产品列表",
     "name": "Products",
     "group": "Product",
+    "version": "1.0.0",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
-            "optional": true,
-            "field": "name",
-            "description": "<p>产品名称</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "int",
             "optional": true,
-            "field": "fuzzy_match",
-            "defaultValue": "1",
-            "description": "<p>是否启用模糊匹配</p>"
+            "field": "type",
+            "description": "<p>产品状态 1:固定收益,2:阳关私募,3:海外基金，4：保险</p>"
           },
           {
             "group": "Parameter",
@@ -4276,18 +3201,17 @@ define({ "api": [
         ]
       }
     },
+    "filename": "purchasing_consortia/frontend/product.py",
+    "groupTitle": "Product",
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 122,\n    \"name\": \"产品名称\"\n    \"status\": 1,            # 产品状态 0: 待上架 ，1：筹备中,2:众筹中,3:已完成, 4:募集结束, -1:关闭\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"current_precontract_size\": 12, # 当前募集额度/万\n    \"surplus_size\": 333,    # 剩余募集规模\n    \"top\": true,\n    \"open_date\": \"2015-12-12\",  # 开放日,\n    \"profit_type\": 1,       # 收益类型\n    \"type\": 1,              # 类型\n    \"currency\": 1,\n    \"sell_status\": 1\n}]",
+          "content": "{\n    \"id\": 1,\n    \"name\": \"产品名称\"\n    \"profit_type\": 1,       # 收益类型 0：固定， 1：浮动,\n    \"type\": 1,              # 产品类型, 1:普通, 2:定期开放\n    \"status\": 1,            # 产品状态 0: 待上架 ，1:筹备中,2:众筹中,3:已完成,-1:项目失败\n    \"minimum_size\": 12,     # 最小募集规模/万\n    \"maximum_size\": 33,     # 最大募集规模/万\n    \"current_precontract_size\": 12, # 当前预约额度/万\n    \"last_pay_time\": \"2017-12-16T16:00:00\",   # 最迟打款时间\n    \"minimum_subscription_size\": 10,    # 起够金额\n    \"strategy\": {\n        \"value\": \"101001\",\n        \"text\": \"市场中性\"\n    },\n    \"fund_manager\": \"管理人\",\n    \"start_date\": \"2017-12-16T16:00:00\",    # 产品成立日\n    \"end_date\": \"2017-12-16T16:00:00\",    # 产品结束日\n    \"open_date\": \"2017-12-16T16:00:00\",\t\t# 产品开放日\n    \"open_date_description\": \"产品开放日描述\",\n    \"first_open_date\": \"2017-12-16\":     # 首次开放日\n    \"current_open_date\": \"2017-12-16\":     # 本期开放日\n    \"dividend_type\": 1, # 分红方式: 1份额2金额\n    \"close_time\": \"封闭期\",\n    \"other_time_point\": \"其他时间节点\",\n    \"collect_account_name\": \"募集账户名\",\n    \"collect_account\": \"募集账号\",\n    \"bank_name\": \"开户行\",\n    \"remit_remark\": \"打款备注\",\n    \"invest_info\": \"投资方向\",\n    \"risk_info\": \"风控措施\",\n    \"fee_info\": \"产品费用\",\n    \"fee_sale\": \"销售费用\",\n    \"max_fee_sale\": \"最高销售费用\",\n    \"currency\": 1,      # 1:人民币, 2:美元\n    \"estimated_dividends_time_description\": \"预计打款时间描述\",\n    \"images\": [\"http://address1\", \"http://address2\"],   # 配图\n    \"tags\": \"tag1,tag2\",    # 标签\n    \"relevant_files\": [{\n        \"id\": 1777,\n        \"name\": \"相关文件1\",\n        \"url\": \"/api/file/3\",\n        \"type\": 1,      # 文件类型, 1推荐,2合同,3:信息披露\n    }]\n    \"remark\": \"备注\",\n    \"max_prospective_earning\": 0.334,   # 最高预期年化收益\n    \"surplus_time\": 2344444,    # 剩余时间/sec\n    \"surplus_size\": 23,         # 剩余额度/万\n    \"followed\": false,          # 是否关注\n    \"repayment_source\": \"还款来源\",\n    \"hide\": true,       # 是否隐藏\n    \"increment_size\": 3,        # 递增金额\n    \"duration\": \"3 - 18 个月\",    # 期限\n    \"profit_interval\": [{       # 收益区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"prospective_earning\": 0.02 # 预期年化收益\n        \"duration\": 23,             # 期限\n        \"expire_time\": \"2017-12-16T16:00:00\",   # 过期时间\n        \"description\": \"收益描述\",\n        \"settlement_days\": 33,      # 结算天数\n        \"sales_expense\": 0.33,      # 销售费用比例\n    }],\n    \"expenses\": [{       # 费用区间\n        \"condition_ceiling\": 133,   # 金额上限\n        \"condition_floor\": 21,      # 金额下线\n        \"total\": 0.02 # 总费用\n        \"exploit\": 23,              # 开发\n        \"distribution\": 33,   # 发行\n        \"underwrite\": 9,    # 包销\n        \"sales\": 33,      # 销售费\n        \"management\": 0.33,      # 管理费\n        \"management_sales\": 0.33,      # 管理销售费用\n        \"management_exploit\": 0.33,      # 管理开发费用\n        \"management_underwrite\": 0.33,      # 管理包销费用\n        \"management_distribution\": 0.33,      # 管理发行费用\n        \"performance\": 0.33,      # 业绩费\n        \"performance_sales\": 0.33,      # 业绩销售费用\n        \"performance_exploit\": 0.33,      # 业绩开发费用\n        \"performance_underwrite\": 0.33,      # 业绩包销费用\n        \"performance_distribution\": 0.33,      # 业绩发行费用\n    }],\n    \"sell_status\": 1,       # 1:停售, 2:在售\n    \"count_day_num\": 365,   # 计息规则\n    \"distribution_period\": 3,   # 分配周期\n    \"open_date_info\": \"开放日说明\"\n    \"period\": 3,                # 开放周期\n    \"period_unit\": 1,           # 开放周期单位,1:月，2：周\n    \"distributions\": [{         # 手动分配记录\n        \"id\": 1\n        \"date\": \"2017-12-11\",   # 分配日\n        \"redeem_percent\": 3.11  # 本金分配比例\n        \"created_time\": \"2017-03-22T17:08:20\"\n    }],\n    \"expenses_type\": 3, # 费用类型\n    \"tax_rate\": 3.33    # 费率\n}",
           "type": "json"
         }
       ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
-    "groupTitle": "Product"
+    }
   },
   {
     "type": "get",
@@ -4299,13 +3223,6 @@ define({ "api": [
     "parameter": {
       "fields": {
         "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "source",
-            "description": "<p>来源,1:麦策2:机构</p>"
-          },
           {
             "group": "Parameter",
             "type": "string",
@@ -4339,68 +3256,36 @@ define({ "api": [
         }
       ]
     },
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
     "type": "put",
-    "url": "/api/products/:pid",
-    "title": "更新产品",
+    "url": "/api/products/org/:id",
+    "title": "更新机构产品",
     "name": "UpdateProduct",
     "group": "Product",
-    "parameter": {
+    "version": "1.0.0",
+    "filename": "purchasing_consortia/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "get",
+    "url": "/api/products/:id/stats",
+    "title": "单个产品数据统计(用户维度)",
+    "name": "UserProductStats",
+    "group": "Product",
+    "success": {
       "examples": [
         {
-          "title": "Request-Example:",
-          "content": "数据格式参考创建产品接口",
+          "title": "Success-Response:",
+          "content": "{\n    \"currency\": 1,   # 货币类型\n    \"profit_type\": 1,\n    \"orders\": 21,      # 单量\n    \"customers\": 2 # 客户\n    \"total_amount\": 23,             # 累计金额\n    \"existence_amount\": 11,   # 存续金额\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
-    "type": "patch",
-    "url": "/api/products/news/:id",
-    "title": "更新产品动态",
-    "name": "UpdateProductNews",
-    "group": "Product",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "content",
-            "description": "<p>动态内容</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
-    "groupTitle": "Product"
-  },
-  {
-    "type": "put",
-    "url": "/api/products/:pid/raises/:id",
-    "title": "更新募集记录",
-    "name": "UpdateProductRaise",
-    "group": "Product",
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "参数同创建",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4430,7 +3315,7 @@ define({ "api": [
         ]
       }
     },
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4440,7 +3325,7 @@ define({ "api": [
     "name": "deleteProductValues",
     "group": "Product",
     "version": "1.0.0",
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
   },
   {
@@ -4470,8 +3355,40 @@ define({ "api": [
         ]
       }
     },
-    "filename": "admin/frontend/product.py",
+    "filename": "purchasing_consortia/frontend/product.py",
     "groupTitle": "Product"
+  },
+  {
+    "type": "get",
+    "url": "/api/search",
+    "title": "资源搜索",
+    "name": "Search",
+    "group": "Search",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "name",
+            "description": "<p>名称</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"product\": [{\n        \"id\": 113,\n        \"name\": \"产品名称\",\n        \"org_id\": 1,        # 如果来自麦策，就是null\n        \"invest_info\": \"投资方向\",\n        \"has_invested\": true,   # 是否配置过\n    }],\n    \"customer\": [{\n        \"no\": \"d809sa8d09sa8d09sa8\",\n        \"name\": \"小明\"\n    }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "purchasing_consortia/frontend/search.py",
+    "groupTitle": "Search"
   },
   {
     "type": "post",
@@ -4485,98 +3402,23 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>手机号</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "int",
             "optional": false,
             "field": "type",
-            "description": "<p>类型,1:推送净值,2:推送产品,3:推送活动,4:推送分配</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "product_id",
-            "description": "<p>产品ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "event_id",
-            "description": "<p>活动ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "event_name",
-            "description": "<p>活动名称</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "date",
-            "optional": false,
-            "field": "date",
-            "description": "<p>日期</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": false,
-            "field": "product_value",
-            "description": "<p>产品净值</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "manager",
-            "description": "<p>管理人</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "target",
-            "description": "<p>目标群体,1:客户,2:理财师,7:全部,4:内部理财师的客户</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "date",
-            "optional": false,
-            "field": "start_date",
-            "description": "<p>成立日</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "duration",
-            "description": "<p>期限</p>"
+            "description": "<p>类型,1:注册,2:忘记密码</p>"
           }
         ]
       }
     },
-    "filename": "admin/frontend/sms.py",
+    "filename": "purchasing_consortia/frontend/sms.py",
     "groupTitle": "Sms"
-  },
-  {
-    "type": "get",
-    "url": "/api/statistic/order/user/:user_id",
-    "title": "用户订单统计",
-    "name": "UserOrderStats",
-    "group": "Statistic",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"product_count\": {\"total\": 0, \"existence\": 0}   # 产品数量\n    \"order_amount\": {   # 单量\n        \"total\": {\"rmb\": 0, \"dollar\": 0},       # 总计\n        \"existence\": {\"rmb\": 0, \"dollar\": 0}    #  存续\n    }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "admin/frontend/statistic.py",
-    "groupTitle": "Statistic"
   },
   {
     "type": "get",
@@ -4594,7 +3436,7 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/apidoc.py",
+    "filename": "purchasing_consortia/apidoc.py",
     "groupTitle": "Structure"
   },
   {
@@ -4613,15 +3455,203 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/apidoc.py",
+    "filename": "purchasing_consortia/apidoc.py",
     "groupTitle": "Structure"
   },
   {
     "type": "post",
-    "url": "/api/users",
-    "title": "创建用户",
-    "name": "CreateUser",
+    "url": "/api/time",
+    "title": "服务器时间",
+    "name": "server_time",
+    "group": "Time",
+    "version": "1.0.0",
+    "filename": "purchasing_consortia/frontend/maice_time.py",
+    "groupTitle": "Time"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/invite/:id/accept",
+    "title": "接受邀请",
+    "name": "AcceptInvite",
     "group": "User",
+    "version": "1.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/unfreeze_apply",
+    "title": "申请解冻",
+    "name": "ApplyUnfreeze",
+    "group": "User",
+    "parameter": {
+      "examples": [
+        {
+          "title": "手机号密码方式:",
+          "content": "{\n    \"login\": \"15067125727\",\n    \"password\": \"dsa98d09sa\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/certificate",
+    "title": "提交/修改认证资料",
+    "name": "CertificateApply",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>姓名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "company_name",
+            "description": "<p>公司</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "position",
+            "description": "<p>职位</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "work_year",
+            "description": "<p>工作年限(1:1~3年, 2:3~5年, 3:5~10年, 4:10年以上)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "industry",
+            "description": "<p>行业(1:银行, 2:信托, 3:资管, 4:保险, 5:证券, 6:基金, 7:P2P, 8:三方)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "business_card_pic",
+            "description": "<p>名片地址</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/signup/check",
+    "title": "检查注册信息",
+    "name": "CheckSignUpData",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>手机号</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "delete",
+    "url": "/api/user/org/members/:id",
+    "title": "删除机构成员",
+    "name": "DeleteOrgMembers",
+    "group": "User",
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/api/user/certificate",
+    "title": "获取当前用户认证信息",
+    "name": "GetCertificate",
+    "group": "User",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"name\": \"小明\",\n    \"company_name\": \"公司A\",\n    \"position\": \"职位理财师\",\n    \"work_year\": 1,\n    \"industry\": 3,\n    \"business_card_pic\": \"/api/file/1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/api/user/certificate/:id",
+    "title": "获取某个认证信息",
+    "name": "GetOneUserCertificate",
+    "group": "User",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"name\": \"小明\",\n    \"position\": \"职位理财师\",\n    \"work_year\": 1,\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/api/user/invite/exist",
+    "title": "是否存在待处理邀请",
+    "name": "InviteExist",
+    "group": "User",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"id\": 3,\n    \"inviter\": \"邀请人\",\n    \"company_name\": \"机构名称\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/invite",
+    "title": "邀请用户",
+    "name": "InviteUser",
+    "group": "User",
+    "version": "1.0.0",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -4651,7 +3681,7 @@ define({ "api": [
             "type": "int",
             "optional": false,
             "field": "work_year",
-            "description": "<p>工作年限</p>"
+            "description": "<p>从业年限</p>"
           },
           {
             "group": "Parameter",
@@ -4659,63 +3689,297 @@ define({ "api": [
             "optional": false,
             "field": "role",
             "description": "<p>角色</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "industry",
-            "description": "<p>行业</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "business_card_pic",
-            "description": "<p>名片</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "object",
-            "optional": false,
-            "field": "org",
-            "description": "<p>机构:{&quot;id&quot;: 1, &quot;company_name&quot;: &quot;机构名称&quot;}</p>"
           }
         ]
       }
     },
-    "version": "0.0.0",
-    "filename": "admin/frontend/user.py",
+    "filename": "purchasing_consortia/frontend/user.py",
     "groupTitle": "User"
   },
   {
     "type": "post",
-    "url": "/api/users/:user_id/freeze",
-    "title": "冻结/解冻账号",
-    "name": "FreezeUser",
+    "url": "/api/user/login",
+    "title": "用户登录",
+    "name": "Login",
     "group": "User",
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "bool",
+            "type": "String",
             "optional": false,
-            "field": "freeze",
-            "description": "<p>是否冻结</p>"
+            "field": "mobile",
+            "description": "<p>手机号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>密码</p>"
           }
         ]
       }
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/user.py",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/logout",
+    "title": "注销",
+    "name": "Logout",
+    "group": "User",
+    "description": "<p>用户注销</p>",
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/org/members/:id/quit",
+    "title": "辞退用户",
+    "name": "MemberQuit",
+    "group": "User",
+    "version": "1.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/api/user/org/members",
+    "title": "机构成员",
+    "name": "OrgMembers",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "status",
+            "description": "<p>状态</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "page",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": true,
+            "field": "per_page",
+            "description": "<p>每页数量</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"id\": 2,\n    \"name\": \"理财师A\"，\n    \"position\": \"职位理财师\",\n    \"status\": 1,    # 状态 1: 待确认, 2:已确认, 3: 已离职, 4: 已拒绝\n    \"mobile\": \"150694324\",\n    \"work_year\": 3,\n    \"role\": 20              # 用户角色\n    \"total_amount\": {   # 累计成交金额 / 万\n        \"rmb\": 100,\n        \"dollar\": 199\n    }\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/api/user/org/members/:id",
+    "title": "机构成员详情",
+    "name": "OrgMembersDetail",
+    "group": "User",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"user_id\": 100378,\n    \"name\": \"理财师A\"，\n    \"position\": \"职位理财师\",\n    \"status\": 1,    # 状态 1: 待确认, 2:已确认, 3: 已离职, 4: 已拒绝\n    \"mobile\": \"150694324\",\n    \"work_year\": 1,\n    \"role\": 20              # 角色(20创始人, 21管理员, 22产品管理员, 23理财师)\n    \"order_count\": {\n        \"org\": 12,  # 机构\n        \"maice\": 12 # 麦策\n    },\n    \"product_count\": {\n        \"total\": { # 总产品数\n            \"maice\": 3, # 麦策\n            \"org\": 2    # 机构\n        },\n        \"existence\": { # 存续产品数\n            \"maice\": 3,\n            \"org\": 99\n        }\n    },\n    \"customer_count\": {\n        \"total\": 3,\n        \"existence\": 5, # 存续客户数\n    },\n    \"order_amount\": {\n        \"total\": {  # 总配置\n            \"maice\": {\n                \"rmb\": 0,\n                \"dollar\": 0\n            },\n            \"org\": {\n                \"rmb\": 0,\n                \"dollar\": 0\n            }\n        },\n        \"existence\": {  #  存续\n            \"maice\": {\n                \"rmb\": 0,\n                \"dollar\": 0\n            },\n            \"org\": {\n                \"rmb\": 0,\n                \"dollar\": 0\n            }\n        }\n    },\n    \"income\": {         # 分成\n        \"rmb\": 0,\n        \"dollar\": 99\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/quit_org",
+    "title": "退出机构",
+    "name": "QuitOrg",
+    "group": "User",
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/signup",
+    "title": "用户注册",
+    "name": "Register",
+    "group": "User",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>手机号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>验证码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>密码</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"certification_status\": 1       # 审核状态\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/invite/:id/reject",
+    "title": "拒绝邀请",
+    "name": "RejectInvite",
+    "group": "User",
+    "version": "1.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/reserve_product",
+    "title": "用户预约产品",
+    "name": "Reserve",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userid",
+            "description": "<p>用户id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productid",
+            "description": "<p>产品id</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/password/reset",
+    "title": "忘记密码",
+    "name": "ResetPassword",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>手机号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>验证码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>密码</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
     "groupTitle": "User"
   },
   {
     "type": "put",
-    "url": "/api/users/:id",
-    "title": "更新用户",
-    "name": "UpdateUser",
+    "url": "/api/user/certificate/:id",
+    "title": "修改某个认证信息",
+    "name": "UpdateOneUserCertificate",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>姓名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "role",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "put",
+    "url": "/api/user/org/members/:id",
+    "title": "更新机构成员",
+    "name": "UpdateOrgMembers",
     "group": "User",
     "parameter": {
       "fields": {
@@ -4739,41 +4003,76 @@ define({ "api": [
             "type": "int",
             "optional": false,
             "field": "work_year",
-            "description": "<p>工作年限</p>"
+            "description": "<p>从业年限</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
             "optional": false,
-            "field": "industry",
-            "description": "<p>行业</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "business_card_pic",
-            "description": "<p>名片</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "object",
-            "optional": false,
-            "field": "org",
-            "description": "<p>机构:{&quot;id&quot;: 1, &quot;company_name&quot;: &quot;机构名称&quot;}</p>"
+            "field": "role",
+            "description": "<p>角色</p>"
           }
         ]
       }
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/user.py",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/user/profile",
+    "title": "修改当前用户信息",
+    "name": "UpdateUserProfile",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "avatar",
+            "description": "<p>头像</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "name",
+            "description": "<p>名字</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
     "groupTitle": "User"
   },
   {
     "type": "get",
-    "url": "/api/users",
-    "title": "用户列表",
-    "name": "UserList",
+    "url": "/api/user/center",
+    "title": "个人中心",
+    "name": "UserCenter",
+    "group": "User",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"user_id\": 100409,\n    \"name\": \"王伟强\",\n    \"avatar\": \"http://www.xsadas.jpg\",\n    \"certification_status\": 1,  # 认证状态, 0:未认证,1:待审核,2:修改中,3:认证通过\n    \"certification_info\": {\n        \"company_name\": \"机构名称\",\n        \"position\": \"职位理财师\",\n        \"work_year\": 1,\n        \"industry\": 3,\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "purchasing_consortia/frontend/user.py",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/api/user/customers/id_card",
+    "title": "客户身份证信息",
+    "name": "UserCustomersIDCard",
     "group": "User",
     "parameter": {
       "fields": {
@@ -4783,123 +4082,51 @@ define({ "api": [
             "type": "string",
             "optional": true,
             "field": "name",
-            "description": "<p>用户姓名/机构名称</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "admin_id",
-            "description": "<p>管理员ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "tag",
-            "defaultValue": "2",
-            "description": "<p>用户标签 1:内部用户,2:外部用户,3:游客</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "page",
-            "description": "<p>第几页</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "per_page",
-            "description": "<p>每页数量</p>"
+            "description": "<p>客户姓名</p>"
           }
         ]
-      },
-      "examples": [
-        {
-          "title": "请求示例：旗下理财师",
-          "content": "/api/users?admin_id=100342",
-          "type": "json"
-        }
-      ]
+      }
     },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"user_id\": 100377,\n    \"name\": \"小明\",\n    \"mobile\": \"150679876523\",\n    \"role\": 1,      # 角色, 1:游客, 2:旗下理财师, 3:管理员\n    \"frozen\": true      # 是否已被冻结\n    \"join_time\": \"2016-12-23T12:23:33\", # 加入时间\n    \"certification_info\": {     # 认证信息\n        \"company_name\": \"机构名称\",\n        \"position\": \"职位理财师\",\n        \"work_year\": 1,     # 工作年限(1:1~3年, 2:3~5年, 3:5~10年, 4:10年以上)\n        \"industry\": 3,      # 行业(1:银行, 2:信托, 3:资管, 4:保险, 5:证券, 6:基金, 7:P2P, 8:三方)\n    },\n    \"org\": {\n        \"id\": 1,\n        \"company_name\": \"机构名称\"\n    },\n    \"order_amount\": {   # 成交金额\n        \"dollar\":999,\n        \"rmb\": 999\n    }\n}]",
+          "content": "[{\n    \"name\": \"张东\",\n    \"id_card_no\": \"330905199704860582\",     # 身份证号\n    \"front_of_id_pic\": \"/api/file/3\",       # 身份证正面\n    \"back_of_id_pic\": \"/api/file/34\"        # 身份证背面\n}]",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/user.py",
+    "filename": "purchasing_consortia/frontend/user.py",
     "groupTitle": "User"
   },
   {
     "type": "get",
-    "url": "/api/users/:user_id",
-    "title": "用户详情",
+    "url": "/api/user/profile",
+    "title": "获取当前用户信息",
     "name": "UserProfile",
     "group": "User",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "name",
-            "description": "<p>用户姓名</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "page",
-            "description": "<p>第几页</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": true,
-            "field": "per_page",
-            "description": "<p>每页数量</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"user_id\": 100319,\n    \"name\": \"小明\",\n    \"mobile\": \"150432423\",\n    \"created_time\": \"2015-12-22\",   # 注册时间\n    \"role\": 1,      # 角色, 1:游客, 2:旗下理财师, 3:管理员\n    \"business_card_pic\": '/file/1',     # 名片\n    \"certification_info\": {     # 认证信息\n        \"company_name\": \"机构名称\",\n        \"position\": \"职位理财师\",\n        \"work_year\": 1,     # 工作年限(1:1~3年, 2:3~5年, 3:5~10年, 4:10年以上)\n        \"industry\": 3,      # 行业(1:银行, 2:信托, 3:资管, 4:保险, 5:证券, 6:基金, 7:P2P, 8:三方)\n    },\n    \"org\": {\n        \"id\": 1,\n        \"company_name\": \"机构名称\"\n    },\n    \"reffer\": {\"id\":3, \"name\": \"2\"},    # 推荐人\n    \"advisor\": {\"id\":3, \"name\": \"2\"},   # 投资顾问\n    \"order_amount\": {\n        \"total\": {\"rmb\":0, \"dollar\": 0},\n        \"existence\": {\"rmb\":0, \"dollar\": 0},\n    },\n    \"product_amount\": {\"total\":3, \"existence\": 1}\n}",
+          "content": "{\n    \"user_id\": 100094,\n    \"mobile\": \"1321321312\"\n    \"is_admin\": true,\n    \"is_org_member\": true,\n    \"admin_id\": 100130,\n    \"name\": \"小明\",\n    \"avatar\": \"http://dsadsasjda.png\",  # 头像\n    \"certification_status\": 0,          # 认证状态, 0:未认证,1:待审核,2:修改中,3:认证通过\n    \"unread_notifications\": 33,         # 未读消息数\n    \"org_member_count\": 3,              # 旗下理财师人数\n    \"role\": 21                          # 角色\n    \"tag\": 2,                           # 用户标签\n    \"expire_time\": \"2017-12-12T16:00:00\",# 服务过期时间\n    \"is_expired\": true                  # 是否过期\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "admin/frontend/user.py",
+    "filename": "purchasing_consortia/frontend/user.py",
     "groupTitle": "User"
   },
   {
-    "type": "get",
-    "url": "/api/users/statistic",
-    "title": "用户统计",
-    "name": "UserStats",
-    "group": "User",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"internal\": 12, # 内部用户\n    \"external\": 23, # 外部用户\n}",
-          "type": "json"
-        }
-      ]
-    },
+    "type": "",
+    "url": "产品的募集记录",
+    "title": "",
     "version": "0.0.0",
-    "filename": "admin/frontend/user.py",
-    "groupTitle": "User"
+    "filename": "purchasing_consortia/frontend/product.py",
+    "group": "_home_ericsgy_project_purchasing_consortia_purchasing_consortia_frontend_product_py",
+    "groupTitle": "_home_ericsgy_project_purchasing_consortia_purchasing_consortia_frontend_product_py",
+    "name": ""
   }
 ] });
