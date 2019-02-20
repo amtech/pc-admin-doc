@@ -3196,6 +3196,25 @@
   },
   {
     "type": "get",
+    "url": "/api/orders/{订单号}/risks",
+    "title": "获取订单的风险记录",
+    "name": "OrderRisks",
+    "group": "Order",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[{\n    \"date\": \"2017-12-16T16:00:00\",  // 风险日期\n    \"type\": 1,      // 1:遭遇风险，2：解除风险\n    \"profit_effect\": true,        // 是否影响收益\n    \"principal_remain\": 80,       // 本金剩余%\n    \"remark\": \"备注\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "admin/frontend/order.py",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "get",
     "url": "/api/orders/:order_no/share_change",
     "title": "订单份额变更记录",
     "name": "OrderShareChange",
