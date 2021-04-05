@@ -4707,7 +4707,7 @@ define({ "api": [
             "type": "int",
             "optional": false,
             "field": "type",
-            "description": "<p>类型,1:推送净值,2:推送产品,3:推送活动,4:推送分配</p>"
+            "description": "<p>类型,1:推送净值,2:推送产品,3:推送活动,4:推送分配,5:推送累计净值</p>"
           },
           {
             "group": "Parameter",
@@ -4743,6 +4743,13 @@ define({ "api": [
             "optional": false,
             "field": "product_value",
             "description": "<p>产品净值</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "float",
+            "optional": false,
+            "field": "product_accumulation_value",
+            "description": "<p>产品累计净值</p>"
           },
           {
             "group": "Parameter",
