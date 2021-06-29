@@ -1889,7 +1889,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"32139129321912\",\n    \"product_name\": \"产品名\",\n    \"order_amount\": 123,    # 订单金额\n    \"user_name\": \"理财师姓名\",\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 9888,   # 到手,\n    \"currency\": 1,\n    \"type\": 1,\n    \"exchange_rate\": 3.3,   # 汇率\n    \"invoice_type\": 1,  # 发票类型\n    \"settlement_rate\": 1.33 # 结算比例\n}]",
+          "content": "[{\n    \"id\": 3,\n    \"order_no\": \"32139129321912\",\n    \"product_name\": \"产品名\",\n    \"order_amount\": 123,    # 订单金额\n    \"user_name\": \"理财师姓名\",\n    \"processing_expense\": 8888,    # 结算中费用\n    \"tax\": 8888,   # 税费\n    \"actual_amount\": 9888,   # 到手,\n    \"currency\": 1,\n    \"type\": 1,  # 16:管理费,32:业绩费\n    \"exchange_rate\": 3.3,   # 汇率\n    \"invoice_type\": 1,  # 发票类型\n    \"settlement_rate\": 1.33, # 结算比例\n    \"start_date\": \"2020-12-1\",   #   起息日/成立日\n    \"date\": \"2020-12-1\", # 计算日期\n    \"prior_date\": \"2015-10-01\" # 上一次计算日期\n}]",
           "type": "json"
         }
       ]
@@ -3421,7 +3421,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[{\n    \"id\": 1,\n    \"amount\": 13,   # 金额/元\n    \"redeem_value\": 1.4,    # 赎回时净值（浮动）\n    \"fee\": 13.31,   # 手续费\n    \"redemption_time\": \"2017-01-01T17:00:00\",   # 赎回确认日\n    \"redemption_open_time\": \"2017-01-01T17:00:00\",   # 赎回开放日\n    \"remark\": \"备注\",\n    \"status\": 1,    # 状态1:等待，2：成功, 3:失败\n    \"market_value_change\": 1.33,    #市值变化\n    \"actual_profit\": 999,   # 实际收益\n    \"absolute_profit\": 999, # 绝对收益\n}]",
+          "content": "[{\n    \"id\": 1,\n    \"amount\": 13,   # 金额/元\n    \"redeem_value\": 1.4,    # 赎回时净值（浮动）\n    \"fee\": 13.31,   # 手续费\n    \"amount\": 10000,    # 赎回份额,*100倍返回\n    \"redemption_time\": \"2017-01-01T17:00:00\",   # 赎回确认日\n    \"redemption_open_time\": \"2017-01-01T17:00:00\",   # 赎回开放日\n    \"remark\": \"备注\",\n    \"status\": 1,    # 状态1:等待，2：成功, 3:失败\n    \"market_value_change\": 1.33,    #市值变化\n    \"actual_profit\": 999,   # 实际收益\n    \"absolute_profit\": 999, # 绝对收益\n}]",
           "type": "json"
         }
       ]
@@ -4707,7 +4707,7 @@
             "type": "int",
             "optional": false,
             "field": "type",
-            "description": "<p>类型,1:推送净值,2:推送产品,3:推送活动,4:推送分配,5:推送累计净值</p>"
+            "description": "<p>类型,1:推送净值,2:推送产品,3:推送活动,4:推送分配</p>"
           },
           {
             "group": "Parameter",
