@@ -4135,6 +4135,25 @@
   },
   {
     "type": "get",
+    "url": "/api/products/{产品ID}/latest_value",
+    "title": "获取浮动产品最新净值信息",
+    "name": "GetProductLatestValue",
+    "group": "Product",
+    "version": "1.0.0",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"date\": \"2017-12-16T16:00:00\",  // 最新净值日\n    \"value\": 1,      // 最新净值\n    \"accumulation_value\": 3        // 累计净值\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "admin/frontend/product.py",
+    "groupTitle": "Product"
+  },
+  {
+    "type": "get",
     "url": "/api/products/:pid/raises/:id",
     "title": "获取募集记录明细",
     "name": "GetProductRaiseDetail",
